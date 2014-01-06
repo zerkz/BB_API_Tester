@@ -1,0 +1,14 @@
+{
+  "urls" : {
+    "login"  : "/session/new",
+    "logout" : "/session/destroy",
+    "status" : "/session/status"
+  },
+    
+  "forms" : {
+    "login" : {
+      "login"    : "john.hofrichter@brandingbrand.com",
+      "password" : "branderlogin"
+    }  
+  } 
+}

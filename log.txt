@@ -1,0 +1,239 @@
+##############################################
+#  Test set: ADDRESSES
+#  Start time 2014-01-06T16:30:58-05:00
+##############################################
+
+
+
+:::::::::::::::  SESSION: LOGIN  :::::::::::::::
+Route: POST /session/new
+Form: 
+{
+  "login": "john.hofrichter@brandingbrand.com",
+  "password": "branderlogin"
+}
+Query: None
+
+ :: Response status: 200 ::
+
+ :: Body ::
+OK
+
+:::::::::::::::  SHOW ADDRESSES  :::::::::::::::
+Route: GET /account/addresses/shipping
+Form: None
+Query: None
+
+ :: Response status: 200 ::
+
+ :: Body ::
+{
+  "title": "My Cole Haan Addresses",
+  "addresses": [],
+  "forms": {
+    "add_address": {
+      "action": "/account/addresses/shipping",
+      "method": "POST",
+      "inputs": {},
+      "prompt": {
+        "address": {
+          "label": "string",
+          "name": {
+            "first": "string",
+            "last": "string"
+          },
+          "line": {
+            "0": "string"
+          },
+          "city": "string",
+          "state": "string",
+          "zip": "string",
+          "phone": "string"
+        },
+        "makeDefault": "boolean"
+      }
+    }
+  }
+}
+
+:::::::::::::::  DELETE ADDRESSES  :::::::::::::::
+Route: DELETE /account/addresses/shipping
+Form: None
+Query: None
+
+ :: Response status: 400 ::
+
+ :: Body ::
+{
+  "type": "ADDRESS.DELETE_ERROR",
+  "value": "Address label required"
+}
+
+:::::::::::::::  ADD ADDRESSES  :::::::::::::::
+Route: POST /account/addresses/shipping
+Form: 
+{
+  "address[label]": "testAddr",
+  "address[name][first]": "---------  original name  ---------",
+  "address[name][last]": "hof",
+  "address[line][0]": "555 street st",
+  "address[line][1]": "S2",
+  "address[country]": "US",
+  "address[city]": "Pittsburgh",
+  "address[state]": "PA",
+  "address[zip]": "15232",
+  "address[phone]": "7777777777"
+}
+Query: None
+
+ :: Response status: 200 ::
+
+ :: Body ::
+{
+  "title": "My Cole Haan Addresses",
+  "addresses": [
+    {
+      "label": "testAddr",
+      "is_default": true,
+      "address": [
+        "--------- original name --------- hof",
+        "555 street st",
+        "S2",
+        "Pittsburgh, PA 15232",
+        "United States",
+        "7777777777"
+      ],
+      "forms": {
+        "update_address": {
+          "method": "PUT",
+          "action": "/account/addresses/shipping",
+          "inputs": {
+            "label": "testAddr"
+          }
+        },
+        "delete_address": {
+          "method": "DELETE",
+          "action": "/account/addresses/shipping",
+          "inputs": {
+            "label": "testAddr"
+          }
+        }
+      }
+    }
+  ],
+  "forms": {
+    "add_address": {
+      "action": "/account/addresses/shipping",
+      "method": "POST",
+      "inputs": {},
+      "prompt": {
+        "address": {
+          "label": "string",
+          "name": {
+            "first": "string",
+            "last": "string"
+          },
+          "line": {
+            "0": "string"
+          },
+          "city": "string",
+          "state": "string",
+          "zip": "string",
+          "phone": "string"
+        },
+        "makeDefault": "boolean"
+      }
+    }
+  }
+}
+
+:::::::::::::::  UPDATE ADDRESSES  :::::::::::::::
+Route: PUT /account/addresses/shipping
+Form: 
+{
+  "address[label]": "testAddr",
+  "address[name][first]": "---------  updated name  ---------",
+  "address[name][last]": "hof",
+  "address[line][0]": "555 street st",
+  "address[line][1]": "S2",
+  "address[country]": "US",
+  "address[city]": "Pittsburgh",
+  "address[state]": "PA",
+  "address[zip]": "15232",
+  "address[phone]": "7777777777"
+}
+Query: None
+
+ :: Response status: 200 ::
+
+ :: Body ::
+{
+  "title": "My Cole Haan Addresses",
+  "addresses": [
+    {
+      "label": "testAddr",
+      "is_default": true,
+      "address": [
+        "--------- updated name --------- hof",
+        "555 street st",
+        "S2",
+        "Pittsburgh, PA 15232",
+        "United States",
+        "7777777777"
+      ],
+      "forms": {
+        "update_address": {
+          "method": "PUT",
+          "action": "/account/addresses/shipping",
+          "inputs": {
+            "label": "testAddr"
+          }
+        },
+        "delete_address": {
+          "method": "DELETE",
+          "action": "/account/addresses/shipping",
+          "inputs": {
+            "label": "testAddr"
+          }
+        }
+      }
+    }
+  ],
+  "forms": {
+    "add_address": {
+      "action": "/account/addresses/shipping",
+      "method": "POST",
+      "inputs": {},
+      "prompt": {
+        "address": {
+          "label": "string",
+          "name": {
+            "first": "string",
+            "last": "string"
+          },
+          "line": {
+            "0": "string"
+          },
+          "city": "string",
+          "state": "string",
+          "zip": "string",
+          "phone": "string"
+        },
+        "makeDefault": "boolean"
+      }
+    }
+  }
+}
+
+:::::::::::::::  DELETE ADDRESSES  :::::::::::::::
+Route: DELETE /account/addresses/shipping
+Form: None
+Query: None
+
+ :: Response status: 400 ::
+
+ :: Body ::
+{
+  "type": "ADDRESS.DELETE_ERROR",
+  "value": "Address label required"
+}

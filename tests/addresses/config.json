@@ -1,0 +1,40 @@
+{
+  "type" : "shipping",
+  
+  "urls" : {
+    "shipping" : "/account/addresses/shipping",
+    "billing"  : "/account/addresses/billing"
+  },
+  
+  "forms" : {
+    "add" : {
+      "address[label]"       : "testAddr",
+      "address[name][first]" : "---------  original name  ---------",
+      "address[name][last]"  : "hof",
+      "address[line][0]"     : "555 street st",
+      "address[line][1]"     : "S2",
+      "address[country]"     : "US",
+      "address[city]"        : "Pittsburgh",
+      "address[state]"       : "PA",
+      "address[zip]"         : "15232",
+      "address[phone]"       : "7777777777"
+    },
+    
+    "update" : {
+      "address[label]"       : "testAddr",
+      "address[name][first]" : "---------  updated name  ---------",
+      "address[name][last]"  : "hof",
+      "address[line][0]"     : "555 street st",
+      "address[line][1]"     : "S2",
+      "address[country]"     : "US",
+      "address[city]"        : "Pittsburgh",
+      "address[state]"       : "PA",
+      "address[zip]"         : "15232",
+      "address[phone]"       : "7777777777"
+    },  
+    
+    "delete" : {
+      "label" : "testAddr"
+    }
+  }
+}

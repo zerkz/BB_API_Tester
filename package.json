@@ -1,0 +1,39 @@
+{
+  "name": "Script_Templates",
+  "description": "boilerplate templates for testing api calls",
+  "private": true,
+  "version": "0.1.1",
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "contributors": [
+    {
+      "name": "John Hofrichter",
+      "email": "john.hofrichter@brandingbrand.com"
+    }
+  ],
+  "dependencies": {
+    "express": "~3.2.0",
+    "connect": "~2.12.0",
+    "lodash": "~1.0.1",
+    "cheerio": "~0.12.4",
+    "nconf": "~0.6.7",
+    "winston": "~0.6.2",
+    "underscore.string": "~2.3.3",
+    "url": "~0.7.9",
+    "async": "~0.2.9",
+    "qs": "~0.5.6",
+    "express-validator": "~0.5.0",
+    "clustrap": "https://github.com/jmonster/node-clustrap/archive/v0.3.2.tar.gz",
+    "request": "~2.30.0",
+    "moment": "~2.5.0",
+    "should": "~0.6.3",
+    "mocha": "~1.16.2",
+    "commander": "~2.1.0"
+  },
+  "devDependencies": {
+    "mocha": ">=1.0.x",
+    "should": "0.6.x"
+  }
+}
