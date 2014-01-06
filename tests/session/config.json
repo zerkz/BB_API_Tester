@@ -7,8 +7,8 @@
     
   "forms" : {
     "login" : {
-      "login"    : "john.hofrichter@brandingbrand.com",
-      "password" : "branderlogin"
+      "login"    : "example@brandingbrand.com",
+      "password" : "pwd"
     }  
   } 
 }

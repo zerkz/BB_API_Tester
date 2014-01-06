@@ -12,12 +12,10 @@ var helpers = require(process.cwd() + '/lib/helpers')
   //
 exports.fullTest = function () {
   tester.execSet([
-    this.login,
-    this.showAddresses,
-    this.deleteAddress,
-    this.addAddress,
-    this.updateAddress,
-    this.deleteAddress
+    this.show,
+    this.add,
+    this.update,
+    this.remove,
   ]);
 }
    
@@ -25,14 +23,14 @@ exports.fullTest = function () {
 // individual requests to be used in both custom and standard test suites
 //
 exports.show = function(error, response, body, callback) {
-  tester.reqAndLog('show addresses', {
+  tester.reqAndLog('cart: show', {
     uri    : url,
     method : 'GET'
   }, callback);
 }
     
 exports.add = function(error, response, body, callback) {
-  tester.reqAndLog('add addresses', {
+  tester.reqAndLog('cart: add', {
     uri    : url,
     method : 'POST',
     form   : addAddress
@@ -40,7 +38,7 @@ exports.add = function(error, response, body, callback) {
 }
     
 exports.update = function(error, response, body, callback) {
-  tester.reqAndLog('update addresses', {
+  tester.reqAndLog('cart: update', {
     uri    : url,
     method : 'PUT',
     form   : updateAddress
@@ -48,7 +46,7 @@ exports.update = function(error, response, body, callback) {
 }
     
 exports.remove = function(error, response, body, callback) {
-  tester.reqAndLog('delete addresses', {
+  tester.reqAndLog('cart: delete', {
     uri    : url,
     method : 'DELETE',
     form   : deleteAddress

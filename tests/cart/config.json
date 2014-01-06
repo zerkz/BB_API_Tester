@@ -1,5 +1,5 @@
 {
-  "type" : "shipping",
+  "customForm" : "false",
   
   "urls" : {
     "shipping" : "/account/addresses/shipping",
@@ -8,33 +8,19 @@
   
   "forms" : {
     "add" : {
-      "address[label]"       : "testAddr",
-      "address[name][first]" : "---------  original name  ---------",
-      "address[name][last]"  : "hof",
-      "address[line][0]"     : "555 street st",
-      "address[line][1]"     : "S2",
-      "address[country]"     : "US",
-      "address[city]"        : "Pittsburgh",
-      "address[state]"       : "PA",
-      "address[zip]"         : "15232",
-      "address[phone]"       : "7777777777"
+      "id"  : "PID123",
+      "qty" : "1"
     },
     
     "update" : {
-      "address[label]"       : "testAddr",
-      "address[name][first]" : "---------  updated name  ---------",
-      "address[name][last]"  : "hof",
-      "address[line][0]"     : "555 street st",
-      "address[line][1]"     : "S2",
-      "address[country]"     : "US",
-      "address[city]"        : "Pittsburgh",
-      "address[state]"       : "PA",
-      "address[zip]"         : "15232",
-      "address[phone]"       : "7777777777"
+      "id"  : "PID123",
+      "qty" : "1"
     },  
     
     "delete" : {
-      "label" : "testAddr"
+      "id"      :"PID123",
+      "rowId"   :"RID123",
+      "orderId" :"OID123"    
     }
   }
 }

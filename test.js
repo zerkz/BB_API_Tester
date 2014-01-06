@@ -18,8 +18,10 @@ var testList = helpers.testList
 //
 program.version('0.0.1')
   .usage('[test name]\n' + testList())
-  .option('-a, --append', 'set the logger to append, instead of overwrite')
-  .option('-v, --verbose', 'set the logger to log request information as well as results')
+  .option('-a, --append',  'Set the logger to append, instead of overwrite')
+  .option('-v, --verbose', 'Set the logger to log request information as well as results')
+  .option('-p, --parse',   'Parse form inputs form the previous result, when possible')
+  .option('-r, --random',  'Make selections/submissions parse at random when possible')
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -41,11 +43,13 @@ if (!tests.hasOwnProperty(testName)) {
 }
 
 //
-// parse and store test config variables
+// parse and store test configuration variables
 //
 var config = helpers.loadJson(__dirname)
 
-tester.host = config.host
+tester.host   = config.host
+tester.parse  = program.parse
+tester.random = program.random
 
 //
 // set up the logger based on command line params
