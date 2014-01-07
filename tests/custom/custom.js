@@ -5,7 +5,7 @@ var helpers = require(process.cwd() + '/lib/helpers')
 // load config values
 //
 var config = helpers.loadJson(__dirname)
-  , url    = config.urls['test']
+  , url    = config.urls['example']
   , forms  = config.forms
 
 //

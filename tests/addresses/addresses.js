@@ -26,29 +26,29 @@ exports.fullTest = function () {
 // individual requests to be used in both custom and standard test suites
 //
 exports.show = function(error, response, body, callback) {
-    tester.reqAndLog('show addresses', {
-      uri    : url,
-      method : 'GET'
-    }, callback);
-  }
+  tester.reqAndLog('show addresses', {
+    uri    : url,
+    method : 'GET'
+  }, callback);
+}
 exports.add = function(error, response, body, callback) {
-    tester.reqAndLog('add addresses', {
-      uri    : url,
-      method : 'POST',
-      form   : forms.add
-    }, callback);
-  }
+  tester.reqAndLog('add addresses', {
+    uri    : url,
+    method : 'POST',
+    form   : forms.add
+  }, callback);
+}
 exports.update = function(error, response, body, callback) {
-    tester.reqAndLog('update addresses', {
-      uri    : url,
-      method : 'PUT',
-      form   : forms.update
-    }, callback);
-  }
+  tester.reqAndLog('update addresses', {
+    uri    : url,
+    method : 'PUT',
+    form   : forms.update
+  }, callback);
+}
 exports.remove = function(error, response, body, callback) {
-    tester.reqAndLog('delete addresses', {
-      uri    : url,
-      method : 'DELETE',
-      form   : forms.remove
-    }, callback);
-  }
+  tester.reqAndLog('delete addresses', {
+    uri    : url,
+    method : 'DELETE',
+    form   : forms.remove
+  }, callback);
+}

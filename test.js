@@ -21,7 +21,8 @@ program.version('0.0.1')
   .option('-a, --append',  'Set the logger to append, instead of overwrite')
   .option('-v, --verbose', 'Set the logger to log request information as well as results')
   .option('-p, --parse',   'Parse form inputs form the previous result, when possible')
-  .option('-r, --random',  'Make selections/submissions parse at random when possible')
+  .option('-r, --random',  'Make nav selections/submissions by parsing a random selection when possible')
+  .option('-i, --ignore',  'Ignore the config settings (config settings overwrite command line settings')
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -47,9 +48,10 @@ if (!tests.hasOwnProperty(testName)) {
 //
 var config = helpers.loadJson(__dirname)
 
-tester.host   = config.host
-tester.parse  = program.parse
-tester.random = program.random
+tester.host           = config.host
+tester.parse          = program.parse
+tester.random         = program.random
+tester.ignoreSettings = program.ignore
 
 //
 // set up the logger based on command line params
