@@ -1,74 +1,72 @@
 ##############################################
-#  Test set: SESSION
-#  Start time 2014-01-07T10:47:22-05:00
+#  Test set: CATEGORIES
+#  Start time 2014-01-07T14:26:29-05:00
 ##############################################
 
 
 
-:::::::::::::::  SESSION: STATUS  :::::::::::::::
-Route: GET /session/status
-Form: None
-Query: None
-
- :: Response status: 401 ::
-
- :: Body ::
-{
-  "type": "ACCOUNT.UNAUTHORIZED",
-  "value": "You are unauthorized to view this page"
-}
-
-:::::::::::::::  SESSION: LOGIN  :::::::::::::::
-Route: POST /session/new
-Form: 
-{
-  "login": "example@brandingbrand.com",
-  "password": "pwd"
-}
-Query: None
-
- :: Response status: 400 ::
-
- :: Body ::
-{
-  "type": "SESSION.LOGIN_ERROR",
-  "value": [
-    "Sorry, this does not match our records. Check your spelling and try again."
-  ]
-}
-
-:::::::::::::::  SESSION: STATUS  :::::::::::::::
-Route: GET /session/status
-Form: None
-Query: None
-
- :: Response status: 401 ::
-
- :: Body ::
-{
-  "type": "ACCOUNT.UNAUTHORIZED",
-  "value": "You are unauthorized to view this page"
-}
-
-:::::::::::::::  SESSION: LOGOUT  :::::::::::::::
-Route: DELETE /session/destroy
+:::::::::::::::  SHOW SUBCATEGORIES  :::::::::::::::
+Route: GET /categories/security-equipment
 Form: None
 Query: None
 
  :: Response status: 200 ::
 
  :: Body ::
-OK
-
-:::::::::::::::  SESSION: STATUS  :::::::::::::::
-Route: GET /session/status
-Form: None
-Query: None
-
- :: Response status: 401 ::
-
- :: Body ::
 {
-  "type": "ACCOUNT.UNAUTHORIZED",
-  "value": "You are unauthorized to view this page"
+  "title": "Security Equipment | Seton UK",
+  "categories": [
+    {
+      "id": "security-equipment~access-management",
+      "href": "/categories/security-equipment~access-management/products",
+      "title": "Access Management",
+      "image": "http://www.seton.co.uk/media/catalog/category//d/a/dal.image.163946_std.lang.all_29.jpg"
+    },
+    {
+      "id": "security-equipment~lock-key-security",
+      "href": "/categories/security-equipment~lock-key-security/products",
+      "title": "Lock & Key Security",
+      "image": "http://www.seton.co.uk/media/catalog/category//l/o/lock-_-key-security_std.lang.all_29.jpg"
+    },
+    {
+      "id": "security-equipment~torches-radios",
+      "href": "/categories/security-equipment~torches-radios/products",
+      "title": "Torches & Radios",
+      "image": "http://www.seton.co.uk/media/catalog/category//t/o/torches-_-radios_std.lang.all_29.jpg"
+    },
+    {
+      "id": "security-equipment~cctv-alarms",
+      "href": "/categories/security-equipment~cctv-alarms/products",
+      "title": "CCTV & Alarms",
+      "image": "http://www.seton.co.uk/media/catalog/category//c/c/cctv-_-alarms_std.lang.all_29.jpg"
+    },
+    {
+      "id": "security-equipment~secure-storage",
+      "href": "/categories/security-equipment~secure-storage/products",
+      "title": "Secure Storage",
+      "image": "http://www.seton.co.uk/media/catalog/category//s/e/secure-storage_std.lang.all_29.jpg"
+    },
+    {
+      "id": "security-equipment~wheel-chocks-clamps",
+      "href": "/categories/security-equipment~wheel-chocks-clamps/products",
+      "title": "Wheel Chocks & Clamps",
+      "image": "http://www.seton.co.uk/media/catalog/category//w/h/wheel-chocks-_-clamps_std.lang.all_29.jpg"
+    }
+  ],
+  "breadcrumbs": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "Security Equipment",
+      "href": "/categories/security-equipment"
+    }
+  ],
+  "_bb_analytics": [
+    {
+      "uri": "http://www.seton.co.uk/security-equipment",
+      "trackers": []
+    }
+  ]
 }

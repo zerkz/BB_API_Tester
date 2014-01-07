@@ -1,9 +1,8 @@
 {
-  "customForm" : "false",
+  "useCustomForm" : false,
   
   "urls" : {
-    "shipping" : "/account/addresses/shipping",
-    "billing"  : "/account/addresses/billing"
+    "cart" : "/checkout/cart"
   },
   
   "forms" : {

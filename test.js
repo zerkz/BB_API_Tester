@@ -52,6 +52,7 @@ tester.host           = config.host
 tester.parse          = program.parse
 tester.random         = program.random
 tester.ignoreSettings = program.ignore
+console.log('-' + tester.ignoreSettings)
 
 //
 // set up the logger based on command line params
