@@ -22,7 +22,7 @@ Fork, clone, and npm install. If a branch exists for your merchant, you may be a
 ## Options
 
 **Usage:** `node test [testName]`
-    where [testName] is `/test/[testName]/[testName].js` and the index is stored in `/tests/index.js`
+    where `[testName]` is `/test/[testName]/[testName].js` and the index is stored in `/tests/index.js`
 
 **comman line options:** 
 
@@ -104,7 +104,9 @@ Single tests should generally have 3 parts
 
 ## TODO
 
-* let test be specified as a diff from the previous result (useful for things like address & cart additions/update/removal)
+* add support for remianing core API
+
+* let individual tests be specified as a diff from the previous result (useful for things like address & cart additions/update/removal)
 
 * store log.txt as a formatted html page
   * let diffs and json be minimized for clean viewing of focus areas
