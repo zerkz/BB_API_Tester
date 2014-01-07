@@ -1,6 +1,6 @@
 # BB API Tester
 
-This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Cusom test wuites can be created as well. The logger will print the name of the suite executed as well as each individual test executed as they are performed. log.txt will contain the full test result (response body)
+This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Custom test suites can be created as well. The logger will print the name of the suite executed as well as each individual test executed as they are performed. log.txt will contain the full test result (response body)
 
 test suite example from addresses.js: 
 ```javascript
@@ -13,13 +13,16 @@ test suite example from addresses.js:
     this.update,
     this.remove
   ]);
-
 ```
+
+## Quick Start
+
+Fork, clone, and npm install. If a branch exists for your merchant, you may be able to run tests to immediately. If youre merchant does not have a branch, the config files in each test directory will need to be updated for custom submissions for the merchants API. If you update a merchant's branch, be sure to commit so that others dont have to go make the same changes. Idealy, the person testing the PR should be able to pull the branch run the desired test set 
 
 ## Options
 
-**Usage:** ```  node test [testName]  ```
-    where [testName] is /test/testName/testName.json and the index is stored in /tests/index.js
+**Usage:** `node test [testName]`
+    where [testName] is `/test/[testName]/[testName].js` and the index is stored in `/tests/index.js`
 
 **comman line options:** 
 
@@ -61,7 +64,6 @@ categories
     this.showSubcats,    
   ]
   ```
-    * the pair can be repeated and set to parse random for more varied test results
   
 session
   ```
@@ -78,9 +80,9 @@ session
   
 All test which can be run from the command line must have the following properties
   * a dedicated js file 
-    * containing the function ` fullTest() ` at the location /tests/[name]/[name.js]
-    * a require mapping the test in /tests/index.js 
-      * eg: `[name] : require(__dirname + '/[name]/[name]')`)
+    * containing the function `fullTest()` at the location `/tests/[name]/[name.js]`
+    * a require mapping the test in `/tests/index.js`
+      * eg: `[name] : require(__dirname + '/[name]/[name]')`
   * the ` fullTest() ` function must contain the following code
     * note that existing single tests can be required and added to custom test sets
     ```javascript
@@ -92,7 +94,7 @@ All test which can be run from the command line must have the following properti
       }
     ```
     
-` /test/custom/custom.js ` is a minimal example of what tests should look like
+`/test/custom/custom.js` is a minimal example of what tests should look like
 
 Single tests should generally have 3 parts
   * request setup. accounting for things like config settings, command line params, etc
