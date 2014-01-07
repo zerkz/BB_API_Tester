@@ -24,10 +24,10 @@ exports.fullTest = function () {
   // or the user chose ot ignore config settings
   //
   if (!useCustomForm || !tester.ignoreSettings) {
-    testSet.unshift(tests.products.showPdp)
-    testSet.unshift(tests.products.showIndex)
-    testSet.unshift(tests.categories.showSubcats)
-    testSet.unshift(tests.categories.showCats)
+    testSet.unshift(tests.products.pdp)
+    testSet.unshift(tests.products.index)
+    testSet.unshift(tests.categories.subcats)
+    testSet.unshift(tests.categories.cats)
   }
   testSet.unshift(this.show)
   

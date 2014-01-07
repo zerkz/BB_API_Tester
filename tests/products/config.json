@@ -1,0 +1,18 @@
+{  
+  "indexUrl" : {
+    "apply": false,
+    "url"  : ""
+  },
+  "pdpUrl" : {
+    "apply": false,
+    "url"  : ""
+  },
+  
+  
+  "facets" : {
+    "" : {
+      "apply" : false
+    }
+  }
+  
+}

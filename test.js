@@ -61,10 +61,8 @@ if(!program.append) logger.reset();
 
 logger.verbose = program.verbose;
   
-logger.log('##############################################');
-logger.log('\n#  Test set: ' + testName.toUpperCase());
-logger.log('\n#  Start time ' + moment().format());
-logger.log('\n##############################################\n\n');
+logger.logHeader('\nTest set: ' + testName.toUpperCase());
+logger.logSubHeader('\nStart time ' + moment().format());
 
 
 //

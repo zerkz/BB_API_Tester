@@ -4,6 +4,7 @@ module.exports = exports = function () {
     cart       : require(__dirname + '/cart/cart'),
     categories : require(__dirname + '/categories/categories'),
     custom     : require(__dirname + '/custom/custom'),
+    products   : require(__dirname + '/products/products'),
     session    : require(__dirname + '/session/session'),
   };
 }

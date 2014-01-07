@@ -1,0 +1,64 @@
+div {
+  width: 100%;
+  font-family: arial;
+}
+
+.attribute {
+  font-weight: bold;
+}
+.value {
+  font-weight: none;
+}
+.string {
+  color: green;
+}
+
+
+.header {
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.header.main {
+  padding-top: 5px;
+  font-size: 35px;
+}
+
+.marker { 
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.error {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.headingBlock {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(156, 156, 156);  
+}
+
+.requestBlock {
+  padding-bottom:10px;
+  padding-top: 10px;
+  background-color: rgb(240, 240, 240);
+}
+
+.responseBlock {
+  padding-bottom:10px;
+  padding-top: 10px;
+  background-color: rgb(240, 240, 240);  
+}
+
+.divider {
+  background-color: rgb(156, 156, 156);
+  height:1px;
+  width:100%;
+}

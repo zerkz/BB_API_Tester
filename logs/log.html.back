@@ -1,0 +1,9 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="log.css">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  </body>
+</html

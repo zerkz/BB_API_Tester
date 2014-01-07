@@ -1,0 +1,17 @@
+
+Test set: PRODUCTS
+Start time 2014-01-07T18:28:41-05:00CATEGORIES: CATEGORIESGET ::Request Form ::
+None:: Request Query ::
+undefined::Response Status ::
+200:: Response Body ::
+200CATEGORIES: SUBCATEGORIESGET /categories/safety-signs::Request Form ::
+None:: Request Query ::
+undefined::Response Status ::
+200:: Response Body ::
+200PRODUCTS: INDEXGET /categories/safety-signs~information-signs/products::Request Form ::
+None:: Request Query ::
+undefined::Response Status ::
+200:: Response Body ::
+200
+
+ERROR: Failed to parse a pdp for navigation
