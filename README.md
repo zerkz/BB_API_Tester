@@ -15,7 +15,7 @@ test suite example from addresses.js:
   ]);
 ```
 
-** Current State: **  Complete through cart
+**Current State:**  Complete through cart
 
 ## Quick Start
 
