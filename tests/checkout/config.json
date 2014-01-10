@@ -1,0 +1,30 @@
+{
+  "requiredForms" : {
+    "fakeCreds" : {
+      "address[billing][country]": "US",
+      "address[billing][name][first]": "Test",
+      "address[billing][name][last]": "DoNotBill",
+      "address[billing][line][0]": "2313 E Carson St",
+      "address[billing][line][1]": "STE 100",
+      "address[billing][city]": "Pittsburgh",
+      "address[billing][state]": "PA",
+      "address[billing][zip]": "15203",
+      "address[billing][phone]": "4125555555",
+      "address[shipping][country]": "US",
+      "address[shipping][name][first]": "Test",
+      "address[shipping][name][last]": "DoNotShip",
+      "address[shipping][line][0]": "2313 E Carson St",
+      "address[shipping][line][1]": "STE 100",
+      "address[shipping][city]": "Pittsburgh",
+      "address[shipping][state]": "PA",
+      "address[shipping][zip]": "15203",
+      "address[shipping][phone]": "4125555555",
+      "cc[type]": "VC",
+      "cc[number]": "4111111111111111",
+      "cc[expire][year]": "15",
+      "cc[expire][month]": "05",
+      "cc[cvv]": "000",
+      "email": "rdtestorders@brandingbrand.com"
+    }  
+  } 
+}
