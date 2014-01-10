@@ -17,10 +17,9 @@ test suite example from addresses.js:
 
 **Current State:**
 
-===Categories===
-- [x] categories
-- [x] subcategories
-
+- [x] Categories
+  - [x] categories
+  - [x] subcategories
 - [ ] Products
   - [x] index
   - [x] pdp
