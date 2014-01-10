@@ -20,7 +20,7 @@ test suite example from addresses.js:
 - [x] Categories
   - [x] categories
   - [x] subcategories
-- [] Products
+- [ ] Products
   - [x] index
   - [x] pdp
   - [] search
@@ -29,25 +29,25 @@ test suite example from addresses.js:
   - [x] add
   - [x] update
   - [x] remove
-- [] Checkout
-  - [] submit
-  - [] review
-  - [] confirm
-  - [] receipt)
-- [] Session 
-  - [] status
-  - [] login
-  - [] logout
-  - [] signup
-- [] orders
-  - [] orders
-  - [] single roder
-- [] promo
-- [] giftcard
-- [] addresses
-  - [] add
-  - [] update
-  - [] remove
+- [ ] Checkout
+  - [ ] submit
+  - [ ] review
+  - [ ] confirm
+  - [ ] receipt)
+- [ ] Session 
+  - [ ] status
+  - [ ] login
+  - [ ] logout
+  - [ ] signup
+- [ ] orders
+  - [ ] orders
+  - [ ] single roder
+- [ ] promo
+- [ ] giftcard
+- [ ] addresses
+  - [ ] add
+  - [ ] update
+  - [ ] remove
 
 
 ## Quick Start
