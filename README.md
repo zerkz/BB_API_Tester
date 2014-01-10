@@ -22,6 +22,7 @@ test suite example from addresses.js:
 Fork, clone, and npm install. If a branch exists for your merchant, you may be able to run tests to immediately. If youre merchant does not have a branch, the config files in each test directory will need to be updated for custom submissions for the merchants API. If you update a merchant's branch, be sure to commit so that others dont have to go make the same changes. Idealy, the person testing the PR should be able to pull the branch run the desired test set without any changes
 
 The current work was all done against the seton.api 
+
 sample test `node test cart -r`
 
 ## Options
