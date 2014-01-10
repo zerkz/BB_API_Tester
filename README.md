@@ -15,7 +15,7 @@ test suite example from addresses.js:
   ]);
 ```
 
-**Current State: **  Complete through cart
+** Current State: **  Complete through cart
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests
 
 The following helpers are in place to prevent the tests from erroring out if the json returned is abnormal. None of the folloing functions will throw errors if the object being parsed doesnt exist. Each function check for existence before executing selection
 
-  * 'helpers.getSubProp(obj, chain)'
+  * `helpers.getSubProp(obj, chain)`
     * attempts to get the object at the end of the property chain (chain) for the objects (obj)
 
   * `helpers.getPropterty(list, propChain, random, index)`
