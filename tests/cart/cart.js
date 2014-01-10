@@ -1,29 +1,32 @@
 var helpers = require(process.cwd() + '/lib/helpers')
-  , tester  = require(process.cwd() + '/lib/tester')
+  , controller  = require(process.cwd() + '/lib/controller')
+  , logger  = require(process.cwd() + '/lib/logger')
   , tests   = require(process.cwd() + '/tests')()
-
-  // load config values
-  var config         = helpers.loadJson(__dirname)
-    , useCustomForm  = config.useCustomForm
-    , url            = config.urls
-    , forms          = config.forms
   
-  //
-  // test a standard suite of requests
-  //
+var testClass = 'cart';
+
+// load config values
+var config         = helpers.loadJson(__dirname)
+  , useCustomForm  = config.useCustomForm
+  , url            = config.urls
+  , forms          = config.forms
+  
+//
+// test a standard suite of requests
+//
 exports.fullTest = function () {
   //base test set
   var testSet = [
         this.add,
-        this.update,
-        this.remove,
+         this.update,
+         this.remove,
       ];
       
   //
   // only navigate to cats and pdp if no custom form is being used,
   // or the user chose ot ignore config settings
   //
-  if (!useCustomForm || !tester.ignoreSettings) {
+  if (!useCustomForm || !controller.ignoreSettings) {
     testSet.unshift(tests.products.pdp)
     testSet.unshift(tests.products.index)
     testSet.unshift(tests.categories.subcats)
@@ -31,7 +34,7 @@ exports.fullTest = function () {
   }
   testSet.unshift(this.show)
   
-  tester.execSet(testSet);
+  controller.execSet(testSet);
 }
    
 //
@@ -43,52 +46,133 @@ exports.fullTest = function () {
 //   dependencies:
 //     none
 //
-exports.show = function(error, response, body, callback) {
-  tester.reqAndLog('cart: show', {
-    uri    : urls.cart,
-    method : 'GET'
-  }, callback);
+exports.show = {
+  dependencies : [],
+  exec         :function(error, response, body, callback) {
+    var test = testClass + '.show';
+    console.log(' :: ' + test +' ::');
+    
+    controller.reqAndLog(test, {
+      uri    : '/checkout/cart',
+      method : 'GET'
+    }, callback);
+  }
 }
     
 
 //
 // adds an item to the cart
 //   dependencies:
-//     -preceeded by tests.produts.showPdp if the user chose the option to parse the form for submission
 //     -there must be a valid form in the config if the user set useCustomForm to true in config
 //
-exports.add = function(error, response, body, callback) {
-  tester.reqAndLog('cart: add', {
-    uri    : urls.cart,
-    method : 'POST',
-    form   : form
-  }, callback);
+exports.add = {
+  dependencies: [ 
+                  tests.categories.cats, 
+                  tests.categories.subcats, 
+                  tests.products.index,
+                  tests.products.show
+                ],
+                
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.add';
+    console.log(' :: ' + test +' ::');
+    
+    // set up request according to settings
+    if(helpers.applyConfig(forms.add)) { 
+      var form = forms.add
+    } else {
+      form = helpers.propFromBody(body, ['variations'], ['availability', 'online', 'forms', 'add_to_cart'], controller.random)
+    }
+    
+    // validate request setup
+    if (!(form && form.action && form.method && form.inputs)) {
+      logger.testFailed(test, 'Failed to parse a cart add form');
+      return callback(null, null, null, null);    
+    }
+    
+    controller.reqAndLog(test, {
+      uri    : form.action,
+      method : form.method,
+      form   : form.inputs
+    }, callback);
+  } 
 }
 
 //
 // updates an item to the cart
 //   dependencies:
-//     -preceeded by any cart test if the user chose the option to parse the form for submission
 //     -there must be a valid form in the config if the user set useCustomForm to true in config
 //
-exports.update = function(error, response, body, callback) {
-  tester.reqAndLog('cart: update', {
-    uri    : urls.cart,
-    method : 'PUT',
-    form   : form
-  }, callback);
+exports.update = {
+  dependencies : [this.show],
+  
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.update';
+    console.log(' :: ' + test +' ::');
+    
+    // set up request according to settings
+    if(helpers.applyConfig(forms.add)) { 
+      var form = forms.add
+    } else {
+      var product = helpers.propFromBody(body, ['products'], [], controller.random)
+      
+      if(product)  {
+        // get the current quantity
+        var qty = helpers.getSubProp(product, ['quantity']);
+        qty = qty ? qty + 1 : Math.floor(Math.random() * (10));
+      
+        // add the updated quantity to the form
+        form = helpers.getSubProp(product, ['forms', 'update_quantity']);
+        if(form) {
+          var inputs = helpers.getSubProp(form, ['inputs'])
+          form.inputs = inputs ? inputs : {};
+          form.inputs.qty = qty
+        }
+     }
+    }
+    
+    // validate request setup
+    if (!(form && form.action && form.method && form.inputs)) {
+      logger.testFailed(test, 'Failed to parse a cart update form');
+      return callback(null, null, null, null);
+    }
+    
+    controller.reqAndLog(test, {
+      uri    : form.action,
+      method : form.method,
+      form   : form.inputs
+    }, callback);
+  }
 }
 
 //
 // updates an item to the cart
-//   dependencies:
-//     -preceeded by any cart test if the user chose the option to parse the form for submission
 //     -there must be a valid form in the config if the user set useCustomForm to true in config
 //
-exports.remove = function(error, response, body, callback) {
-  tester.reqAndLog('cart: delete', {
-    uri    : urls.cart,
-    method : 'DELETE',
-    form   : form
-  }, callback);
+exports.remove = {
+  dependencies : [this.show],
+  
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.remove';
+    console.log(' :: ' + test +' ::');
+    
+    // set up request according to settings
+    if(helpers.applyConfig(forms.add)) { 
+      var form = forms.add
+    } else {
+      form = helpers.propFromBody(body, ['products'], ['forms', 'remove_from_cart'], controller.random)
+    }
+    
+    // validate request setup
+    if (!(form && form.action && form.method && form.inputs)) {
+      logger.testFailed(test, 'Failed to parse a cart remove form');
+      return callback(null, null, null, null);    
+    }
+    
+    controller.reqAndLog(test, {
+      uri    : form.action,
+      method : form.method,
+      form   : form.inputs
+    }, callback);
+  }
 }

@@ -1,25 +1,34 @@
 {
-  "useCustomForm" : false,
-  
-  "urls" : {
-    "cart" : "/checkout/cart"
-  },
-  
-  "forms" : {
+
+  "forms": {
+    
     "add" : {
-      "id"  : "PID123",
-      "qty" : "1"
+      "apply"  : false,
+      "method" : "POST",
+      "action" : "/checkout/cart",
+      "inputs" : {}
     },
     
     "update" : {
-      "id"  : "PID123",
-      "qty" : "1"
-    },  
+      "apply"  : false,
+      "method" : "PUT",
+      "action" : "/checkout/cart",
+      "inputs" : {}
+    },
     
-    "delete" : {
-      "id"      :"PID123",
-      "rowId"   :"RID123",
-      "orderId" :"OID123"    
+    "remove" : {
+      "apply"  : false,
+      "method" : "DELETE",
+      "action" : "/checkout/cart",
+      "inputs" : {}      
+    },
+    
+    "moveToWishList" : {
+      "apply"  : false,
+      "method" : "PUT",
+      "action" : "/checkout/cart",
+      "inputs" : {}      
     }
+    
   }
 }

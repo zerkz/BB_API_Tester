@@ -1,11 +1,11 @@
 {  
   "indexUrl" : {
     "apply": false,
-    "url"  : ""
+    "url"  : "/categoris/{id}/products"
   },
   "pdpUrl" : {
     "apply": false,
-    "url"  : ""
+    "url"  : "/products/{id}"
   },
   
   

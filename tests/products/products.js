@@ -1,7 +1,9 @@
 var helpers = require(process.cwd() + '/lib/helpers')
-  , tester  = require(process.cwd() + '/lib/tester')
+  , controller  = require(process.cwd() + '/lib/controller')
   , logger  = require(process.cwd() + '/lib/logger')
   , tests   = require(process.cwd() + '/tests')()
+  
+var testClass = 'products';
 
 // load config values
 var config   = helpers.loadJson(__dirname)
@@ -18,17 +20,17 @@ exports.fullTest = function () {
   var testSet = [
         this.index,
         this.pdp,
-      ]     
+      ]
   //
   // only navigate to cats if the user chose to ignore config settings
-  // or the config speficies not to use th custom index page
+  // or the config speficied not to use the config index url
   //
-  if (!indexUrl.apply || tester.ignoreSettings) {
+  if (!indexUrl.apply || controller.ignoreSettings) {
     testSet.unshift(tests.categories.subcats)
     testSet.unshift(tests.categories.cats)
   }  
   
-  tester.execSet(testSet);
+  controller.execSet(testSet);
 }
  
 //
@@ -36,88 +38,70 @@ exports.fullTest = function () {
 //
 
 //
-// show categories
-//   dependencies:
-//     none
-//
-exports.index = function(error, response, body, callback) {
-  //
-  // set up request according to settings
-  //
-  if (indexUrl.apply && !tester.ignoreSettings) {
-    var url  = indexUrl.url;
+// show product index page
+//   
+exports.index = {
+  dependencies: [
+                  tests.categories.cats, 
+                  tests.categories.subcats
+                ], 
+                
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.index';
+    console.log(' :: ' + test +' ::');
     
-  } else {
-    var json = JSON.parse(body);
-    
-    //only attempt a selection if the categories array is populated
-    if (json.categories && json.categories.length >= 0) {
-      if (tester.random) {
-        var element = helpers.randomSelect(json.categories);
-      
-      } else {
-        element = json.categories[0];
-      }
-      
-      url = element.href;
+    // set up request according to settings
+    if (helpers.applyConfig(indexUrl)) {
+      var url  = indexUrl.url;
+    } else {
+      url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)
     }
+    
+    // validate request setup
+    if (!url) {
+      logger.testFailed(test, 'Failed to parse a product index page for navigation');
+      return callback(null, null, null, null);    
+    }
+    
+    //make request
+    controller.reqAndLog(test, {
+      uri    : url,
+      method : 'GET'
+    }, callback);
   }
-  
-  //
-  // validate request setup
-  //
-  if (!url) {
-    logger.error('\n\nERROR: Failed to parse an product index page for navigation\n');
-    return callback(null, null, null, null);    
-  }
-  
-  tester.reqAndLog('products: index', {
-    uri    : url,
-    method : 'GET'
-  }, callback);
 }
 
 //
-// adds an item to the cart
-//   dependencies:
-//     -preceeded by showCats if the user chose the option to parse the subcategory
-//     -there must be a valid url in the config if the user set useSubcat to true in config
+// shows a product index page
 //
-exports.pdp = function(error, response, body, callback) {
-  //
-  // set up request according to settings
-  //
-  if (pdpUrl.apply && !tester.ignoreSettings) {
-    var url  = pdpUrl.url;
+exports.pdp = {
+  dependencies: [
+                  tests.categories.cats, 
+                  tests.categories.subcats, 
+                  this.index
+                ],
+  
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.pdp';
+    console.log(' :: ' + test +' ::');
     
-  } else {
-    var json = JSON.parse(body);
-    
-    //only attempt a selection if the categories array is populated
-    if (json.categories && json.categories.length >= 0) {
-      if (tester.random) {
-        var element = helpers.randomSelect(json.categories);
-      
-      } else {
-        element = json.categories[0];
-      }
-      
-      url = element.href;
+    // set up request according to settings
+    if (helpers.applyConfig(pdpUrl)) {
+      var url  = pdpUrl.url;    
+    } else {
+      url = helpers.propFromBody(body, ['products'], ['href'], controller.random)
     }
+    
+    // validate request setup
+    if (!url) {
+      logger.testFailed(test, 'Failed to parse a pdp for navigation');
+      return callback(null, null, null, null);    
+    }
+    
+    //make request
+    controller.reqAndLog(test, {
+      uri    : url,
+      method : 'GET',
+    }, callback);
   }
-  
-  //
-  // validate request setup
-  //
-  if (!url) {
-    return logger.error('\n\nERROR: Failed to parse a pdp for navigation\n', callback);
-  }
-  
-  //
-  //make request
-  //
-  tester.reqAndLog('products: pdp', {
-    uri    : url,
-    method : 'GET',
-  }, callback);
 }

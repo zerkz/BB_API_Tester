@@ -5,7 +5,7 @@ This repo is a self contained tester for the Branding Brand API. It provides bot
 test suite example from addresses.js: 
 ```javascript
 
-  tester.execSet([
+  controller.execSet([
     tests.session.login,
     this.show,
     this.remove,
@@ -15,9 +15,11 @@ test suite example from addresses.js:
   ]);
 ```
 
+**Current State: **  Complete through cart
+
 ## Quick Start
 
-Fork, clone, and npm install. If a branch exists for your merchant, you may be able to run tests to immediately. If youre merchant does not have a branch, the config files in each test directory will need to be updated for custom submissions for the merchants API. If you update a merchant's branch, be sure to commit so that others dont have to go make the same changes. Idealy, the person testing the PR should be able to pull the branch run the desired test set 
+Fork, clone, and npm install. If a branch exists for your merchant, you may be able to run tests to immediately. If youre merchant does not have a branch, the config files in each test directory will need to be updated for custom submissions for the merchants API. If you update a merchant's branch, be sure to commit so that others dont have to go make the same changes. Idealy, the person testing the PR should be able to pull the branch run the desired test set without any changes
 
 ## Options
 
@@ -26,87 +28,46 @@ Fork, clone, and npm install. If a branch exists for your merchant, you may be a
 
 **comman line options:** 
 
-* `-a`, `--append`  Set the logger to append, instead of overwrite
-* `-v`, `--verbose` Set the logger to log request information as well as results
-* `-p`, `--parse`   Parse form inputs form the previous result, when possible
+  .option('-s  --single',  'Run the single test identified using the config values')
+  .option('-o  --port',       'make requests to the specified port')
+  .option('-h  --host',    'make requests to the specified host')
+  
 * `-r`, `--random`  Make nav selections/submissions by parsing a random selection when possible
 * `-i`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
-
-    
-## Default Supported Test sets
-
-addresses
-  ```
-  [
-    tests.session.login,
-    this.show,
-    this.remove,
-    this.add,
-    this.update,
-    this.remove
-  ]
-  ```
-
-cart
-  ```
-  [
-    this.show,
-    this.add,
-    this.update,
-    this.remove,
-  ]
-  ```
-  
-categories
-  ```
-  [
-    this.showCats,
-    this.showSubcats,    
-  ]
-  ```
-  
-session
-  ```
-  [
-    this.status,
-    this.login,
-    this.status,
-    this.logout,
-    this.status
-  ]
-  ```
+* `-s`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
+* `-o`, `--port`    make requests to the specified port
+* `-h`, `--host`    make requests to the specified host'
   
 ## Adding Tests
   
-All test which can be run from the command line must have the following properties
-  * a dedicated js file 
-    * containing the function `fullTest()` at the location `/tests/[name]/[name.js]`
-    * a require mapping the test in `/tests/index.js`
-      * eg: `[name] : require(__dirname + '/[name]/[name]')`
-  * the ` fullTest() ` function must contain the following code
-    * note that existing single tests can be required and added to custom test sets
-    ```javascript
-      function() {
-        tester.execSet([
-          this.[singleTest1],
-          this.[singleTest2],
-        ]);
-      }
-    ```
+Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/custom.js) and its [config](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/config.json) for an example on how tests should be layed out
+
+**Helpful functions**
+
+The following helpers are in place to prevent the tests from erroring out if the json returned is abnormal. None of the folloing functions will throw errors if the object being parsed doesnt exist. Each function check for existence before executing selection
+
+  * 'helpers.getSubProp(obj, chain)'
+    * attempts to get the object at the end of the property chain (chain) for the objects (obj)
+
+  * `helpers.getPropterty(list, propChain, random, index)`
+    * selects an element from that array, the first by default, and random if random is true
+    * selects a specific index if index has a value (overrides random)
+    * finds the object at the end property chain (propChain), for the index selected
     
-`/test/custom/custom.js` is a minimal example of what tests should look like
-
-Single tests should generally have 3 parts
-  * request setup. accounting for things like config settings, command line params, etc
-  * validation of request properties
-  * execution of request
-
+  * `helpers.propFromBody(body, preChain, postChain, random, index)`
+    * parses the json body for an array at the end of the property chain (preChain)
+    * selects an element from that array, the first by default, and random if random is true
+    * selects a specific index if index has a value (overrides random)
+    * finds the object at the end property chain (postChain), for the index selected
+    
+example from products.js: `url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)`
 
 ## TODO
 
 * add support for remianing core API
 
+* add more options
+
 * let individual tests be specified as a diff from the previous result (useful for things like address & cart additions/update/removal)
 
-* store log.txt as a formatted html page
-  * let diffs and json be minimized for clean viewing of focus areas
+* add parser to format json log as a well formatted html file for easier viewing

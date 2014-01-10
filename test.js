@@ -2,10 +2,9 @@ var request = require('request')
   , _       = require('lodash')
   , tests   = require(__dirname + '/tests')()
   , program = require('commander')
-  , moment  = require('moment')
   , helpers = require(__dirname + '/lib/helpers')
   , logger  = require(__dirname + '/lib/logger')
-  , tester  = require(__dirname + '/lib/tester')
+  , controller  = require(__dirname + '/lib/controller')
   
 //
 // simplify helper function calls
@@ -18,15 +17,15 @@ var testList = helpers.testList
 //
 program.version('0.0.1')
   .usage('[test name]\n' + testList())
-  .option('-a, --append',  'Set the logger to append, instead of overwrite')
-  .option('-v, --verbose', 'Set the logger to log request information as well as results')
-  .option('-p, --parse',   'Parse form inputs form the previous result, when possible')
   .option('-r, --random',  'Make nav selections/submissions by parsing a random selection when possible')
   .option('-i, --ignore',  'Ignore the config settings (config settings overwrite command line settings')
+  .option('-s  --single',  'Run the single test identified using the config values')
+  .option('-o  --port',       'make requests to the specified port')
+  .option('-h  --host',    'make requests to the specified host')
   .parse(process.argv);
   
 program.on('--help', function () {
-  exitWMsg('usage: node tests [test name]\n' + testList(), 0)
+  exitWMsg('usage: node tests [test name] [optional:test set; default: fullTest]\n' + testList(), 0)
 });
 
 //
@@ -43,29 +42,39 @@ if (!tests.hasOwnProperty(testName)) {
               testList(), 1);
 }
 
+var singleTest = program.singleTest
+if(singleTest) {
+  if (!tests[testName][singleTest]) {
+    exitWMsg('The individial test ' + singleTest + ' was not found in the test object' + testName + '\n', 1);
+  }
+  title = testName + '.' + singleTest
+}
+
 //
 // parse and store test configuration variables
 //
 var config = helpers.loadJson(__dirname)
 
-tester.host           = config.host
-tester.parse          = program.parse
-tester.random         = program.random
-tester.ignoreSettings = program.ignore
-console.log('-' + tester.ignoreSettings)
+controller.host           = program.host || config.host || 'localhost'
+controller.port           = program.port || config.port || '4000'
+controller.random         = program.random
+controller.ignoreSettings = program.ignore
+controller.singleTest     = !!singleTest
 
-//
-// set up the logger based on command line params
-//
-if(!program.append) logger.reset();
-
-logger.verbose = program.verbose;
-  
-logger.logHeader('\nTest set: ' + testName.toUpperCase());
-logger.logSubHeader('\nStart time ' + moment().format());
-
+logger.initTestSet(testName, controller.host,controller.port)
 
 //
 // execute the test
 //
-tests[testName].fullTest();
+if (singleTest) {
+  var testSet = [tests[testName][singleTest]];
+  
+  // add test dependencies if they exist, unless the 
+  if(tests[testName].hasOwnProperty(singleTest + '_dependencies')) {
+    testSet = (test[testName][singleTest + '_dependencies']).concat(testSet)
+  }
+  
+  controller.execSet([testSet])
+} else {
+  tests[testName].fullTest();
+}

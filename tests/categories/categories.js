@@ -1,7 +1,10 @@
 var helpers = require(process.cwd() + '/lib/helpers')
-  , tester  = require(process.cwd() + '/lib/tester')
+  , controller  = require(process.cwd() + '/lib/controller')
   , logger  = require(process.cwd() + '/lib/logger')
   , tests   = require(process.cwd() + '/tests')()
+
+
+var testClass = 'categories';
 
 // load config values
 var config    = helpers.loadJson(__dirname)
@@ -11,7 +14,7 @@ var config    = helpers.loadJson(__dirname)
 // test a standard suite of requests
 //
 exports.fullTest = function () {
-  tester.execSet([
+  controller.execSet([
     this.cats,
     this.subcats,
   ]);
@@ -26,55 +29,45 @@ exports.fullTest = function () {
 //   dependencies:
 //     none
 //
-exports.cats = function(error, response, body, callback) {
-  tester.reqAndLog('categories: categories', {
-    uri    : '',
-    method : 'GET'
-  }, callback);
+exports.cats = {
+  dependencies : [],
+  exec         : function(error, response, body, callback) {
+    var test = testClass + '.categories';
+    console.log(' :: ' + test +' ::');
+    
+    controller.reqAndLog(test, {
+      uri    : '/categories/',
+      method : 'GET'
+    }, callback);
+  }
 }
 
 //
 // adds an item to the cart
-//   dependencies:
-//     -preceeded by showCats if the user chose the option to parse the subcategory
-//     -there must be a valid url in the config if the user set useSubcat to true in config
 //
-exports.subcats = function(error, response, body, callback) {
-  //
-  // set up request according to settings
-  //
-  if (subcatUrl.apply && !tester.ignoreSettings) {
-    var url  = subcatUrl.url;
+exports.subcats = {
+  dependencies : [this.cats],
+  exec         : function(error, response, body, callback) {
+    var test = testClass + '.subcategories';
+    console.log(' :: ' + test +' ::');
     
-  } else {
-    var json = JSON.parse(body);
-    
-    //only attempt a selection if the categories array is populated
-    if (json.categories && json.categories.length >= 0) {
-      if (tester.random) {
-        var element = helpers.randomSelect(json.categories);
-      
-      } else {
-        element = json.categories[0];
-      }
-      
-      url = element.href;
+    // set up request according to settings
+    if (helpers.applyConfig(subcatUrl)) {
+      var url  = subcatUrl.url;
+    } else {
+      url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)
     }
+    
+    // validate request setup
+    if (!url) {
+      logger.testFailed(test, 'Failed to parse a subcategory for navigation');
+      return callback(null, null, null, null);    
+    }
+    
+    //make request
+    controller.reqAndLog(test, {
+      uri    : url,
+      method : 'GET',
+    }, callback);
   }
-  
-  //
-  // validate request setup
-  //
-  if (!url) {
-    logger.error('\n\nERROR: Failed to parse a subcategory for navigation\n');
-    return callback(null, null, null, null);    
-  }
-  
-  //
-  //make request
-  //
-  tester.reqAndLog('categories: subcategories', {
-    uri    : url,
-    method : 'GET',
-  }, callback);
 }

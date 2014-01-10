@@ -1,5 +1,7 @@
 var helpers = require(process.cwd() + '/lib/helpers')
-  , tester  = require(process.cwd() + '/lib/tester')
+  , controller  = require(process.cwd() + '/lib/controller')
+
+var testClass = 'session';
   
 //
 // load config values
@@ -12,7 +14,7 @@ var config = helpers.loadJson(__dirname)
 // test a standard quite of requests
 //
 exports.fullTest = function () {
-  tester.execSet([
+  controller.execSet([
     this.status,
     this.login,
     this.status,
@@ -25,7 +27,10 @@ exports.fullTest = function () {
 // individual requests to be used in both custom and standard test suites
 //
 exports.login = function(error, response, body, callback) {
-  tester.reqAndLog('session: login', {
+  var test = testClass + 'login';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : urls.login,
     method : 'POST',
     form   : forms.login
@@ -33,14 +38,20 @@ exports.login = function(error, response, body, callback) {
 }
  
 exports.logout = function(error, response, body, callback) {
-  tester.reqAndLog('session: logout', {
+  var test = testClass + 'logout';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : urls.logout,
     method : 'DELETE',
   }, callback);
 } 
  
 exports.status = function(error, response, body, callback) {
-  tester.reqAndLog('session: status', {
+  var test = testClass + 'status';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : urls.status,
     method : 'GET'
   }, callback);

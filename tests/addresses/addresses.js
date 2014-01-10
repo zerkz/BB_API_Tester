@@ -1,6 +1,8 @@
 var helpers = require(process.cwd() + '/lib/helpers')
-  , tester  = require(process.cwd() + '/lib/tester')
+  , controller  = require(process.cwd() + '/lib/controller')
   , tests   = require(process.cwd() + '/tests')()
+
+var testClass = 'addressed';
 
 // load config values
 var config = helpers.loadJson(__dirname)
@@ -12,7 +14,7 @@ var config = helpers.loadJson(__dirname)
 // test a standard suite of requests
 //
 exports.fullTest = function () {
-  tester.execSet([
+  controller.execSet([
     tests.session.login,
     this.show,
     this.remove,
@@ -26,27 +28,42 @@ exports.fullTest = function () {
 // individual requests to be used in both custom and standard test suites
 //
 exports.show = function(error, response, body, callback) {
-  tester.reqAndLog('show addresses', {
+  var test = testClass + 'show';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : url,
     method : 'GET'
   }, callback);
 }
+
 exports.add = function(error, response, body, callback) {
-  tester.reqAndLog('add addresses', {
+  var test = testClass + '.add';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : url,
     method : 'POST',
     form   : forms.add
   }, callback);
 }
+
 exports.update = function(error, response, body, callback) {
-  tester.reqAndLog('update addresses', {
+  var test = testClass + 'update';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(tset, {
     uri    : url,
     method : 'PUT',
     form   : forms.update
   }, callback);
 }
+
 exports.remove = function(error, response, body, callback) {
-  tester.reqAndLog('delete addresses', {
+  var test = testClass + 'remove';
+  console.log(' :: ' + test +' ::');
+  
+  controller.reqAndLog(test, {
     uri    : url,
     method : 'DELETE',
     form   : forms.remove
