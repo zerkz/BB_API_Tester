@@ -15,8 +15,7 @@ test suite example from addresses.js:
   ]);
 ```
 
-**Current State:**
-
+# Current State
 - [x] Categories
   - [x] categories
   - [x] subcategories
