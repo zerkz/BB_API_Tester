@@ -15,7 +15,40 @@ test suite example from addresses.js:
   ]);
 ```
 
-**Current State:**  Complete through cart
+**Current State:**
+
+- [x] Categories
+  - [x] categories
+  - [x] subcategories
+- [] Products
+  - [x] index
+  - [x] pdp
+  - [] search
+- [x] Cart
+  - [x] show
+  - [x] add
+  - [x] update
+  - [x] remove
+- [] Checkout
+  - [] submit
+  - [] review
+  - [] confirm
+  - [] receipt)
+- [] Session 
+  - [] status
+  - [] login
+  - [] logout
+  - [] signup
+- [] orders
+  - [] orders
+  - [] single roder
+- [] promo
+- [] giftcard
+- [] addresses
+  - [] add
+  - [] update
+  - [] remove
+
 
 ## Quick Start
 
