@@ -1,7 +1,7 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , tests      = require(process.cwd() + '/tests')()
   
 var testClass = 'cart';
 
@@ -48,6 +48,7 @@ exports.fullTest = function () {
 //
 exports.show = {
   dependencies : [],
+  
   exec         :function(error, response, body, callback) {
     var test = testClass + '.show';
     console.log(' :: ' + test +' ::');
@@ -70,7 +71,7 @@ exports.add = {
                   tests.categories.cats, 
                   tests.categories.subcats, 
                   tests.products.index,
-                  tests.products.show
+                  tests.products.pdp
                 ],
                 
   exec : function(error, response, body, callback) {

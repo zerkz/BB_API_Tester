@@ -1,7 +1,7 @@
-var helpers = require(process.cwd() + '/lib/helpers')
+var helpers     = require(process.cwd() + '/lib/helpers')
   , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+  , logger      = require(process.cwd() + '/lib/logger')
+  , tests       = require(process.cwd() + '/tests')()
   
 var testClass = 'products';
 

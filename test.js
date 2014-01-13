@@ -69,12 +69,10 @@ logger.initTestSet(testName, controller.host,controller.port)
 if (singleTest) {
   var testSet = [tests[testName][singleTest]];
   
-  // add test dependencies if they exist, unless the 
-  if(tests[testName].hasOwnProperty(singleTest + '_dependencies')) {
-    testSet = (test[testName][singleTest + '_dependencies']).concat(testSet)
-  }
+  testSet = controller.addDependencies(testName, singleTest, testSet)
   
   controller.execSet([testSet])
+  
 } else {
   tests[testName].fullTest();
 }

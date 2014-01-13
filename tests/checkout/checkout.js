@@ -1,5 +1,7 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , tests      = require(process.cwd() + '/tests')()
 
 var testClass = 'checkout';
   
@@ -7,18 +9,36 @@ var testClass = 'checkout';
 // load config values
 //
 var config         = helpers.loadJson(__dirname)
-  , requiredForms  = config.forms
+  , requiredForms  = config.requiredForms
 
 //
-// test a standard quite of requests
+// test a standard suite of requests
 //
 exports.fullTest = function () {
-  controller.execSet([
+  var testSet = [
     this.submit,
-    this.review,
+    //this.review,
     this.confirm,
-    this.receipt
-  ]);
+    //this.receipt
+  ];
+  
+  // make sure an item is in the cart
+  controller.getBodyFromReq(tests.cart.show, function (body){
+    if (body && body.length) {
+      var products = helpers.getPropterty(body, ['products'], controller.random);
+      
+      // if there isn't an item in the cart, add it
+      if ((products && !products.length) || !products) {
+        testSet = controller.addWithDependencies('cart', 'add', testSet);
+      }
+    } else {
+      testSet = controller.addWithDependencies('cart', 'add', testSet);
+      testSet.unshift(tests.cart.add);
+    }
+    
+    controller.execSet(testSet);
+  });
+  
 }
  
 //
@@ -28,9 +48,8 @@ exports.submit = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    var test = testClass + 'submit';
+    var test = testClass + '.submit';
     console.log(' :: ' + test +' ::');
-    
     
     // set up request according to settings
     if (controller.realCreds) {
@@ -46,7 +65,7 @@ exports.submit = {
     }
     
     controller.reqAndLog(test, {
-      uri    : 'checkout/cc',
+      uri    : '/checkout/cc',
       method : 'POST',
       form   : form
     }, callback);
@@ -57,11 +76,11 @@ exports.review = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    var test = testClass + 'review';
+    var test = testClass + '.review';
     console.log(' :: ' + test +' ::');
     
     controller.reqAndLog(test, {
-      uri    : 'checkout/confirm',
+      uri    : '/checkout/confirm',
       method : 'GET'
     }, callback);
   }
@@ -71,13 +90,12 @@ exports.confirm = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    var test = testClass + 'confirm';
+    var test = testClass + '.confirm';
     console.log(' :: ' + test +' ::');
     
     controller.reqAndLog(test, {
-      uri    : 'checkout/confirm',
-      method : 'POST',
-      form   : form
+      uri    : '/checkout/confirm',
+      method : 'GET',
     }, callback);
   }
 }
@@ -86,11 +104,11 @@ exports.receipt = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    var test = testClass + 'receipt';
+    var test = testClass + '.receipt';
     console.log(' :: ' + test +' ::');
     
     controller.reqAndLog(test, {
-      uri    : 'checkout/confirm',
+      uri    : '/checkout/confirm',
       method : 'GET'
     }, callback);
   }
