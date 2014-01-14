@@ -1,0 +1,6 @@
+# logs #
+log.*
+
+# local/ sensitive information #
+local.*
+sensitive.*

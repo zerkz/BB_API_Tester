@@ -2,14 +2,16 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/lib/controller')
   , logger     = require(process.cwd() + '/lib/logger')
   , tests      = require(process.cwd() + '/tests')()
+  , prompt     = require('prompt');
 
 var testClass = 'checkout';
   
 //
 // load config values
 //
-var config         = helpers.loadJson(__dirname)
-  , requiredForms  = config.requiredForms
+var config        = helpers.loadJson(__dirname)
+  , requiredForms = config.requiredForms
+  , forms         = config.forms
 
 //
 // test a standard suite of requests
@@ -49,7 +51,7 @@ exports.submit = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.submit';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if (controller.realCreds) {
@@ -60,8 +62,7 @@ exports.submit = {
     
     // validate request setup
     if (!(form)) {
-      logger.testFailed(test, 'Failed to parse a checkout submit form');
-      return callback(null, null, null, null);    
+      return logger.testFailed(test, 'Failed to parse a checkout submit form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -77,7 +78,7 @@ exports.review = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.review';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     controller.reqAndLog(test, {
       uri    : '/checkout/confirm',
@@ -91,12 +92,45 @@ exports.confirm = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.confirm';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
-    controller.reqAndLog(test, {
-      uri    : '/checkout/confirm',
-      method : 'GET',
-    }, callback);
+    // set up request according to settings
+    if(helpers.applyConfig(forms.confirm)) { 
+      var form = forms.confirm
+    } else {
+      form = helpers.getSubPropFromBody(body, ['forms', 'confirm_order'])
+    }
+    
+    // validate request setup
+    if (!(form && form.action && form.method && form.inputs)) {
+      return logger.testFailed(test, 'Failed to parse a confirm form', callback);
+    }
+    
+    var request = {
+          uri    : form.action,
+          method : form.method,
+          form   : form.inputs
+        }
+    
+    // if real creds are being used, prompt for verification
+    if (controller.realCreds) {
+      var confirm = false;
+      prompt.start();
+      
+      prompt.get(['confirm checkout with real credentials? [y/n]'], function (err, result) {
+        if (err) return;
+        if(result.toUpperCase() === 'Y') confirm = true;
+      });
+      
+      if(confirm) {
+        return controller.reqAndLog(test, request, callback);
+      } else {
+        return logger.testFailed(test, 'The order was canceled by the user', callback);
+      }
+    // if face creds were used, make the reust without prompting
+    } else {
+      return controller.reqAndLog(test, request, callback);
+    }
   }
 }
 
@@ -105,11 +139,11 @@ exports.receipt = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.receipt';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     controller.reqAndLog(test, {
-      uri    : '/checkout/confirm',
-      method : 'GET'
+      uri    : '/checkout/receipt',
+      method : 'POST',
     }, callback);
   }
 }

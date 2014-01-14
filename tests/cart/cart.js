@@ -7,7 +7,6 @@ var testClass = 'cart';
 
 // load config values
 var config         = helpers.loadJson(__dirname)
-  , useCustomForm  = config.useCustomForm
   , url            = config.urls
   , forms          = config.forms
   
@@ -26,7 +25,7 @@ exports.fullTest = function () {
   // only navigate to cats and pdp if no custom form is being used,
   // or the user chose ot ignore config settings
   //
-  if (!useCustomForm || !controller.ignoreSettings) {
+  if (!forms.add.apply || controller.ignoreSettings) {
     testSet.unshift(tests.products.pdp)
     testSet.unshift(tests.products.index)
     testSet.unshift(tests.categories.subcats)
@@ -49,7 +48,7 @@ exports.fullTest = function () {
 exports.show = {
   dependencies : [],
   
-  exec         :function(error, response, body, callback) {
+  exec :function(error, response, body, callback) {
     var test = testClass + '.show';
     console.log(' :: ' + test +' ::');
     

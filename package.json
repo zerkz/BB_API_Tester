@@ -32,7 +32,9 @@
     "mocha": "~1.16.2",
     "commander": "~2.1.0",
     "highlight.js": "~7.5.0",
-    "json-lint": "~0.1.0"
+    "json-lint": "~0.1.0",
+    "prompt": "~0.2.12",
+    "colors": "~0.6.2"
   },
   "devDependencies": {
     "mocha": ">=1.0.x",

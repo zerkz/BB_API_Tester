@@ -20,8 +20,9 @@ program.version('0.0.1')
   .option('-r, --random',  'Make nav selections/submissions by parsing a random selection when possible')
   .option('-i, --ignore',  'Ignore the config settings (config settings overwrite command line settings')
   .option('-s  --single',  'Run the single test identified using the config values')
-  .option('-o  --port',       'make requests to the specified port')
+  .option('-o  --port',    'make requests to the specified port')
   .option('-h  --host',    'make requests to the specified host')
+  .option('-u  --useReal', 'use real credential in checkout (you will be prompted before confirm)')
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -60,6 +61,7 @@ controller.port           = program.port || config.port || '4000'
 controller.random         = program.random
 controller.ignoreSettings = program.ignore
 controller.singleTest     = !!singleTest
+controller.realCreds      = program.useReal
 
 logger.initTestSet(testName, controller.host,controller.port)
 
@@ -69,7 +71,7 @@ logger.initTestSet(testName, controller.host,controller.port)
 if (singleTest) {
   var testSet = [tests[testName][singleTest]];
   
-  testSet = controller.addDependencies(testName, singleTest, testSet)
+  testSet = controller.addWithDependencies(testName, singleTest, testSet)
   
   controller.execSet([testSet])
   
