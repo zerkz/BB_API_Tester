@@ -19,9 +19,9 @@ var config        = helpers.loadJson(__dirname)
 exports.fullTest = function () {
   var testSet = [
     this.submit,
-    //this.review,
+    this.review,
     this.confirm,
-    //this.receipt
+    this.receipt
   ];
   
   // make sure an item is in the cart
@@ -62,7 +62,7 @@ exports.submit = {
     
     // validate request setup
     if (!(form)) {
-      return logger.testFailed(test, 'Failed to parse a checkout submit form', callback);
+      return controller.testFailed(test, 'Failed to parse a checkout submit form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -103,7 +103,7 @@ exports.confirm = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      return logger.testFailed(test, 'Failed to parse a confirm form', callback);
+      return controller.testFailed(test, 'Failed to parse a confirm form', callback);
     }
     
     var request = {
@@ -125,7 +125,7 @@ exports.confirm = {
       if(confirm) {
         return controller.reqAndLog(test, request, callback);
       } else {
-        return logger.testFailed(test, 'The order was canceled by the user', callback);
+        return controller.testFailed(test, 'The order was canceled by the user', callback);
       }
     // if face creds were used, make the reust without prompting
     } else {

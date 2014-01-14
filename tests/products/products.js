@@ -48,7 +48,7 @@ exports.index = {
                 
   exec : function(error, response, body, callback) {
     var test = testClass + '.index';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if (helpers.applyConfig(indexUrl)) {
@@ -59,8 +59,7 @@ exports.index = {
     
     // validate request setup
     if (!url) {
-      logger.testFailed(test, 'Failed to parse a product index page for navigation');
-      return callback(null, null, null, null);    
+      return controller.testFailed(test, 'Failed to parse a product index page for navigation', callback);
     }
     
     //make request
@@ -83,7 +82,7 @@ exports.pdp = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.pdp';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if (helpers.applyConfig(pdpUrl)) {
@@ -94,8 +93,7 @@ exports.pdp = {
     
     // validate request setup
     if (!url) {
-      logger.testFailed(test, 'Failed to parse a pdp for navigation');
-      return callback(null, null, null, null);    
+      return controller.testFailed(test, 'Failed to parse a pdp for navigation', callback);
     }
     
     //make request

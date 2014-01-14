@@ -50,7 +50,7 @@ exports.show = {
   
   exec :function(error, response, body, callback) {
     var test = testClass + '.show';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     controller.reqAndLog(test, {
       uri    : '/checkout/cart',
@@ -75,7 +75,7 @@ exports.add = {
                 
   exec : function(error, response, body, callback) {
     var test = testClass + '.add';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -86,8 +86,7 @@ exports.add = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart add form');
-      return callback(null, null, null, null);    
+      controller.testFailed(test, 'Failed to parse a cart add form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -108,7 +107,7 @@ exports.update = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.update';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -133,8 +132,7 @@ exports.update = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart update form');
-      return callback(null, null, null, null);
+      controller.testFailed(test, 'Failed to parse a cart update form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -154,7 +152,7 @@ exports.remove = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.remove';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -165,8 +163,7 @@ exports.remove = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart remove form');
-      return callback(null, null, null, null);    
+      controller.testFailed(test, 'Failed to parse a cart remove form', callback);
     }
     
     controller.reqAndLog(test, {

@@ -1,6 +1,6 @@
 {
 	"title": "CHECKOUT",
-	"time": "2014-01-14T11:02:01-05:00",
+	"time": "2014-01-14T11:14:20-05:00",
 	"host": "localhost",
 	"port": "4000",
 	"tests": [
@@ -130,7 +130,7 @@
 		{
 			"name": "CATEGORIES.SUBCATEGORIES",
 			"method": "GET",
-			"route": "/categories/workwear-ppe",
+			"route": "/categories/traffic-car-park",
 			"request": {
 				"protocol": "http",
 				"form": {},
@@ -138,67 +138,55 @@
 			},
 			"response": {
 				"body": {
-					"title": "Workwear & PPE | Seton UK",
+					"title": "Traffic & Car Park | Seton UK",
 					"categories": [
 						{
-							"id": "workwear-ppe~head-protection",
-							"href": "/categories/workwear-ppe~head-protection/products",
-							"title": "Head Protection",
-							"image": "http://www.seton.co.uk/media/catalog/category//h/e/head-protection_std.lang.all_30.jpg"
+							"id": "traffic-car-park~barriers-access-tapes",
+							"href": "/categories/traffic-car-park~barriers-access-tapes/products",
+							"title": "Barriers & Access Tapes",
+							"image": "http://www.seton.co.uk/media/catalog/category//b/a/barriers-_-access-tapes_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~safety-gloves",
-							"href": "/categories/workwear-ppe~safety-gloves/products",
-							"title": "Safety Gloves",
-							"image": "http://www.seton.co.uk/media/catalog/category//s/a/safety-gloves_std.lang.all_30.jpg"
+							"id": "traffic-car-park~traffic-signs-mirrors",
+							"href": "/categories/traffic-car-park~traffic-signs-mirrors/products",
+							"title": "Traffic Signs & Mirrors",
+							"image": "http://www.seton.co.uk/media/catalog/category//t/r/traffic-signs-_-mirrors_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~safety-footwear",
-							"href": "/categories/workwear-ppe~safety-footwear/products",
-							"title": "Safety Footwear",
-							"image": "http://www.seton.co.uk/media/catalog/category//s/a/safety-footwear_std.lang.all_30.jpg"
+							"id": "traffic-car-park~traffic-cones-bollards-posts",
+							"href": "/categories/traffic-car-park~traffic-cones-bollards-posts/products",
+							"title": "Traffic Cones, Bollards & Posts",
+							"image": null
 						},
 						{
-							"id": "workwear-ppe~supports-harnesses",
-							"href": "/categories/workwear-ppe~supports-harnesses/products",
-							"title": "Supports & Harnesses",
-							"image": "http://www.seton.co.uk/media/catalog/category//s/u/supports-_-harnesses_std.lang.all_30.jpg"
+							"id": "traffic-car-park~line-marking-surface-repair",
+							"href": "/categories/traffic-car-park~line-marking-surface-repair/products",
+							"title": "Line Marking & Surface Repair",
+							"image": "http://www.seton.co.uk/media/catalog/category//l/i/line-marking-_-surface-repair_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~hearing-protection",
-							"href": "/categories/workwear-ppe~hearing-protection/products",
-							"title": "Hearing Protection",
-							"image": "http://www.seton.co.uk/media/catalog/category//d/m/dmeu_wh2_0000041_std.lang.all_93.png"
+							"id": "traffic-car-park~bike-racks-shelters",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products",
+							"title": "Bike Racks & Shelters",
+							"image": "http://www.seton.co.uk/media/catalog/category//b/i/bike-racks-_-shelters_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~high-visibility-clothing",
-							"href": "/categories/workwear-ppe~high-visibility-clothing/products",
-							"title": "High Visibility Clothing",
-							"image": "http://www.seton.co.uk/media/catalog/category//h/i/high-visibility-clothing_std.lang.all_30.jpg"
+							"id": "traffic-car-park~speed-bumps-ramps",
+							"href": "/categories/traffic-car-park~speed-bumps-ramps/products",
+							"title": "Speed Bumps & Ramps",
+							"image": "http://www.seton.co.uk/media/catalog/category//s/p/speed-bumps-_-ramps_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~chemical-resistant-clothing",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products",
-							"title": "Chemical Resistant Clothing",
-							"image": "http://www.seton.co.uk/media/catalog/category//c/h/chemical-resistant-clothing_std.lang.all_30.jpg"
+							"id": "traffic-car-park~vehicle-breakdown",
+							"href": "/categories/traffic-car-park~vehicle-breakdown/products",
+							"title": "Vehicle Breakdown",
+							"image": "http://www.seton.co.uk/media/catalog/category//v/e/vehicle-breakdown_std.lang.all_30.jpg"
 						},
 						{
-							"id": "workwear-ppe~trousers-underwear",
-							"href": "/categories/workwear-ppe~trousers-underwear/products",
-							"title": "Trousers & Underwear",
-							"image": "http://www.seton.co.uk/media/catalog/category//t/r/trousers-_-underwear_std.lang.all_30.jpg"
-						},
-						{
-							"id": "workwear-ppe~work-jackets-coats",
-							"href": "/categories/workwear-ppe~work-jackets-coats/products",
-							"title": "Work Jackets & Coats",
-							"image": "http://www.seton.co.uk/media/catalog/category//w/o/work-jackets-_-coats_std.lang.all_30.jpg"
-						},
-						{
-							"id": "workwear-ppe~t-shirts-sweatshirts",
-							"href": "/categories/workwear-ppe~t-shirts-sweatshirts/products",
-							"title": "T-Shirts & Sweatshirts",
-							"image": "http://www.seton.co.uk/media/catalog/category//t/-/t-shirts-_-sweatshirts_std.lang.all_30.jpg"
+							"id": "traffic-car-park~parking-permits-aids",
+							"href": "/categories/traffic-car-park~parking-permits-aids/products",
+							"title": "Parking Permits & Aids",
+							"image": "http://www.seton.co.uk/media/catalog/category//p/a/parking-permits-_-aids_std.lang.all_30.jpg"
 						}
 					],
 					"breadcrumbs": [
@@ -207,13 +195,13 @@
 							"href": "/"
 						},
 						{
-							"title": "Workwear & PPE",
-							"href": "/categories/workwear-ppe"
+							"title": "Traffic & Car Park",
+							"href": "/categories/traffic-car-park"
 						}
 					],
 					"_bb_analytics": [
 						{
-							"uri": "http://www.seton.co.uk/workwear-ppe",
+							"uri": "http://www.seton.co.uk/traffic-car-park",
 							"trackers": []
 						}
 					]
@@ -228,7 +216,7 @@
 		{
 			"name": "PRODUCTS.INDEX",
 			"method": "GET",
-			"route": "/categories/workwear-ppe~chemical-resistant-clothing/products",
+			"route": "/categories/traffic-car-park~bike-racks-shelters/products",
 			"request": {
 				"protocol": "http",
 				"form": {},
@@ -236,11 +224,443 @@
 			},
 			"response": {
 				"body": {
-					"title": "Chemical Resistant Clothing | Seton UK",
+					"title": "Bike Racks & Shelters | Seton UK",
 					"products": [
 						{
-							"title": "Proshield 10® Coveralls",
-							"id": "proshield-10-coveralls",
+							"title": "Floor-Mounted Bike Rack",
+							"id": "floor-mounted-bike-rack",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "95.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Floor-Mounted Bike Rack",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf553_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/floor-mounted-bike-rack"
+						},
+						{
+							"title": "Hoop Cycle Racks",
+							"id": "hoop-cycle-racks",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "290.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Hoop Cycle Racks",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf572_gry_1_std.lang.all.png"
+								}
+							},
+							"href": "/products/hoop-cycle-racks"
+						},
+						{
+							"title": "Staggered Height Cycle Racks",
+							"id": "staggered-height-cycle-racks",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "79.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Staggered Height Cycle Racks",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_952-223_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/staggered-height-cycle-racks"
+						},
+						{
+							"title": "Velo Cycle Shelters",
+							"id": "velo-cycle-shelters",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "3465.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Velo Cycle Shelters",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf506_3_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/velo-cycle-shelters"
+						},
+						{
+							"title": "Traditional Bike Racks",
+							"id": "traditional-bike-racks",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "320.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Traditional Bike Racks",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf657_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/traditional-bike-racks"
+						},
+						{
+							"title": "Bike Loops - Surface Mounted",
+							"id": "bike-loops-surface-mounted",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "160.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Bike Loops - Surface Mounted",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/bike-loops-surface-mounted"
+						},
+						{
+							"title": "Wall-Mount Bike Racks",
+							"id": "wall-mount-bike-racks",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "69.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Wall-Mount Bike Racks",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf911_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/wall-mount-bike-racks"
+						},
+						{
+							"title": "Contemporary Cycle Shelter",
+							"id": "contemporary-cycle-shelter",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "1496.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Contemporary Cycle Shelter",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/contemporary-cycle-shelter"
+						},
+						{
+							"title": "Floor Mounted Bicycle Rack - 5 Berth",
+							"id": "floor-mounted-bicycle-rack-5-berth",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "104.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Floor Mounted Bicycle Rack - 5 Berth",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/floor-mounted-bicycle-rack-5-berth"
+						},
+						{
+							"title": "Curved Cycle Shelter",
+							"id": "curved-cycle-shelter",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "1450.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Curved Cycle Shelter",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/curved-cycle-shelter"
+						},
+						{
+							"title": "Floor-Mounted Bicycle Rack - 4 Berth",
+							"id": "floor-mounted-bicycle-rack-4-berth",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "89.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Floor-Mounted Bicycle Rack - 4 Berth",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf555_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/floor-mounted-bicycle-rack-4-berth"
+						},
+						{
+							"title": "Wall-Mounted Bicycle Rack - 1 Berth",
+							"id": "wall-mounted-bicycle-rack-1-berth",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "39.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Wall-Mounted Bicycle Rack - 1 Berth",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf556_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/wall-mounted-bicycle-rack-1-berth"
+						},
+						{
+							"title": "Wall-Mounted Cycle Rack",
+							"id": "wall-mounted-cycle-rack",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "139.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Wall-Mounted Cycle Rack",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm36_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/wall-mounted-cycle-rack"
+						},
+						{
+							"title": "Bike Loops – Fixing Bolts - Pack of 4",
+							"id": "bike-loops-fixing-bolts-pack-4",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "9.99",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Bike Loops – Fixing Bolts - Pack of 4",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf576_2_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/bike-loops-fixing-bolts-pack-4"
+						},
+						{
+							"title": "6 Cycle Rack for Curved Cycle Shelter",
+							"id": "6-cycle-rack-curved-cycle-shelter",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "160.00",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "6 Cycle Rack for Curved Cycle Shelter",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm33_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/6-cycle-rack-curved-cycle-shelter"
+						},
+						{
+							"title": "Floor Mount Bike Racks",
+							"id": "floor-mount-bike-racks",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "89.95",
+								"currency": "GBP"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Floor Mount Bike Racks",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg",
+								"thumbs": {
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf914_1_std.lang.all.jpg"
+								}
+							},
+							"href": "/products/floor-mount-bike-racks"
+						},
+						{
+							"title": "Bicycle Rack and Posts – Fixing Bolt",
+							"id": "bicycle-rack-and-posts-fixing-bolt",
 							"price": {
 								"retail": null,
 								"sale": null,
@@ -250,606 +670,164 @@
 							"promos": [],
 							"images": [
 								{
-									"alt": "Proshield 10® Coveralls",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg"
+									"alt": "Bicycle Rack and Posts – Fixing Bolt",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg"
 								}
 							],
 							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg",
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg",
 								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe818_2_std.lang.all.jpg"
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_traf2000_1_wo_std.lang.all.jpg"
 								}
 							},
-							"href": "/products/proshield-10-coveralls"
+							"href": "/products/bicycle-rack-and-posts-fixing-bolt"
 						},
 						{
-							"title": "Chemical Resistant Boilersuit with Hood",
-							"id": "chemical-resistant-boilersuit-with-hood",
+							"title": "Rugby Style Bicycle Rack",
+							"id": "rugby-style-bicycle-rack",
 							"price": {
 								"retail": null,
 								"sale": null,
-								"value": "64.90",
+								"value": "130.00",
 								"currency": "GBP"
 							},
 							"promos": [],
 							"images": [
 								{
-									"alt": "Chemical Resistant Boilersuit with Hood",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg"
+									"alt": "Rugby Style Bicycle Rack",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg"
 								}
 							],
 							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg",
 								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg"
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps06zx_wo_std.lang.all.jpg"
 								}
 							},
-							"href": "/products/chemical-resistant-boilersuit-with-hood"
+							"href": "/products/rugby-style-bicycle-rack"
 						},
 						{
-							"title": "Chemical Resistant Boilersuit with Collar",
-							"id": "chemical-resistant-boilersuit-with-collar",
+							"title": "Frankton Style Bicycle Security Stands",
+							"id": "frankton-style-bicycle-security-stands",
 							"price": {
 								"retail": null,
 								"sale": null,
-								"value": "59.90",
+								"value": "123.00",
 								"currency": "GBP"
 							},
 							"promos": [],
 							"images": [
 								{
-									"alt": "Chemical Resistant Boilersuit with Collar",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg"
+									"alt": "Frankton Style Bicycle Security Stands",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg"
 								}
 							],
 							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg",
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg",
 								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06003_1_std.lang.all.jpg"
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps08_wo_std.lang.all.jpg"
 								}
 							},
-							"href": "/products/chemical-resistant-boilersuit-with-collar"
+							"href": "/products/frankton-style-bicycle-security-stands"
 						},
 						{
-							"title": "Proshield® 30 Coverall",
-							"id": "proshield-30-coverall",
+							"title": "Sheffield Style Bicycle Rack",
+							"id": "sheffield-style-bicycle-rack",
 							"price": {
 								"retail": null,
 								"sale": null,
-								"value": "8.00",
+								"value": "123.00",
 								"currency": "GBP"
 							},
 							"promos": [],
 							"images": [
 								{
-									"alt": "Proshield® 30 Coverall",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg"
+									"alt": "Sheffield Style Bicycle Rack",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg"
 								}
 							],
 							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg",
+								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg",
 								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe819_1_std.lang.all.jpg"
+									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg",
+									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ps10zx_wo_std.lang.all.jpg"
 								}
 							},
-							"href": "/products/proshield-30-coverall"
-						},
-						{
-							"title": "Tyvek® Hooded Elasticated Coverall",
-							"id": "tyvek-hooded-elasticated-coverall",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "6.99",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tyvek® Hooded Elasticated Coverall ",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06315_2_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tyvek-hooded-elasticated-coverall"
-						},
-						{
-							"title": "Food Industry Chemical-Resistant Apron",
-							"id": "food-industry-chemical-resistant-apron",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "27.50",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Food Industry Chemical-Resistant Apron",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1290_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/food-industry-chemical-resistant-apron"
-						},
-						{
-							"title": "Chemical-Resistant Jacket",
-							"id": "chemical-resistant-jacket",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "45.00",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Chemical-Resistant Jacket",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06006_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/chemical-resistant-jacket"
-						},
-						{
-							"title": "Tyvek® Disposable Lab Coats",
-							"id": "tyvek-disposable-lab-coats",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "5.99",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tyvek® Disposable Lab Coats",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06318_2_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tyvek-disposable-lab-coats"
-						},
-						{
-							"title": "Tyvek® Collared Elasticated Coverall",
-							"id": "tyvek-collared-elasticated-coverall",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "6.50",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tyvek® Collared Elasticated Coverall ",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06317_2_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tyvek-collared-elasticated-coverall"
-						},
-						{
-							"title": "Panoply® Mach 2 Coveralls",
-							"id": "panoply-mach-2-coveralls-1",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "20.90",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Panoply® Mach 2 Coveralls",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1400_b_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/panoply-mach-2-coveralls-1"
-						},
-						{
-							"title": "Chemical-Resistant Trousers",
-							"id": "chemical-resistant-trousers",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "26.90",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Chemical-Resistant Trousers",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06007_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/chemical-resistant-trousers"
-						},
-						{
-							"title": "Tychem® C Chemical Coveralls/Overalls",
-							"id": "tychem-c-chemical-coveralls-overalls",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "27.20",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tychem® C Chemical Coveralls/Overalls",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tychem-c-chemical-coveralls-overalls"
-						},
-						{
-							"title": "Tyvek® Hooded Coverall with Boots",
-							"id": "tyvek-hooded-coverall-with-boots",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "8.99",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tyvek® Hooded Coverall with Boots",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06314_3_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tyvek-hooded-coverall-with-boots"
-						},
-						{
-							"title": "Food Industry Chemical-Resistant Dungarees",
-							"id": "food-industry-chemical-resistant-dungarees",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "67.95",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Food Industry Chemical-Resistant Dungarees",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1294_3_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/food-industry-chemical-resistant-dungarees"
-						},
-						{
-							"title": "Tychem® F Chemical Coveralls/Overalls",
-							"id": "tychem-f-chemical-coveralls-overalls",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "39.20",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Tychem® F Chemical Coveralls/Overalls",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe843_8_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/tychem-f-chemical-coveralls-overalls"
-						},
-						{
-							"title": "Heavy-Duty Butyl/Rubber Apron",
-							"id": "heavy-duty-butyl-rubber-apron",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "17.90",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Heavy-Duty Butyl/Rubber Apron",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe668_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/heavy-duty-butyl-rubber-apron"
-						},
-						{
-							"title": "Blue Disposable Overshoes",
-							"id": "blue-disposable-overshoes",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "3.40",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Blue Disposable Overshoes",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_fd339_1_c_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/blue-disposable-overshoes"
-						},
-						{
-							"title": "Food Industry Chemical-Resistant Jacket",
-							"id": "food-industry-chemical-resistant-jacket",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "67.95",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Food Industry Chemical-Resistant Jacket",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe1293_2_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/food-industry-chemical-resistant-jacket"
-						},
-						{
-							"title": "Equipment Dispensers - Shoe Covers",
-							"id": "equipment-dispensers-shoe-covers-1",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "96.30",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Equipment Dispensers - Shoe Covers",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_ppe892_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/equipment-dispensers-shoe-covers-1"
-						},
-						{
-							"title": "Chemical Resistant Apron with Ties",
-							"id": "chemical-resistant-apron-with-ties-1",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "14.95",
-								"currency": "GBP"
-							},
-							"promos": [],
-							"images": [
-								{
-									"alt": "Chemical Resistant Apron with Ties",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg"
-								}
-							],
-							"image": {
-								"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg",
-								"thumbs": {
-									"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg",
-									"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06008_1_std.lang.all.jpg"
-								}
-							},
-							"href": "/products/chemical-resistant-apron-with-ties-1"
+							"href": "/products/sheffield-style-bicycle-rack"
 						}
 					],
 					"sorts": [
 						{
 							"title": "Price asc",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dir=asc&order=price",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products?dir=asc&order=price",
 							"active": false
 						},
 						{
 							"title": "Price desc",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dir=desc&order=price",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products?dir=desc&order=price",
 							"active": false
 						},
 						{
 							"title": "Best Seller asc",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dir=asc&order=scoring",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products?dir=asc&order=scoring",
 							"active": false
 						},
 						{
 							"title": "Best Seller desc",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dir=desc&order=scoring",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products?dir=desc&order=scoring",
 							"active": true
 						}
 					],
 					"facets": {
 						"inactive": [
 							{
-								"title": "Clothing Size",
+								"title": "Capacity",
 								"buckets": [
 									{
-										"value": "42\" Long",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=169326",
+										"value": "1",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=172633",
 										"count": 1
 									},
 									{
-										"value": "48\" Long",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=169328",
-										"count": 1
+										"value": "2",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=174367",
+										"count": 2
 									},
 									{
-										"value": "48\" Long x 36\" Wide",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=169079",
-										"count": 1
+										"value": "3",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=174371",
+										"count": 2
 									},
 									{
-										"value": "L",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128281",
-										"count": 16
+										"value": "4",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=151468",
+										"count": 3
 									},
 									{
-										"value": "M",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128383",
-										"count": 16
+										"value": "5",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=171877",
+										"count": 3
 									},
 									{
-										"value": "S",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128959",
-										"count": 9
-									},
-									{
-										"value": "XL",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128286",
-										"count": 16
-									},
-									{
-										"value": "XXL",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128326",
+										"value": "6",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=151470",
 										"count": 6
 									},
 									{
-										"value": "XXXL",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_clothingsize=128524",
-										"count": 1
+										"value": "8",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_capacity=173956",
+										"count": 3
 									}
 								]
 							},
@@ -858,38 +836,33 @@
 								"buckets": [
 									{
 										"value": "Black",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184187",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184187",
 										"count": 2
 									},
 									{
 										"value": "Blue",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184195",
-										"count": 2
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184195",
+										"count": 4
 									},
 									{
 										"value": "Green",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184188",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184188",
 										"count": 5
 									},
 									{
 										"value": "Grey",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184191",
-										"count": 3
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184191",
+										"count": 5
 									},
 									{
-										"value": "Navy Blue",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184227",
-										"count": 4
+										"value": "Light Grey",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184206",
+										"count": 1
 									},
 									{
-										"value": "White",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184194",
-										"count": 7
-									},
-									{
-										"value": "Yellow",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_colours=184189",
-										"count": 2
+										"value": "Steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_colours=184250",
+										"count": 6
 									}
 								]
 							},
@@ -897,8 +870,123 @@
 								"title": "Depth",
 								"buckets": [
 									{
-										"value": "203 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_depth=127794",
+										"value": "120 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=132553",
+										"count": 1
+									},
+									{
+										"value": "1900 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=151292",
+										"count": 2
+									},
+									{
+										"value": "1977 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=163553",
+										"count": 1
+									},
+									{
+										"value": "2100 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=152001",
+										"count": 1
+									},
+									{
+										"value": "2200 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=138296",
+										"count": 1
+									},
+									{
+										"value": "2500 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=141108",
+										"count": 2
+									},
+									{
+										"value": "260 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=133270",
+										"count": 1
+									},
+									{
+										"value": "390 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=151490",
+										"count": 2
+									},
+									{
+										"value": "530 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=151878",
+										"count": 1
+									},
+									{
+										"value": "585 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_depth=133198",
+										"count": 1
+									}
+								]
+							},
+							{
+								"title": "Diameter",
+								"buckets": [
+									{
+										"value": "48 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_diameter=138595",
+										"count": 3
+									},
+									{
+										"value": "50 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_diameter=124788",
+										"count": 3
+									}
+								]
+							},
+							{
+								"title": "Finish",
+								"buckets": [
+									{
+										"value": "Black Powder Coated",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_finish=150973",
+										"count": 3
+									},
+									{
+										"value": "Brushed Stainless Steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_finish=150975",
+										"count": 3
+									},
+									{
+										"value": "Galvanised Mild Steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_finish=150971",
+										"count": 3
+									},
+									{
+										"value": "Powder-coated",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_finish=161203",
+										"count": 1
+									}
+								]
+							},
+							{
+								"title": "Fixing",
+								"buckets": [
+									{
+										"value": "Bolts not supplied",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_fixing=179173",
+										"count": 1
+									},
+									{
+										"value": "Grouted",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_fixing=163568",
+										"count": 1
+									},
+									{
+										"value": "Parabolts supplied for concrete surface, feet can be extended for grouting into the ground for other surfaces",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_fixing=179345",
+										"count": 1
+									},
+									{
+										"value": "Supllied with Parabolts to fix to concrete or extend feet and grout into ground",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_fixing=179139",
+										"count": 1
+									},
+									{
+										"value": "Surface-Mounted",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_fixing=163559",
 										"count": 1
 									}
 								]
@@ -907,13 +995,58 @@
 								"title": "Height",
 								"buckets": [
 									{
-										"value": "150 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_height=124409",
+										"value": "2100 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=138298",
+										"count": 3
+									},
+									{
+										"value": "2150 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=152892",
 										"count": 1
 									},
 									{
-										"value": "355 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_height=133888",
+										"value": "2250 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=156447",
+										"count": 1
+									},
+									{
+										"value": "400 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=124422",
+										"count": 1
+									},
+									{
+										"value": "415 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=134105",
+										"count": 1
+									},
+									{
+										"value": "490 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=133441",
+										"count": 1
+									},
+									{
+										"value": "560 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=128113",
+										"count": 1
+									},
+									{
+										"value": "750 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=126522",
+										"count": 2
+									},
+									{
+										"value": "760 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=128144",
+										"count": 1
+									},
+									{
+										"value": "800 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=124453",
+										"count": 2
+									},
+									{
+										"value": "935 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_height=150591",
 										"count": 1
 									}
 								]
@@ -922,13 +1055,28 @@
 								"title": "Length",
 								"buckets": [
 									{
-										"value": "1067 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_length=163005",
+										"value": "1350 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_length=139366",
 										"count": 1
 									},
 									{
-										"value": "360 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_length=164634",
+										"value": "1600 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_length=134677",
+										"count": 1
+									},
+									{
+										"value": "500 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_length=134051",
+										"count": 1
+									},
+									{
+										"value": "750 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_length=135628",
+										"count": 1
+									},
+									{
+										"value": "850 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_length=136220",
 										"count": 1
 									}
 								]
@@ -937,33 +1085,43 @@
 								"title": "Material",
 								"buckets": [
 									{
-										"value": "Polyethylene",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=186234",
+										"value": "Anodised Aluminum",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163556",
 										"count": 1
 									},
 									{
-										"value": "65% Polyester & 35% Cotton",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=181609",
+										"value": "Fully welded mild steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163699",
 										"count": 1
 									},
 									{
-										"value": "Butyl/Rubber",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=180430",
+										"value": "Powder Coated Steel SidesPolycarbonate Roof",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=179168",
 										"count": 1
 									},
 									{
-										"value": "High density polyethelene",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=162992",
+										"value": "Powder coated tubular steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163563",
+										"count": 1
+									},
+									{
+										"value": "Rust-proof zinc-plated steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163547",
+										"count": 1
+									},
+									{
+										"value": "Steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=151317",
 										"count": 3
 									},
 									{
-										"value": "PVC coated nylon",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=162988",
-										"count": 5
+										"value": "Steel tubing",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163560",
+										"count": 1
 									},
 									{
-										"value": "SMSS fabric",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_material=162990",
+										"value": "Zinc coated galvanised steel",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_material=163551",
 										"count": 1
 									}
 								]
@@ -972,18 +1130,43 @@
 								"title": "Packaging Qty.",
 								"buckets": [
 									{
-										"value": "50",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_priceunit=159790",
+										"value": "203.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=158252",
 										"count": 1
-									}
-								]
-							},
-							{
-								"title": "Qty.",
-								"buckets": [
+									},
 									{
-										"value": "50",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_qty=156673",
+										"value": "192.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=158312",
+										"count": 1
+									},
+									{
+										"value": "130.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=156665",
+										"count": 1
+									},
+									{
+										"value": "150.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=156833",
+										"count": 1
+									},
+									{
+										"value": "123.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=156972",
+										"count": 2
+									},
+									{
+										"value": "190.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=156974",
+										"count": 1
+									},
+									{
+										"value": "145.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=157051",
+										"count": 1
+									},
+									{
+										"value": "132.00",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_priceunit=158139",
 										"count": 1
 									}
 								]
@@ -992,13 +1175,103 @@
 								"title": "Width",
 								"buckets": [
 									{
-										"value": "305 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_width=125591",
+										"value": "100 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124405",
 										"count": 1
 									},
 									{
-										"value": "762 mm",
-										"href": "/categories/workwear-ppe~chemical-resistant-clothing/products?dmeu_width=127833",
+										"value": "1050 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=126595",
+										"count": 1
+									},
+									{
+										"value": "1400 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=127064",
+										"count": 1
+									},
+									{
+										"value": "1600 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124515",
+										"count": 1
+									},
+									{
+										"value": "1750 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=163691",
+										"count": 1
+									},
+									{
+										"value": "2000 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=127938",
+										"count": 1
+									},
+									{
+										"value": "2100 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=125642",
+										"count": 1
+									},
+									{
+										"value": "2200 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=138297",
+										"count": 1
+									},
+									{
+										"value": "2350 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=155019",
+										"count": 1
+									},
+									{
+										"value": "2450 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=151288",
+										"count": 2
+									},
+									{
+										"value": "2580 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=163554",
+										"count": 1
+									},
+									{
+										"value": "2800 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=140690",
+										"count": 1
+									},
+									{
+										"value": "3000 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=139301",
+										"count": 1
+									},
+									{
+										"value": "3060 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=151293",
+										"count": 2
+									},
+									{
+										"value": "310 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=127021",
+										"count": 1
+									},
+									{
+										"value": "500 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124452",
+										"count": 3
+									},
+									{
+										"value": "700 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124419",
+										"count": 2
+									},
+									{
+										"value": "750 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=127650",
+										"count": 1
+									},
+									{
+										"value": "800 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124495",
+										"count": 1
+									},
+									{
+										"value": "850 mm",
+										"href": "/categories/traffic-car-park~bike-racks-shelters/products?dmeu_width=124385",
 										"count": 1
 									}
 								]
@@ -1009,18 +1282,18 @@
 							}
 						],
 						"active": [],
-						"clear": "/categories/workwear-ppe~chemical-resistant-clothing/products"
+						"clear": "/categories/traffic-car-park~bike-racks-shelters/products"
 					},
 					"pagination": {
 						"page": 1,
 						"limit": 20,
-						"count": 22,
+						"count": 23,
 						"pages": [
-							"/categories/workwear-ppe~chemical-resistant-clothing/products",
-							"/categories/workwear-ppe~chemical-resistant-clothing/products?p=2"
+							"/categories/traffic-car-park~bike-racks-shelters/products",
+							"/categories/traffic-car-park~bike-racks-shelters/products?p=2"
 						],
 						"prev": null,
-						"next": "/categories/workwear-ppe~chemical-resistant-clothing/products?p=2"
+						"next": "/categories/traffic-car-park~bike-racks-shelters/products?p=2"
 					},
 					"breadcrumbs": [
 						{
@@ -1028,51 +1301,39 @@
 							"href": "/"
 						},
 						{
-							"title": "Workwear & PPE",
-							"href": "/categories/workwear-ppe"
+							"title": "Traffic & Car Park",
+							"href": "/categories/traffic-car-park"
 						},
 						{
-							"title": "Chemical Resistant Clothing",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products"
+							"title": "Bike Racks & Shelters",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products"
 						}
 					],
 					"cross_sales": [],
 					"up_sales": null,
 					"_bb_categories": [
 						{
-							"title": "Boiler Suits & Coveralls",
-							"id": "~workwear-ppe~chemical-resistant-clothing~boiler-suits-coveralls",
-							"href": "/categories/~workwear-ppe~chemical-resistant-clothing~boiler-suits-coveralls/products",
-							"count": 13
+							"title": "Bike Racks",
+							"id": "~traffic-car-park~bike-racks-shelters~bike-racks",
+							"href": "/categories/~traffic-car-park~bike-racks-shelters~bike-racks/products",
+							"count": 15
 						},
 						{
-							"title": "Aprons",
-							"id": "~workwear-ppe~chemical-resistant-clothing~aprons",
-							"href": "/categories/~workwear-ppe~chemical-resistant-clothing~aprons/products",
+							"title": "Bike Shelters",
+							"id": "~traffic-car-park~bike-racks-shelters~bike-shelters",
+							"href": "/categories/~traffic-car-park~bike-racks-shelters~bike-shelters/products",
+							"count": 5
+						},
+						{
+							"title": "Bike Loops",
+							"id": "~traffic-car-park~bike-racks-shelters~bike-loops",
+							"href": "/categories/~traffic-car-park~bike-racks-shelters~bike-loops/products",
 							"count": 3
-						},
-						{
-							"title": "Overshoes & Boots",
-							"id": "~workwear-ppe~chemical-resistant-clothing~overshoes-boots",
-							"href": "/categories/~workwear-ppe~chemical-resistant-clothing~overshoes-boots/products",
-							"count": 3
-						},
-						{
-							"title": "Jackets",
-							"id": "~workwear-ppe~chemical-resistant-clothing~jackets",
-							"href": "/categories/~workwear-ppe~chemical-resistant-clothing~jackets/products",
-							"count": 2
-						},
-						{
-							"title": "Trousers",
-							"id": "~workwear-ppe~chemical-resistant-clothing~trousers",
-							"href": "/categories/~workwear-ppe~chemical-resistant-clothing~trousers/products",
-							"count": 1
 						}
 					],
 					"_bb_analytics": [
 						{
-							"uri": "http://www.seton.co.uk/workwear-ppe/chemical-resistant-clothing",
+							"uri": "http://www.seton.co.uk/traffic-car-park/bike-racks-shelters",
 							"trackers": []
 						}
 					]
@@ -1087,7 +1348,7 @@
 		{
 			"name": "PRODUCTS.PDP",
 			"method": "GET",
-			"route": "/products/chemical-resistant-boilersuit-with-hood",
+			"route": "/products/contemporary-cycle-shelter",
 			"request": {
 				"protocol": "http",
 				"form": {},
@@ -1095,9 +1356,9 @@
 			},
 			"response": {
 				"body": {
-					"title": "Chemical Resistant Boilersuit with Hood | Seton UK",
+					"title": "Contemporary Cycle Shelter | Seton UK",
 					"identifiers": {
-						"id": "122204"
+						"id": "91222"
 					},
 					"breadcrumbs": [
 						{
@@ -1105,64 +1366,64 @@
 							"href": "/"
 						},
 						{
-							"title": "Workwear & PPE",
-							"href": "/categories/workwear-ppe"
+							"title": "Traffic & Car Park",
+							"href": "/categories/traffic-car-park"
 						},
 						{
-							"title": "Chemical Resistant Clothing",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing/products"
+							"title": "Bike Racks & Shelters",
+							"href": "/categories/traffic-car-park~bike-racks-shelters/products"
 						},
 						{
-							"title": "Boiler Suits & Coveralls",
-							"href": "/categories/workwear-ppe~chemical-resistant-clothing~boiler-suits-coveralls/products"
+							"title": "Bike Shelters",
+							"href": "/categories/traffic-car-park~bike-racks-shelters~bike-shelters/products"
 						},
 						{
-							"title": "Chemical Resistant Boilersuit with Hood",
-							"href": "/products/chemical-resistant-boilersuit-with-hood"
+							"title": "Contemporary Cycle Shelter",
+							"href": "/products/contemporary-cycle-shelter"
 						}
 					],
 					"brand": null,
 					"description": {
-						"leadingEquity": "Excellent resistance to acids, alkalis and other hazardous chemicals",
+						"leadingEquity": "Modern design holds up to 5 bicycles",
 						"bullets": [
-							"Green PVC-coated nylon is robust and practical",
-							"Lightweight fabric is suitable for working long hours or in cramped conditions",
-							"All seams are sewn and welded for total protection"
+							"Aesthetically pleasing shelter is the perfect choice for image-conscious educational and commercial premises",
+							"Concretes into ground for increased stability and extended working life",
+							"Frame constructed from high-quality 50mm (Dia. ) anodised aluminium"
 						]
 					},
 					"promos": [],
 					"images": [
 						{
-							"alt": "Chemical Resistant Boilersuit with Hood",
-							"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-							"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-							"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg"
+							"alt": "Contemporary Cycle Shelter",
+							"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+							"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+							"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg"
 						}
 					],
 					"image": {
-						"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
+						"full": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
 						"thumbs": {
-							"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-							"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg"
+							"small": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+							"large": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg"
 						}
 					},
 					"cross_sales": [
 						{
-							"id": "chemical-resistant-boilersuit-with-hood",
-							"title": "Chemical Resistant Boilersuit with Hood",
+							"id": "contemporary-cycle-shelter",
+							"title": "Contemporary Cycle Shelter",
 							"price": {
 								"retail": null,
 								"sale": null,
-								"value": "64.90",
+								"value": "1496.00",
 								"currency": "GBP"
 							},
-							"href": "/products/chemical-resistant-boilersuit-with-hood",
+							"href": "/products/contemporary-cycle-shelter",
 							"images": [
 								{
-									"alt": "Chemical Resistant Boilersuit with Hood",
-									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg"
+									"alt": "Contemporary Cycle Shelter",
+									"thumb": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/39x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+									"1x": "http://www.seton.co.uk/media/catalog/product/cache/3/small_image/100x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+									"2x": "http://www.seton.co.uk/media/catalog/product/cache/3/image/230x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg"
 								}
 							]
 						}
@@ -1170,15 +1431,13 @@
 					"up_sales": null,
 					"variations": [
 						{
-							"title": null,
-							"options": {
-								"Clothing Size": "L"
-							},
+							"title": "Contemporary Cycle Shelter",
+							"options": {},
 							"condition": "New",
 							"price": {
 								"retail": null,
 								"sale": null,
-								"value": "64.00",
+								"value": "1496.00",
 								"currency": "GBP"
 							},
 							"images": null,
@@ -1194,141 +1453,23 @@
 											"method": "POST",
 											"action": "/checkout/cart",
 											"inputs": {
-												"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVtaWNhbC1yZXNpc3RhbnQtYm9pbGVyc3VpdC13aXRoLWhvb2QuaHRtbA,,",
-												"product-item": "90225",
-												"product": "122204",
-												"superAttributes[\"691\"]": "128281"
+												"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jb250ZW1wb3JhcnktY3ljbGUtc2hlbHRlci5odG1s",
+												"product-item": "91222",
+												"product": "91222"
 											}
 										}
 									}
 								}
 							},
 							"identifiers": {
-								"sku": "06004 L"
+								"sku": "TRAF1090"
 							},
-							"_bb_ajax": "/variation/06004%20L"
-						},
-						{
-							"title": null,
-							"options": {
-								"Clothing Size": "XL"
-							},
-							"condition": "New",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "64.00",
-								"currency": "GBP"
-							},
-							"images": null,
-							"image": null,
-							"swatch": null,
-							"availability": {
-								"online": {
-									"id": "IN_STOCK",
-									"value": "In stock",
-									"fulfillment": null,
-									"forms": {
-										"add_to_cart": {
-											"method": "POST",
-											"action": "/checkout/cart",
-											"inputs": {
-												"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVtaWNhbC1yZXNpc3RhbnQtYm9pbGVyc3VpdC13aXRoLWhvb2QuaHRtbA,,",
-												"product-item": "90228",
-												"product": "122204",
-												"superAttributes[\"691\"]": "128286"
-											}
-										}
-									}
-								}
-							},
-							"identifiers": {
-								"sku": "06004 X"
-							},
-							"_bb_ajax": "/variation/06004%20X"
-						},
-						{
-							"title": null,
-							"options": {
-								"Clothing Size": "S"
-							},
-							"condition": "New",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "64.00",
-								"currency": "GBP"
-							},
-							"images": null,
-							"image": null,
-							"swatch": null,
-							"availability": {
-								"online": {
-									"id": "IN_STOCK",
-									"value": "In stock",
-									"fulfillment": null,
-									"forms": {
-										"add_to_cart": {
-											"method": "POST",
-											"action": "/checkout/cart",
-											"inputs": {
-												"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVtaWNhbC1yZXNpc3RhbnQtYm9pbGVyc3VpdC13aXRoLWhvb2QuaHRtbA,,",
-												"product-item": "90227",
-												"product": "122204",
-												"superAttributes[\"691\"]": "128959"
-											}
-										}
-									}
-								}
-							},
-							"identifiers": {
-								"sku": "06004 S"
-							},
-							"_bb_ajax": "/variation/06004%20S"
-						},
-						{
-							"title": null,
-							"options": {
-								"Clothing Size": "M"
-							},
-							"condition": "New",
-							"price": {
-								"retail": null,
-								"sale": null,
-								"value": "64.00",
-								"currency": "GBP"
-							},
-							"images": null,
-							"image": null,
-							"swatch": null,
-							"availability": {
-								"online": {
-									"id": "IN_STOCK",
-									"value": "In stock",
-									"fulfillment": null,
-									"forms": {
-										"add_to_cart": {
-											"method": "POST",
-											"action": "/checkout/cart",
-											"inputs": {
-												"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVtaWNhbC1yZXNpc3RhbnQtYm9pbGVyc3VpdC13aXRoLWhvb2QuaHRtbA,,",
-												"product-item": "90226",
-												"product": "122204",
-												"superAttributes[\"691\"]": "128383"
-											}
-										}
-									}
-								}
-							},
-							"identifiers": {
-								"sku": "06004 M"
-							},
-							"_bb_ajax": "/variation/06004%20M"
+							"_bb_ajax": "/variation/TRAF1090"
 						}
 					],
 					"_bb_analytics": [
 						{
-							"uri": "http://www.seton.co.uk/chemical-resistant-boilersuit-with-hood.html",
+							"uri": "http://www.seton.co.uk/contemporary-cycle-shelter.html",
 							"trackers": []
 						}
 					]
@@ -1347,10 +1488,9 @@
 			"request": {
 				"protocol": "http",
 				"form": {
-					"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVtaWNhbC1yZXNpc3RhbnQtYm9pbGVyc3VpdC13aXRoLWhvb2QuaHRtbA,,",
-					"product-item": "90225",
-					"product": "122204",
-					"superAttributes[\"691\"]": "128281"
+					"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jb250ZW1wb3JhcnktY3ljbGUtc2hlbHRlci5odG1s",
+					"product-item": "91222",
+					"product": "91222"
 				},
 				"query": {}
 			},
@@ -1358,37 +1498,35 @@
 				"body": {
 					"title": "Basket | Seton UK",
 					"summary": {
-						"subtotal": "64.90",
+						"subtotal": "1496.00",
 						"shipping": null,
-						"tax": "12.98",
-						"total": "77.88",
+						"tax": "299.20",
+						"total": "1795.20",
 						"promos": [],
 						"currency": "GBP"
 					},
 					"products": [
 						{
-							"title": "Chemical Resistant Boilersuit with Hood",
-							"id": "chemical-resistant-boilersuit-with-hood",
+							"title": "Contemporary Cycle Shelter",
+							"id": "contemporary-cycle-shelter",
 							"brand": null,
-							"image": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/40x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_06004_1_std.lang.all.jpg",
-							"options": {
-								"Clothing Size": "L"
-							},
+							"image": "http://www.seton.co.uk/media/catalog/product/cache/3/thumbnail/40x/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_bm40a_1_std.lang.all.jpg",
+							"options": {},
 							"quantity": "1",
 							"price": {
-								"per_item": "64.90",
-								"for_all": "64.90",
+								"per_item": "1496.00",
+								"for_all": "1496.00",
 								"currency": "GBP"
 							},
 							"availability": {},
 							"fulfillment": null,
-							"href": "/products/chemical-resistant-boilersuit-with-hood",
+							"href": "/products/contemporary-cycle-shelter",
 							"forms": {
 								"remove_from_cart": {
 									"method": "DELETE",
 									"action": "/checkout/cart",
 									"inputs": {
-										"id": "192255",
+										"id": "192286",
 										"token": "aHR0cDovL3d3dy5zZXRvbi5jby51ay9jaGVja291dC9jYXJ0Lw,,"
 									}
 								},
@@ -1396,7 +1534,7 @@
 									"method": "PUT",
 									"action": "/checkout/cart",
 									"inputs": {
-										"id": "192255"
+										"id": "192286"
 									}
 								},
 								"move_to_wishlist": {
@@ -1405,7 +1543,7 @@
 									"inputs": {}
 								}
 							},
-							"_bb_updatorHref": "/checkout/cart/192255"
+							"_bb_updatorHref": null
 						}
 					],
 					"forms": {
@@ -1474,10 +1612,10 @@
 				"body": {
 					"title": "Place Order",
 					"summary": {
-						"subtotal": "64.90",
+						"subtotal": "1496.00",
 						"shipping": "0.00",
-						"tax": "12.98",
-						"total": "77.88",
+						"tax": "299.20",
+						"total": "1795.20",
 						"promos": [],
 						"currency": "GBP"
 					},
@@ -1516,19 +1654,17 @@
 						{
 							"products": [
 								{
-									"title": "Chemical Resistant Boilersuit with Hood",
-									"id": "chemical-resistant-boilersuit-with-hood",
+									"title": "Contemporary Cycle Shelter",
+									"id": "contemporary-cycle-shelter",
 									"brand": null,
-									"options": {
-										"Clothing Size": "L"
-									},
+									"options": {},
 									"price": {
-										"per_item": "64.90",
-										"for_all": "64.90",
+										"per_item": "1496.00",
+										"for_all": "1496.00",
 										"currency": "GBP"
 									},
 									"availability": {},
-									"href": "/products/chemical-resistant-boilersuit-with-hood"
+									"href": "/products/contemporary-cycle-shelter"
 								}
 							],
 							"shipping": {
@@ -1546,19 +1682,17 @@
 					],
 					"products": [
 						{
-							"title": "Chemical Resistant Boilersuit with Hood",
-							"id": "chemical-resistant-boilersuit-with-hood",
+							"title": "Contemporary Cycle Shelter",
+							"id": "contemporary-cycle-shelter",
 							"brand": null,
-							"options": {
-								"Clothing Size": "L"
-							},
+							"options": {},
 							"price": {
-								"per_item": "64.90",
-								"for_all": "64.90",
+								"per_item": "1496.00",
+								"for_all": "1496.00",
 								"currency": "GBP"
 							},
 							"availability": {},
-							"href": "/products/chemical-resistant-boilersuit-with-hood"
+							"href": "/products/contemporary-cycle-shelter"
 						}
 					],
 					"forms": {
@@ -1613,50 +1747,90 @@
 			}
 		},
 		{
-			"name": "CHECKOUT.CONFIRM",
-			"method": "POST",
+			"name": "CHECKOUT.REVIEW",
+			"method": "GET",
 			"route": "/checkout/confirm",
 			"request": {
 				"protocol": "http",
-				"form": {
-					"type": "VC",
-					"number": "4111111111111111",
-					"expire": {
-						"year": "15",
-						"month": "05"
-					},
-					"cvv": "000",
-					"owner": "Test DoNotBill"
-				},
+				"form": {},
 				"query": {}
 			},
 			"response": {
 				"body": {
-					"title": "Your order has been received",
-					"email": null,
-					"summary": {},
-					"order_number": "WK00005595",
-					"payment_method": null,
-					"shipping_method": null,
-					"address": {
-						"shipping": null,
-						"billing": []
+					"json": "Not Found",
+					"options": {
+						"comments": true
 					},
-					"billing": {
-						"method": null,
-						"address": []
-					},
-					"buckets": [],
-					"products": null,
-					"_bb_analytics": [
-						{
-							"uri": "https://www.seton.co.uk/checkout/onepage/success/",
-							"trackers": []
-						}
-					]
+					"lower": "not found",
+					"c": "N",
+					"i": 0,
+					"length": 9,
+					"line": 1,
+					"character": 1,
+					"_evidence": [
+						"Not Found"
+					],
+					"endblock": "",
+					"commabreak": false,
+					"error": "Unknown character 'N', expecting opening block '{' or '[', or maybe a comment",
+					"evidence": "-> 1| Not Found\n"
 				},
 				"error": {},
-				"status": 200
+				"status": 404
+			},
+			"error": {
+				"message": null
+			}
+		},
+		{
+			"name": "CHECKOUT.CONFIRM",
+			"method": null,
+			"route": null,
+			"request": {
+				"protocol": null,
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"status": null,
+				"body": {},
+				"error": {}
+			},
+			"error": {
+				"message": "Failed to parse a confirm form"
+			}
+		},
+		{
+			"name": "CHECKOUT.RECEIPT",
+			"method": "POST",
+			"route": "/checkout/receipt",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"json": "Cannot POST /checkout/receipt",
+					"options": {
+						"comments": true
+					},
+					"lower": "cannot post /checkout/receipt",
+					"c": "C",
+					"i": 0,
+					"length": 29,
+					"line": 1,
+					"character": 1,
+					"_evidence": [
+						"Cannot POST /checkout/receipt"
+					],
+					"endblock": "",
+					"commabreak": false,
+					"error": "Unknown character 'C', expecting opening block '{' or '[', or maybe a comment",
+					"evidence": "-> 1| Cannot POST /checkout/receipt\n"
+				},
+				"error": {},
+				"status": 404
 			},
 			"error": {
 				"message": null
