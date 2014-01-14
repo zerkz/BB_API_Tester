@@ -1,4 +1,13 @@
+# logs #
+log.*
+
+# local/ sensitive information #
+local.*
+sensitive.*
+
+
 .DS_Store
 
+# node files #
 node_modules
 npm-debug.log
