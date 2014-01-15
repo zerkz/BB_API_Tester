@@ -17,8 +17,10 @@ exports.fullTest = function () {
   //base test set
   var testSet = [
         this.add,
-         this.update,
-         this.remove,
+        this.show,
+        this.update,
+        this.show,
+        this.remove,
       ];
       
   //
@@ -28,7 +30,7 @@ exports.fullTest = function () {
   if (!forms.add.apply || controller.ignoreSettings) {
     testSet.unshift(tests.products.pdp)
     testSet.unshift(tests.products.index)
-    testSet.unshift(tests.categories.subcats)
+    //testSet.unshift(tests.categories.subcats)
     testSet.unshift(tests.categories.cats)
   }
   testSet.unshift(this.show)
@@ -132,7 +134,7 @@ exports.update = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      controller.testFailed(test, 'Failed to parse a cart update form', callback);
+      return controller.testFailed(test, 'Failed to parse a cart update form', callback);
     }
     
     controller.reqAndLog(test, {
