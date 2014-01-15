@@ -1,4 +1,4 @@
-var request = require('request')
+var request = require('request').defaults({ jar: true, followAllRedirects: true })
   , _       = require('lodash')
   , tests   = require(__dirname + '/tests')()
   , program = require('commander')

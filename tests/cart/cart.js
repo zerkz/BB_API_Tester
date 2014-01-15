@@ -17,9 +17,7 @@ exports.fullTest = function () {
   //base test set
   var testSet = [
         this.add,
-        this.show,
         this.update,
-        this.show,
         this.remove,
       ];
       
@@ -30,7 +28,7 @@ exports.fullTest = function () {
   if (!forms.add.apply || controller.ignoreSettings) {
     testSet.unshift(tests.products.pdp)
     testSet.unshift(tests.products.index)
-    //testSet.unshift(tests.categories.subcats)
+    testSet.unshift(tests.categories.subcats)
     testSet.unshift(tests.categories.cats)
   }
   testSet.unshift(this.show)
