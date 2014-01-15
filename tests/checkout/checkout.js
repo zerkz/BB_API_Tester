@@ -25,7 +25,9 @@ exports.fullTest = function () {
   ];
   
   // make sure an item is in the cart
-  controller.getBodyFromReq(tests.cart.show, function (body){
+  controller.getBodyFromReq(tests.cart.show, function (error, body){
+    if (error) return;
+    
     if (body && body.length) {
       var products = helpers.getPropterty(body, ['products'], controller.random);
       
