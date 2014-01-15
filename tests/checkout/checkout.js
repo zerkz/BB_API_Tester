@@ -19,13 +19,15 @@ var config        = helpers.loadJson(__dirname)
 exports.fullTest = function () {
   var testSet = [
     this.submit,
-    //this.review,
+    this.review,
     this.confirm,
-    //this.receipt
+    this.receipt
   ];
   
   // make sure an item is in the cart
-  controller.getBodyFromReq(tests.cart.show, function (body){
+  controller.getBodyFromReq(tests.cart.show, function (error, body){
+    if (error) return;
+    
     if (body && body.length) {
       var products = helpers.getPropterty(body, ['products'], controller.random);
       
