@@ -19,9 +19,9 @@ var config        = helpers.loadJson(__dirname)
 exports.fullTest = function () {
   var testSet = [
     this.submit,
-    this.review,
-    this.confirm,
-    this.receipt
+    // this.review,
+    // this.confirm,
+    // this.receipt
   ];
   
   // make sure an item is in the cart

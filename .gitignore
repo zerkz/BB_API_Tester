@@ -11,3 +11,4 @@ sensitive.*
 # node files #
 node_modules
 npm-debug.log
+logs/log.json
