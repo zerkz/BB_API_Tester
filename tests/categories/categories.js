@@ -48,7 +48,6 @@ exports.cats = {
 exports.subcats = {
   dependencies : [this.cats],
   exec         : function(error, response, body, callback) {
-    
     var test = testClass + '.subcategories';
     logger.printTitle(test);
     
