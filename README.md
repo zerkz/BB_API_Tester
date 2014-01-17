@@ -78,6 +78,9 @@ sample test `node test cart -r`
   
 Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/custom.js) and its [config](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/config.json) for an example on how tests should be layed out
 
+**Important notes**
+* sensitive information (such as real CC info) should be stored and parsed in local.json in the test directory. any file by this name will be ignored on commit
+
 **Helpful functions**
 
 The following helpers are in place to prevent the tests from erroring out if the json returned is abnormal. None of the folloing functions will throw errors if the object being parsed doesnt exist. Each function check for existence before executing selection

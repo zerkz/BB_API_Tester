@@ -1,0 +1,105 @@
+{
+	"title": "SESSION",
+	"time": "2014-01-17T17:48:19-05:00",
+	"host": "localhost",
+	"port": "4000",
+	"tests": [
+		{
+			"name": "SESSION.STATUS",
+			"method": "GET",
+			"route": "/session/status",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"result": "Unauthorized"
+				},
+				"error": {
+					"result": "Unauthorized"
+				},
+				"status": 401
+			},
+			"error": {}
+		},
+		{
+			"name": "SESSION.LOGIN",
+			"method": "POST",
+			"route": "/session/new",
+			"request": {
+				"protocol": "http",
+				"form": {
+					"login": "johnnyhof@gmail.com",
+					"password": "testing"
+				},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"result": "OK"
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "SESSION.STATUS",
+			"method": "GET",
+			"route": "/session/status",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"result": "OK"
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "SESSION.LOGOUT",
+			"method": "DELETE",
+			"route": "/session/destroy",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"result": "OK"
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "SESSION.STATUS",
+			"method": "GET",
+			"route": "/session/status",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"result": "Unauthorized"
+				},
+				"error": {
+					"result": "Unauthorized"
+				},
+				"status": 401
+			},
+			"error": {}
+		}
+	]
+}

@@ -50,7 +50,7 @@ exports.example = {
   //
   exec : function(error, response, body, callback) {
     var test = testClass + '.example';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if (helpers.applyConfig(exampleUrl)) {
@@ -61,8 +61,7 @@ exports.example = {
     
     // validate request setup
     if (!url) {
-      logger.testFailed(test, 'Failed to parse an example url for navigation');
-      return callback(null, null, null, null);    
+      controller.testFailed(test, 'Failed to parse an example url for navigation', callback);
     }
     
     //make request

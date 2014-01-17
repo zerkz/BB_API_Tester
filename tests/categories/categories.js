@@ -33,7 +33,7 @@ exports.cats = {
   dependencies : [],
   exec         : function(error, response, body, callback) {
     var test = testClass + '.categories';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     controller.reqAndLog(test, {
       uri    : '/categories/',
@@ -48,8 +48,9 @@ exports.cats = {
 exports.subcats = {
   dependencies : [this.cats],
   exec         : function(error, response, body, callback) {
+    return callback(null, error, response, body)
     var test = testClass + '.subcategories';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if (helpers.applyConfig(subcatUrl)) {
@@ -60,8 +61,7 @@ exports.subcats = {
     
     // validate request setup
     if (!url) {
-      logger.testFailed(test, 'Failed to parse a subcategory for navigation');
-      return callback(null, null, null, null);    
+      return controller.testFailed(test, 'Failed to parse a subcategory for navigation', callback);
     }
     
     //make request

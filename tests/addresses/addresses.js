@@ -29,7 +29,7 @@ exports.fullTest = function () {
 //
 exports.show = function(error, response, body, callback) {
   var test = testClass + 'show';
-  console.log(' :: ' + test +' ::');
+  logger.printTitle(test);
   
   controller.reqAndLog(test, {
     uri    : url,
@@ -39,7 +39,7 @@ exports.show = function(error, response, body, callback) {
 
 exports.add = function(error, response, body, callback) {
   var test = testClass + '.add';
-  console.log(' :: ' + test +' ::');
+  logger.printTitle(test);
   
   controller.reqAndLog(test, {
     uri    : url,
@@ -50,7 +50,7 @@ exports.add = function(error, response, body, callback) {
 
 exports.update = function(error, response, body, callback) {
   var test = testClass + 'update';
-  console.log(' :: ' + test +' ::');
+  logger.printTitle(test);
   
   controller.reqAndLog(tset, {
     uri    : url,
@@ -61,7 +61,7 @@ exports.update = function(error, response, body, callback) {
 
 exports.remove = function(error, response, body, callback) {
   var test = testClass + 'remove';
-  console.log(' :: ' + test +' ::');
+  logger.printTitle(test);
   
   controller.reqAndLog(test, {
     uri    : url,

@@ -1,13 +1,12 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , tests      = require(process.cwd() + '/tests')()
   
 var testClass = 'cart';
 
 // load config values
 var config         = helpers.loadJson(__dirname)
-  , useCustomForm  = config.useCustomForm
   , url            = config.urls
   , forms          = config.forms
   
@@ -18,15 +17,15 @@ exports.fullTest = function () {
   //base test set
   var testSet = [
         this.add,
-         this.update,
-         this.remove,
+        this.update,
+        this.remove,
       ];
       
   //
   // only navigate to cats and pdp if no custom form is being used,
   // or the user chose ot ignore config settings
   //
-  if (!useCustomForm || !controller.ignoreSettings) {
+  if (!forms.add.apply || controller.ignoreSettings) {
     testSet.unshift(tests.products.pdp)
     testSet.unshift(tests.products.index)
     testSet.unshift(tests.categories.subcats)
@@ -48,9 +47,10 @@ exports.fullTest = function () {
 //
 exports.show = {
   dependencies : [],
-  exec         :function(error, response, body, callback) {
+  
+  exec :function(error, response, body, callback) {
     var test = testClass + '.show';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     controller.reqAndLog(test, {
       uri    : '/checkout/cart',
@@ -70,12 +70,12 @@ exports.add = {
                   tests.categories.cats, 
                   tests.categories.subcats, 
                   tests.products.index,
-                  tests.products.show
+                  tests.products.pdp
                 ],
                 
   exec : function(error, response, body, callback) {
     var test = testClass + '.add';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -86,8 +86,7 @@ exports.add = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart add form');
-      return callback(null, null, null, null);    
+      controller.testFailed(test, 'Failed to parse a cart add form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -108,7 +107,7 @@ exports.update = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.update';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -133,8 +132,7 @@ exports.update = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart update form');
-      return callback(null, null, null, null);
+      return controller.testFailed(test, 'Failed to parse a cart update form', callback);
     }
     
     controller.reqAndLog(test, {
@@ -154,7 +152,7 @@ exports.remove = {
   
   exec : function(error, response, body, callback) {
     var test = testClass + '.remove';
-    console.log(' :: ' + test +' ::');
+    logger.printTitle(test);
     
     // set up request according to settings
     if(helpers.applyConfig(forms.add)) { 
@@ -165,8 +163,7 @@ exports.remove = {
     
     // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      logger.testFailed(test, 'Failed to parse a cart remove form');
-      return callback(null, null, null, null);    
+      controller.testFailed(test, 'Failed to parse a cart remove form', callback);
     }
     
     controller.reqAndLog(test, {
