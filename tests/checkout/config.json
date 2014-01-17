@@ -26,10 +26,7 @@
       "cc[expire][year]"               : "15",
       "cc[expire][month]"              : "05",
       "cc[cvv]"                        : "000",
-      "email"                          : "rdtestorders@brandingbrand.com",
-      
-      "company"                        : "brandingbrand",
-      "civility"                       : "mr"
+      "email"                          : "rdtestorders@brandingbrand.com"
     }  
   },
   

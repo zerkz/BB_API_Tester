@@ -1,5 +1,6 @@
-var helpers = require(process.cwd() + '/lib/helpers')
+var helpers     = require(process.cwd() + '/lib/helpers')
   , controller  = require(process.cwd() + '/lib/controller')
+  , logger      = require(process.cwd() + '/lib/logger')
 
 var testClass = 'session';
   
@@ -8,10 +9,10 @@ var testClass = 'session';
 //
 var config = helpers.loadJson(__dirname)
   , urls   = config.urls
-  , forms  = config.forms
+  , forms  = config.requiredForms
 
 //
-// test a standard quite of requests
+// test a standard suite of requests
 //
 exports.fullTest = function () {
   controller.execSet([
@@ -26,33 +27,45 @@ exports.fullTest = function () {
 //
 // individual requests to be used in both custom and standard test suites
 //
-exports.login = function(error, response, body, callback) {
-  var test = testClass + 'login';
-  console.log(' :: ' + test +' ::');
+exports.login = {
+  dependencies : [],
   
-  controller.reqAndLog(test, {
-    uri    : urls.login,
-    method : 'POST',
-    form   : forms.login
-  }, callback);
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.login';
+    logger.printTitle(test);
+    
+    controller.reqAndLog(test, {
+      uri    : '/session/new',
+      method : 'POST',
+      form   : forms.login
+    }, callback);
+  }
 }
  
-exports.logout = function(error, response, body, callback) {
-  var test = testClass + 'logout';
-  console.log(' :: ' + test +' ::');
+exports.logout = {
+  dependencies : [],
   
-  controller.reqAndLog(test, {
-    uri    : urls.logout,
-    method : 'DELETE',
-  }, callback);
-} 
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.logout';
+    logger.printTitle(test);
+    
+    controller.reqAndLog(test, {
+      uri    : '/session/destroy',
+      method : 'DELETE',
+    }, callback);
+  } 
+}
  
-exports.status = function(error, response, body, callback) {
-  var test = testClass + 'status';
-  console.log(' :: ' + test +' ::');
+exports.status = {
+  dependencies : [],
   
-  controller.reqAndLog(test, {
-    uri    : urls.status,
-    method : 'GET'
-  }, callback);
+  exec : function(error, response, body, callback) {
+    var test = testClass + '.status';
+    logger.printTitle(test);
+    
+    controller.reqAndLog(test, {
+      uri    : '/session/status',
+      method : 'GET'
+    }, callback);
+  }
 }

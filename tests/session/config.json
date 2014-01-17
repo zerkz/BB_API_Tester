@@ -1,14 +1,8 @@
 {
-  "urls" : {
-    "login"  : "/session/new",
-    "logout" : "/session/destroy",
-    "status" : "/session/status"
-  },
-    
-  "forms" : {
+  "requiredForms" : {
     "login" : {
-      "login"    : "example@brandingbrand.com",
-      "password" : "pwd"
+      "login"    : "johnnyhof@gmail.com",
+      "password" : "testing"
     }  
   } 
 }
