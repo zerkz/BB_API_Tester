@@ -30,12 +30,12 @@ exports.fullTest = function () {
 //     none
 //
 exports.cats = {
+  name         : testClass + '.categories',
   dependencies : [],
   exec         : function(error, response, body, callback) {
-    var test = testClass + '.categories';
-    logger.printTitle(test);
+    logger.printTitle(exports.cats.name);
     
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.cats.name, {
       uri    : '/categories/',
       method : 'GET'
     }, callback);
@@ -46,11 +46,11 @@ exports.cats = {
 // adds an item to the cart
 //
 exports.subcats = {
+  name         : testClass + '.subcategories',
   dependencies : [this.cats],
   exec         : function(error, response, body, callback) {
     return callback(null, error, response, body)
-    var test = testClass + '.subcategories';
-    logger.printTitle(test);
+    logger.printTitle(exports.subcats.name);
     
     // set up request according to settings
     if (helpers.applyConfig(subcatUrl)) {
@@ -61,11 +61,11 @@ exports.subcats = {
     
     // validate request setup
     if (!url) {
-      return controller.testFailed(test, 'Failed to parse a subcategory for navigation', callback);
+      return controller.testFailed(exports.subcats.name, 'Failed to parse a subcategory for navigation', callback);
     }
     
     //make request
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.subcats.name, {
       uri    : url,
       method : 'GET',
     }, callback);

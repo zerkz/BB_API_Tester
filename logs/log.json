@@ -1,13 +1,13 @@
 {
-	"title": "SESSION",
-	"time": "2014-01-20T11:05:05-05:00",
+	"title": "PROMO",
+	"time": "2014-01-20T13:46:16-05:00",
 	"host": "localhost",
 	"port": "4000",
 	"tests": [
 		{
-			"name": "SESSION.STATUS",
+			"name": "CART.SHOW",
 			"method": "GET",
-			"route": "/session/status",
+			"route": "/checkout/cart",
 			"request": {
 				"protocol": "http",
 				"form": {},
@@ -15,24 +15,1796 @@
 			},
 			"response": {
 				"body": {
-					"result": "Unauthorized"
+					"title": "Basket",
+					"products": [],
+					"cross_sales": null,
+					"up_sales": [
+						{
+							"id": "prod82682",
+							"title": "Black Canvas High-tops",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod82682",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/15269s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/15269L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/15269x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070429",
+							"title": "White Faux Fur Boots",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "9.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070429",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20654s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20654L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20654x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod80042",
+							"title": "Personalized Build-A-Sound Message",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "8.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod80042",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/1996s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/1996L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/1996x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070472",
+							"title": "Red Bell Collar",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "4.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070472",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20698s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20698L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20698x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070419",
+							"title": "Pink Fair Isle Dress",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070419",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20642s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20642L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20642x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070422",
+							"title": "Holiday Dog Sweater",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070422",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20645s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20645L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20645x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070408",
+							"title": "Red Sparkle Bow Flats",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070408",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20631s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20631L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20631x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod10220008",
+							"title": "White Sequin Flats",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod10220008",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/16701s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/16701L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/16701x.jpg"
+								}
+							]
+						}
+					],
+					"summary": {
+						"subtotal": "0.00",
+						"shipping": null,
+						"tax": null,
+						"total": "0.00",
+						"promos": [
+							{
+								"description": "SPECIAL PAYMENT TYPES"
+							}
+						],
+						"currency": "USD"
+					}
 				},
-				"error": {
-					"result": "Unauthorized"
-				},
-				"status": 401
+				"error": {},
+				"status": 200
 			},
 			"error": {}
 		},
 		{
-			"name": "SESSION.LOGIN",
+			"name": "CATEGORIES.CATEGORIES",
+			"method": "GET",
+			"route": "/categories/",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"title": "Teddy Bears, Stuffed Animals & Accessories - Build-A-Bear Workshop US",
+					"categories": [
+						{
+							"id": "Stuffed-Animals~_~N-ru",
+							"href": "/categories/Stuffed-Animals~_~N-ru/products",
+							"title": "Stuffed Animals"
+						},
+						{
+							"id": "Clothing~_~N-s4",
+							"href": "/categories/Clothing~_~N-s4/products",
+							"title": "Clothing"
+						},
+						{
+							"id": "Accessories~_~N-sb",
+							"href": "/categories/Accessories~_~N-sb/products",
+							"title": "Accessories"
+						},
+						{
+							"id": "Gifts~_~N-sj",
+							"href": "/categories/Gifts~_~N-sj/products",
+							"title": "Gifts"
+						},
+						{
+							"id": "On-Sale~_~N-lfm0",
+							"href": "/categories/On-Sale~_~N-lfm0/products",
+							"title": "Sale Den"
+						}
+					],
+					"breadcrumbs": []
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "PRODUCTS.INDEX",
+			"method": "GET",
+			"route": "/categories/Clothing~_~N-s4/products",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"title": "Clothing - Build-A-Bear Workshop US",
+					"products": [
+						{
+							"title": "Peppermint Tutu & Leggings Outfit 2 pc.",
+							"id": "prod11070445",
+							"price": {
+								"retail": "12.50",
+								"sale": "7.00",
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Peppermint Tutu & Leggings Outfit 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20671m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20671L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20671x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20671x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20671m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20671m.jpg"
+								}
+							},
+							"href": "/products/prod11070445"
+						},
+						{
+							"title": "Checkerboard Vest Outfit 2 pc.",
+							"id": "prod11070254",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Checkerboard Vest Outfit 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20335m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20335L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20335x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20335x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20335m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20335m.jpg"
+								}
+							},
+							"href": "/products/prod11070254"
+						},
+						{
+							"title": "Disney Planes Outfit 2 pc.",
+							"id": "prod11070346",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Disney Planes Outfit 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20485m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20485L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20485x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20485x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20485m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20485m.jpg"
+								}
+							},
+							"href": "/products/prod11070346"
+						},
+						{
+							"title": "Fuchsia & Black Fancy Dress",
+							"id": "prod11070216",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Fuchsia & Black Fancy Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20295m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20295L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20295x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20295x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20295m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20295m.jpg"
+								}
+							},
+							"href": "/products/prod11070216"
+						},
+						{
+							"title": "Sleep Dream Love PJs 3 pc.",
+							"id": "prod11070192",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "10.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Sleep Dream Love PJs 3 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20266m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20266L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20266x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20266x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20266m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20266m.jpg"
+								}
+							},
+							"href": "/products/prod11070192"
+						},
+						{
+							"title": "Fuchsia Sequin Dress",
+							"id": "prod11080040",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Fuchsia Sequin Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19552m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/19552L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/19552x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/19552x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19552m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19552m.jpg"
+								}
+							},
+							"href": "/products/prod11080040"
+						},
+						{
+							"title": "MY LITTLE PONY FLUTTERSHY® Gala Cape 3 pc.",
+							"id": "prod11071421",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "MY LITTLE PONY FLUTTERSHY® Gala Cape 3 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20747m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20747L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20747x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20747x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20747m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20747m.jpg"
+								}
+							},
+							"href": "/products/prod11071421"
+						},
+						{
+							"title": "Purple & Pink Tulle Dress",
+							"id": "prod10950021",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Purple & Pink Tulle Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19536m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/19536L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/19536x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/19536x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19536m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19536m.jpg"
+								}
+							},
+							"href": "/products/prod10950021"
+						},
+						{
+							"title": "Holiday Dog Sweater",
+							"id": "prod11070422",
+							"price": {
+								"retail": "8.50",
+								"sale": "5.00",
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Holiday Dog Sweater",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20645m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20645L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20645x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20645x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20645m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20645m.jpg"
+								}
+							},
+							"href": "/products/prod11070422"
+						},
+						{
+							"title": "Rainbow Tutu Skirt",
+							"id": "prod11020054",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Rainbow Tutu Skirt",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20028m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20028L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20028x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20028x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20028m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20028m.jpg"
+								}
+							},
+							"href": "/products/prod11020054"
+						},
+						{
+							"title": "MY LITTLE PONY Coronation Cape 2 pc.",
+							"id": "prod11070252",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "MY LITTLE PONY Coronation Cape 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20333m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20333L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20333x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20333x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20333m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20333m.jpg"
+								}
+							},
+							"href": "/products/prod11070252"
+						},
+						{
+							"title": "Pink Fair Isle Dress",
+							"id": "prod11070419",
+							"price": {
+								"retail": "10.50",
+								"sale": "7.00",
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Pink Fair Isle Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20642m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20642L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20642x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20642x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20642m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20642m.jpg"
+								}
+							},
+							"href": "/products/prod11070419"
+						},
+						{
+							"title": "Classic Jeans",
+							"id": "prod81658",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Classic Jeans",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/14304m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/14304L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/14304x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/14304x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/14304m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/14304m.jpg"
+								}
+							},
+							"href": "/products/prod81658"
+						},
+						{
+							"title": "Harajuku Hugs Pink & Black Polka Dot Dress",
+							"id": "prod11070466",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Harajuku Hugs Pink & Black Polka Dot Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20692m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20692L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20692x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20692x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20692m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20692m.jpg"
+								}
+							},
+							"href": "/products/prod11070466"
+						},
+						{
+							"title": "Striped Sweater & Denim Skirt Outfit 2 pc.",
+							"id": "prod11070503",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Striped Sweater & Denim Skirt Outfit 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20740m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20740L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20740x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20740x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20740m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20740m.jpg"
+								}
+							},
+							"href": "/products/prod11070503"
+						},
+						{
+							"title": "Bright Dots Dress",
+							"id": "prod11070253",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "10.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Bright Dots Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20334m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20334L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20334x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20334x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20334m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20334m.jpg"
+								}
+							},
+							"href": "/products/prod11070253"
+						},
+						{
+							"title": "Black Skull Hoodie",
+							"id": "prod11070215",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Black Skull Hoodie",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20294m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20294L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20294m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20294m.jpg"
+								}
+							},
+							"href": "/products/prod11070215"
+						},
+						{
+							"title": "Pink Hello Kitty® PJs 2pc.",
+							"id": "prod10890050",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Pink Hello Kitty® PJs 2pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19280m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/19280L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/19280x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/19280x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19280m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/19280m.jpg"
+								}
+							},
+							"href": "/products/prod10890050"
+						},
+						{
+							"title": "Blue Skull Sweater Outfit 2 pc.",
+							"id": "prod11070427",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Blue Skull Sweater Outfit 2 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20650m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20650L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20650x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20650x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20650m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20650m.jpg"
+								}
+							},
+							"href": "/products/prod11070427"
+						},
+						{
+							"title": "Pink Hearts Party Dress",
+							"id": "prod11110017",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "10.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Pink Hearts Party Dress",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21146m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/21146L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/21146x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/21146x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21146m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21146m.jpg"
+								}
+							},
+							"href": "/products/prod11110017"
+						},
+						{
+							"title": "Santa Claus Costume 3 pc.",
+							"id": "prod11070461",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Santa Claus Costume 3 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20687m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20687L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20687x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20687x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20687m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20687m.jpg"
+								}
+							},
+							"href": "/products/prod11070461"
+						},
+						{
+							"title": "Pink Sequin Top",
+							"id": "prod11070272",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Pink Sequin Top",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20383m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20383L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20383x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20383x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20383m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20383m.jpg"
+								}
+							},
+							"href": "/products/prod11070272"
+						},
+						{
+							"title": "Tuxedo Outfit 4 pc.",
+							"id": "prod10190088",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Tuxedo Outfit 4 pc.",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/16727m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/16727L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/16727x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/16727x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/16727m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/16727m.jpg"
+								}
+							},
+							"href": "/products/prod10190088"
+						},
+						{
+							"title": "Love T-Shirt",
+							"id": "prod11130046",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"promos": [],
+							"images": [
+								{
+									"alt": "Love T-Shirt",
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21207m.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/21207L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/21207x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/21207x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21207m.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Medium/21207m.jpg"
+								}
+							},
+							"href": "/products/prod11130046"
+						}
+					],
+					"sorts": [
+						{
+							"title": "Best Match",
+							"href": "/categories/Clothing~_~N-s4/products",
+							"active": true
+						},
+						{
+							"title": "New",
+							"href": "/categories/Clothing~_~N-s4/products?Ns=p_metric_days_added%7C0",
+							"active": false
+						},
+						{
+							"title": "Price (Low to High)",
+							"href": "/categories/Clothing~_~N-s4/products?Ns=p_price_sort%7C0",
+							"active": false
+						},
+						{
+							"title": "Price (High to Low)",
+							"href": "/categories/Clothing~_~N-s4/products?Ns=p_price_sort%7C1",
+							"active": false
+						}
+					],
+					"facets": {
+						"inactive": [
+							{
+								"title": "Accessory Type",
+								"buckets": [
+									{
+										"value": "Boxers/Briefs",
+										"href": "/categories/Clothing~_~N-1z141tiZs4/products",
+										"count": null
+									},
+									{
+										"value": "Dresses",
+										"href": "/categories/Clothing~_~N-1z141xyZs4/products",
+										"count": null
+									},
+									{
+										"value": "Outerwear",
+										"href": "/categories/Clothing~_~N-1z141w7Zs4/products",
+										"count": null
+									},
+									{
+										"value": "Outfits",
+										"href": "/categories/Clothing~_~N-1z141xnZs4/products",
+										"count": null
+									},
+									{
+										"value": "Pajamas",
+										"href": "/categories/Clothing~_~N-1z141vlZs4/products",
+										"count": null
+									},
+									{
+										"value": "Panties",
+										"href": "/categories/Clothing~_~N-1z141uxZs4/products",
+										"count": null
+									},
+									{
+										"value": "Pants",
+										"href": "/categories/Clothing~_~N-1z141vqZs4/products",
+										"count": null
+									},
+									{
+										"value": "Pet Accessories",
+										"href": "/categories/Clothing~_~N-1z141v5Zs4/products",
+										"count": null
+									},
+									{
+										"value": "Shorts",
+										"href": "/categories/Clothing~_~N-1z141ybZs4/products",
+										"count": null
+									},
+									{
+										"value": "Skirts",
+										"href": "/categories/Clothing~_~N-1z141t5Zs4/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "Price Range",
+								"buckets": [
+									{
+										"value": "Under $10",
+										"href": "/categories/Clothing~_~N-s4Z5/products",
+										"count": null
+									},
+									{
+										"value": "$10 to $15",
+										"href": "/categories/Clothing~_~N-s4Z6/products",
+										"count": null
+									},
+									{
+										"value": "$15 to $20",
+										"href": "/categories/Clothing~_~N-s4Z7/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "Color",
+								"buckets": [
+									{
+										"value": "Black",
+										"href": "/categories/Clothing~_~N-s4Z1z141x2/products",
+										"count": null
+									},
+									{
+										"value": "Blue",
+										"href": "/categories/Clothing~_~N-s4Z1z141y0/products",
+										"count": null
+									},
+									{
+										"value": "Brown",
+										"href": "/categories/Clothing~_~N-s4Z1z141yc/products",
+										"count": null
+									},
+									{
+										"value": "Gray",
+										"href": "/categories/Clothing~_~N-s4Z1z141tw/products",
+										"count": null
+									},
+									{
+										"value": "Green",
+										"href": "/categories/Clothing~_~N-s4Z1z141xu/products",
+										"count": null
+									},
+									{
+										"value": "Multi",
+										"href": "/categories/Clothing~_~N-s4Z1z141ss/products",
+										"count": null
+									},
+									{
+										"value": "Orange",
+										"href": "/categories/Clothing~_~N-s4Z1z141x3/products",
+										"count": null
+									},
+									{
+										"value": "Pink",
+										"href": "/categories/Clothing~_~N-s4Z1z141y6/products",
+										"count": null
+									},
+									{
+										"value": "Purple",
+										"href": "/categories/Clothing~_~N-s4Z1z141xx/products",
+										"count": null
+									},
+									{
+										"value": "Red",
+										"href": "/categories/Clothing~_~N-s4Z1z141y4/products",
+										"count": null
+									},
+									{
+										"value": "White",
+										"href": "/categories/Clothing~_~N-s4Z1z141y5/products",
+										"count": null
+									},
+									{
+										"value": "Yellow",
+										"href": "/categories/Clothing~_~N-s4Z1z141x7/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "Collection",
+								"buckets": [
+									{
+										"value": "My Little Pony",
+										"href": "/categories/Clothing~_~N-s4Z1z141tn/products",
+										"count": null
+									},
+									{
+										"value": "Bearemy's Kennel Pals",
+										"href": "/categories/Clothing~_~N-s4Z1z141xl/products",
+										"count": null
+									},
+									{
+										"value": "Classic Christmas",
+										"href": "/categories/Clothing~_~N-s4Z1z141tr/products",
+										"count": null
+									},
+									{
+										"value": "Cody Simpson",
+										"href": "/categories/Clothing~_~N-s4Z1z141tc/products",
+										"count": null
+									},
+									{
+										"value": "Disney",
+										"href": "/categories/Clothing~_~N-s4Z1z141vj/products",
+										"count": null
+									},
+									{
+										"value": "Girl Scouts",
+										"href": "/categories/Clothing~_~N-s4Z1z141xi/products",
+										"count": null
+									},
+									{
+										"value": "Harajuku Hugs",
+										"href": "/categories/Clothing~_~N-s4Z1z141tl/products",
+										"count": null
+									},
+									{
+										"value": "Harley Davidson",
+										"href": "/categories/Clothing~_~N-s4Z1z141ul/products",
+										"count": null
+									},
+									{
+										"value": "Hello Kitty",
+										"href": "/categories/Clothing~_~N-s4Z1z141xr/products",
+										"count": null
+									},
+									{
+										"value": "International",
+										"href": "/categories/Clothing~_~N-s4Z1z141ua/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "Sports",
+								"buckets": [
+									{
+										"value": "Cheerleading",
+										"href": "/categories/Clothing~_~N-s4Z1z141t0/products",
+										"count": null
+									},
+									{
+										"value": "MLB",
+										"href": "/categories/Clothing~_~N-s4Z1z141vp/products",
+										"count": null
+									},
+									{
+										"value": "NBA",
+										"href": "/categories/Clothing~_~N-s4Z1z141uv/products",
+										"count": null
+									},
+									{
+										"value": "NCAA",
+										"href": "/categories/Clothing~_~N-s4Z1z141vo/products",
+										"count": null
+									},
+									{
+										"value": "NFL",
+										"href": "/categories/Clothing~_~N-s4Z1z141wz/products",
+										"count": null
+									},
+									{
+										"value": "NHL",
+										"href": "/categories/Clothing~_~N-s4Z1z141uw/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "Occasion",
+								"buckets": [
+									{
+										"value": "All Occasions",
+										"href": "/categories/Clothing~_~N-s4Z1z141y8/products",
+										"count": null
+									},
+									{
+										"value": "Birthday",
+										"href": "/categories/Clothing~_~N-s4Z1z141uy/products",
+										"count": null
+									},
+									{
+										"value": "Christmas",
+										"href": "/categories/Clothing~_~N-s4Z1z141vf/products",
+										"count": null
+									},
+									{
+										"value": "Easter",
+										"href": "/categories/Clothing~_~N-s4Z1z141y1/products",
+										"count": null
+									},
+									{
+										"value": "Formal Occasions",
+										"href": "/categories/Clothing~_~N-s4Z1z141xh/products",
+										"count": null
+									},
+									{
+										"value": "Get Well",
+										"href": "/categories/Clothing~_~N-s4Z1z141w5/products",
+										"count": null
+									},
+									{
+										"value": "Graduation",
+										"href": "/categories/Clothing~_~N-s4Z1z141v9/products",
+										"count": null
+									},
+									{
+										"value": "Halloween",
+										"href": "/categories/Clothing~_~N-s4Z1z141wd/products",
+										"count": null
+									},
+									{
+										"value": "Valentine's Day",
+										"href": "/categories/Clothing~_~N-s4Z1z141wj/products",
+										"count": null
+									},
+									{
+										"value": "Wedding",
+										"href": "/categories/Clothing~_~N-s4Z1z141t7/products",
+										"count": null
+									}
+								]
+							},
+							{
+								"title": "On Sale",
+								"buckets": [
+									{
+										"value": "On Sale",
+										"href": "/categories/Clothing~_~N-s4Zlfm0/products",
+										"count": null
+									}
+								]
+							}
+						],
+						"active": [],
+						"clear": null
+					},
+					"pagination": {
+						"page": 1,
+						"limit": null,
+						"count": null,
+						"pages": [
+							"/categories/Clothing~_~N-s4/products?No=0&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=24&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=48&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=72&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=96&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=120&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=144&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=168&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=192&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=216&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=240&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=264&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=288&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=312&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=336&Nrpp=24",
+							"/categories/Clothing~_~N-s4/products?No=360&Nrpp=24"
+						],
+						"prev": null,
+						"next": "/categories/Clothing~_~N-s4/products?No=24&Nrpp=24"
+					},
+					"breadcrumbs": [],
+					"cross_sales": [],
+					"up_sales": [],
+					"_bb_categories": [
+						{
+							"id": "Clothing~Outfits~_~N-s5",
+							"href": "/categories/Clothing~Outfits~_~N-s5/products",
+							"title": "Outfits"
+						},
+						{
+							"id": "Clothing~Dresses~_~N-s6",
+							"href": "/categories/Clothing~Dresses~_~N-s6/products",
+							"title": "Dresses"
+						},
+						{
+							"id": "Clothing~Tops~_~N-s7",
+							"href": "/categories/Clothing~Tops~_~N-s7/products",
+							"title": "Tops"
+						},
+						{
+							"id": "Clothing~Bottoms~_~N-s8",
+							"href": "/categories/Clothing~Bottoms~_~N-s8/products",
+							"title": "Bottoms"
+						},
+						{
+							"id": "Clothing~Costumes~_~N-s9",
+							"href": "/categories/Clothing~Costumes~_~N-s9/products",
+							"title": "Costumes"
+						},
+						{
+							"id": "Clothing~Sports-Uniforms~_~N-sa",
+							"href": "/categories/Clothing~Sports-Uniforms~_~N-sa/products",
+							"title": "Sports Uniforms"
+						}
+					]
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "PRODUCTS.PDP",
+			"method": "GET",
+			"route": "/products/prod11070215",
+			"request": {
+				"protocol": "http",
+				"form": {},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"title": "Black Skull Hoodie - Build-A-Bear Workshop US",
+					"identifiers": {
+						"prodId": "prod11070215",
+						"sku": "sku11220216"
+					},
+					"breadcrumbs": null,
+					"brand": null,
+					"description": {
+						"leadingEquity": "Teddy bear size black hoodie has white skull graphic. Product Details: SKU: 020294",
+						"bullets": [
+							"SKU: 020294"
+						]
+					},
+					"promos": [
+						{
+							"description": "",
+							"href": null
+						}
+					],
+					"images": [
+						{
+							"alt": null,
+							"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg",
+							"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20294L.jpg",
+							"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg"
+						}
+					],
+					"image": {
+						"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg",
+						"thumbs": {
+							"small": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg",
+							"large": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg"
+						}
+					},
+					"up_sales": [],
+					"variations": [
+						{
+							"options": {},
+							"condition": null,
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20294L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg"
+								}
+							],
+							"image": {
+								"full": "http://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg",
+								"thumbs": {
+									"small": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg",
+									"large": "http://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg"
+								}
+							},
+							"swatch": null,
+							"availability": {
+								"online": {
+									"id": "IN_STOCK",
+									"value": "In stock",
+									"fulfillment": null,
+									"forms": {
+										"add_to_cart": {
+											"method": "POST",
+											"action": "/checkout/cart",
+											"inputs": {
+												"prodId": "prod11070215"
+											}
+										},
+										"add_to_wishlist": {
+											"method": "POST",
+											"action": "/account/wishlist",
+											"inputs": {
+												"_dynSessConf": "-3278536534576020913",
+												"productId": "prod11070215",
+												"giftlistId": "gl316089124",
+												"skuId": "sku11220216"
+											}
+										}
+									}
+								}
+							},
+							"identifiers": {
+								"prodId": "prod11070215",
+								"sku": "sku11220216"
+							}
+						}
+					],
+					"_bb_recentlyViewed": [
+						{
+							"id": "",
+							"title": "Black Skull Hoodie",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/",
+							"images": [
+								{
+									"thumb": "https://www.buildabear.com/ProductImages/BABW_US/Small/20294s.jpg",
+									"1x": "https://www.buildabear.com/ProductImages/BABW_US/Large/20294L.jpg",
+									"2x": "https://www.buildabear.com/ProductImages/BABW_US/XL/20294x.jpg"
+								}
+							]
+						}
+					],
+					"_bb_dressMe": "/categories/Clothing~_~N-s4/products/",
+					"cross_sales": [
+						{
+							"id": "prod82682",
+							"title": "Black Canvas High-tops",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod82682",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/15269s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/15269L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/15269x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod81658",
+							"title": "Classic Jeans",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod81658",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/14304s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/14304L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/14304x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod10630047",
+							"title": "Black Rimmed Glasses",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "4.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod10630047",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/19000s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/19000L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/19000x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070254",
+							"title": "Checkerboard Vest Outfit 2 pc.",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "12.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070254",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20335s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20335L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20335x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070165",
+							"title": "Gray Blazer 2-fer & Jeans Outfit 2 pc.",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "13.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070165",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20170s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20170L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20170x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod10500001",
+							"title": "Happy Hugs Classic Teddy Bear",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "15.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod10500001",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/18563s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/18563L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/18563x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070229",
+							"title": "smallfrys®; Skeleton Costume",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070229",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20308s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20308L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20308x.jpg"
+								}
+							]
+						}
+					]
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "CART.ADD",
 			"method": "POST",
-			"route": "/session/new",
+			"route": "/checkout/cart",
 			"request": {
 				"protocol": "http",
 				"form": {
-					"login": "johnnyhof@gmail.com",
-					"password": "testing"
+					"prodId": "prod11070215"
+				},
+				"query": {}
+			},
+			"response": {
+				"body": {
+					"title": "Basket",
+					"products": [
+						{
+							"title": "Black Skull Hoodie",
+							"id": "prod11070215",
+							"brand": null,
+							"image": "http://www.buildabear.com/ProductImages/BABW_US/Medium/20294m.jpg",
+							"options": {},
+							"quantity": "1",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"currency": "USD"
+							},
+							"availability": {
+								"online": {
+									"id": "IN_STOCK",
+									"value": "In Stock"
+								}
+							},
+							"fulfillment": null,
+							"href": "/products/prod11070215",
+							"forms": {
+								"remove_from_cart": {
+									"method": "DELETE",
+									"action": "/checkout/cart",
+									"inputs": {
+										"id": "ci2712039198",
+										"sessConf": "-3278536534576020913",
+										"groupCid": "000"
+									}
+								},
+								"update_quantity": {
+									"method": "PUT",
+									"action": "/checkout/cart",
+									"inputs": {
+										"id": "ci2712039198",
+										"sessConf": "-3278536534576020913"
+									}
+								},
+								"move_to_wishlist": {
+									"method": "PUT",
+									"action": "/account/wishlist",
+									"inputs": {}
+								}
+							},
+							"_bb_dressMe": null
+						}
+					],
+					"forms": {
+						"checkout": {
+							"cc": {
+								"method": "POST",
+								"action": "/checkout/cc",
+								"inputs": {}
+							}
+						}
+					},
+					"cross_sales": null,
+					"up_sales": [
+						{
+							"id": "prod82682",
+							"title": "Black Canvas High-tops",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod82682",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/15269s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/15269L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/15269x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070429",
+							"title": "White Faux Fur Boots",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "9.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070429",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20654s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20654L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20654x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod80042",
+							"title": "Personalized Build-A-Sound Message",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "8.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod80042",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/1996s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/1996L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/1996x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070472",
+							"title": "Red Bell Collar",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "4.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070472",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20698s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20698L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20698x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070419",
+							"title": "Pink Fair Isle Dress",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070419",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20642s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20642L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20642x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070422",
+							"title": "Holiday Dog Sweater",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "5.00",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070422",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20645s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20645L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20645x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod11070408",
+							"title": "Red Sparkle Bow Flats",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod11070408",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/20631s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/20631L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/20631x.jpg"
+								}
+							]
+						},
+						{
+							"id": "prod10220008",
+							"title": "White Sequin Flats",
+							"price": {
+								"retail": null,
+								"sale": null,
+								"value": "7.50",
+								"currency": "USD"
+							},
+							"href": "/products/prod10220008",
+							"images": [
+								{
+									"alt": null,
+									"thumb": "http://www.buildabear.com/ProductImages/BABW_US/Small/16701s.jpg",
+									"1x": "http://www.buildabear.com/ProductImages/BABW_US/Large/16701L.jpg",
+									"2x": "http://www.buildabear.com/ProductImages/BABW_US/XL/16701x.jpg"
+								}
+							]
+						}
+					],
+					"summary": {
+						"subtotal": "7.50",
+						"shipping": null,
+						"tax": null,
+						"total": "7.50",
+						"promos": [
+							{
+								"description": "Shipping"
+							}
+						],
+						"currency": "USD"
+					}
+				},
+				"error": {},
+				"status": 200
+			},
+			"error": {}
+		},
+		{
+			"name": "PROMO.APPLY",
+			"method": "POST",
+			"route": "/checkout/promo",
+			"request": {
+				"protocol": "http",
+				"form": {
+					"promo_code": "BABW5OFF30"
 				},
 				"query": {}
 			},
@@ -42,62 +1814,6 @@
 				},
 				"error": {},
 				"status": 200
-			},
-			"error": {}
-		},
-		{
-			"name": "SESSION.STATUS",
-			"method": "GET",
-			"route": "/session/status",
-			"request": {
-				"protocol": "http",
-				"form": {},
-				"query": {}
-			},
-			"response": {
-				"body": {
-					"result": "OK"
-				},
-				"error": {},
-				"status": 200
-			},
-			"error": {}
-		},
-		{
-			"name": "SESSION.LOGOUT",
-			"method": "DELETE",
-			"route": "/session/destroy",
-			"request": {
-				"protocol": "http",
-				"form": {},
-				"query": {}
-			},
-			"response": {
-				"body": {
-					"result": "OK"
-				},
-				"error": {},
-				"status": 200
-			},
-			"error": {}
-		},
-		{
-			"name": "SESSION.STATUS",
-			"method": "GET",
-			"route": "/session/status",
-			"request": {
-				"protocol": "http",
-				"form": {},
-				"query": {}
-			},
-			"response": {
-				"body": {
-					"result": "Unauthorized"
-				},
-				"error": {
-					"result": "Unauthorized"
-				},
-				"status": 401
 			},
 			"error": {}
 		}

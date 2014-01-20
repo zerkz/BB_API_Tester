@@ -41,14 +41,14 @@ exports.fullTest = function () {
 // show product index page
 //   
 exports.index = {
+  name : testClass + '.index',
   dependencies: [
                   tests.categories.cats, 
                   tests.categories.subcats
                 ], 
                 
   exec : function(error, response, body, callback) {
-    var test = testClass + '.index';
-    logger.printTitle(test);
+    logger.printTitle(exports.index.name);
     
     // set up request according to settings
     if (helpers.applyConfig(indexUrl)) {
@@ -59,11 +59,11 @@ exports.index = {
     
     // validate request setup
     if (!url) {
-      return controller.testFailed(test, 'Failed to parse a product index page for navigation', callback);
+      return controller.testFailed(exports.index.name, 'Failed to parse a product index page for navigation', callback);
     }
     
     //make request
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.index.name, {
       uri    : url,
       method : 'GET'
     }, callback);
@@ -74,6 +74,7 @@ exports.index = {
 // shows a product index page
 //
 exports.pdp = {
+  name : testClass + '.pdp',
   dependencies: [
                   tests.categories.cats, 
                   tests.categories.subcats, 
@@ -81,8 +82,7 @@ exports.pdp = {
                 ],
   
   exec : function(error, response, body, callback) {
-    var test = testClass + '.pdp';
-    logger.printTitle(test);
+    logger.printTitle(exports.pdp.name);
     
     // set up request according to settings
     if (helpers.applyConfig(pdpUrl)) {
@@ -93,11 +93,11 @@ exports.pdp = {
     
     // validate request setup
     if (!url) {
-      return controller.testFailed(test, 'Failed to parse a pdp for navigation', callback);
+      return controller.testFailed(exports.pdp.name, 'Failed to parse a pdp for navigation', callback);
     }
     
     //make request
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.pdp.name, {
       uri    : url,
       method : 'GET',
     }, callback);

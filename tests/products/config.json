@@ -4,7 +4,7 @@
     "url"  : "/categoris/{id}/products"
   },
   "pdpUrl" : {
-    "apply": true,
+    "apply": false,
     "url"  : "/products/{id}"
   },
   
