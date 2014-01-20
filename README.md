@@ -28,20 +28,21 @@ test suite example from addresses.js:
   - [x] add
   - [x] update
   - [x] remove
-- [ ] Checkout
-  - [ ] submit
-  - [ ] review
-  - [ ] confirm
-  - [ ] receipt)
-- [ ] Session 
-  - [ ] status
-  - [ ] login
-  - [ ] logout
+- [x] Checkout
+  - [x] submit
+  - [x] review
+  - [x] confirm
+  - [x] receipt
+- [x] Session 
+  - [x] status
+  - [x] login
+  - [x] logout
+- [ ] account
   - [ ] signup
 - [ ] orders
   - [ ] orders
   - [ ] single roder
-- [ ] promo
+- [x] promo
 - [ ] giftcard
 - [ ] addresses
   - [ ] add
@@ -70,7 +71,7 @@ sample test `node test cart -r`
   
 * `-r`, `--random`  Make nav selections/submissions by parsing a random selection when possible
 * `-i`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
-* `-s`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
+* `-s`, `--single`  Run a single test. Dependencies will be added to the testset if the config is not used
 * `-o`, `--port`    make requests to the specified port
 * `-h`, `--host`    make requests to the specified host'
   
