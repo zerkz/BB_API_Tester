@@ -36,7 +36,7 @@ exports.submit = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    logger.printTitle(this.name);
+    logger.printTitle(exports.submit.name);
     
     // set up request according to settings
     if (controller.realCreds) {
@@ -47,10 +47,10 @@ exports.submit = {
     
     // validate request setup
     if (!(form)) {
-      return controller.testFailed(this.name, 'Failed to parse a checkout submit form', callback);
+      return controller.testFailed(exports.submit.name, 'Failed to parse a checkout submit form', callback);
     }
     
-    controller.reqAndLog(this.name, {
+    controller.reqAndLog(exports.submit.name, {
       uri    : '/checkout/cc',
       method : 'POST',
       form   : form
@@ -63,9 +63,9 @@ exports.review = {
   dependencies: [],
   
   exec : function(error, response, body, callback) {
-    logger.printTitle(this.review);
+    logger.printTitle(exports.review.name);
     
-    controller.reqAndLog(this.review, {
+    controller.reqAndLog(exports.review.name, {
       uri    : '/checkout/confirm',
       method : 'GET'
     }, callback);

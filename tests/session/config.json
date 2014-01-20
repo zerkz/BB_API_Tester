@@ -2,7 +2,7 @@
   "requiredForms" : {
     "login" : {
       "login"    : "johnnyhof@gmail.com",
-      "password" : "tesing"
+      "password" : "testing"
     }  
   } 
 }
