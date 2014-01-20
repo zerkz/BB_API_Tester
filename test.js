@@ -1,10 +1,10 @@
-var request = require('request').defaults({ jar: true, followAllRedirects: true })
-  , _       = require('lodash')
-  , tests   = require(__dirname + '/tests')()
-  , program = require('commander')
-  , helpers = require(__dirname + '/lib/helpers')
-  , logger  = require(__dirname + '/lib/logger')
-  , controller  = require(__dirname + '/lib/controller')
+var request    = require('request').defaults({ jar: true, followAllRedirects: true })
+  , _          = require('lodash')
+  , tests      = require(__dirname + '/tests')()
+  , program    = require('commander')
+  , helpers    = require(__dirname + '/lib/helpers')
+  , logger     = require(__dirname + '/lib/logger')
+  , controller = require(__dirname + '/lib/controller')
   
 //
 // simplify helper function calls
