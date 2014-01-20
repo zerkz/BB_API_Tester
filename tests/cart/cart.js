@@ -20,16 +20,15 @@ exports.fullTest = function () {
         this.update,
         this.remove,
       ];
-      
   //
   // only navigate to cats and pdp if no custom form is being used,
   // or the user chose ot ignore config settings
   //
-  if (!forms.add.apply || controller.ignoreSettings) {
-    testSet.unshift(tests.products.pdp)
-    testSet.unshift(tests.products.index)
-    testSet.unshift(tests.categories.subcats)
-    testSet.unshift(tests.categories.cats)
+  if ((!forms.add.apply || controller.ignoreSettings ) && !controller.addProduct) {
+    testSet = controller.addWithDependencies('product', 'pdp', testSet);
+  
+  } else if(controller.addProduct) {
+    testSet.unshift(testSet, tests.products.pdp);
   }
   testSet.unshift(this.show)
   
@@ -50,9 +49,9 @@ exports.show = {
   dependencies : [],
   
   exec : function(error, response, body, callback) {
-    logger.printTitle(this.name);
+    logger.printTitle(exports.show.name);
     
-    controller.reqAndLog(this.name, {
+    controller.reqAndLog(exports.show.name, {
       uri    : '/checkout/cart',
       method : 'GET'
     }, callback);

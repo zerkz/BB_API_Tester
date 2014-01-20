@@ -25,10 +25,10 @@ exports.fullTest = function () {
   // only navigate to cats if the user chose to ignore config settings
   // or the config speficied not to use the config index url
   //
-  if (!indexUrl.apply || controller.ignoreSettings) {
+  if ((!indexUrl.apply || controller.ignoreSettings) && !controller.addProduct) {
     testSet.unshift(tests.categories.subcats)
     testSet.unshift(tests.categories.cats)
-  }  
+  }
   
   controller.execSet(testSet);
 }
@@ -53,6 +53,7 @@ exports.index = {
     // set up request according to settings
     if (helpers.applyConfig(indexUrl)) {
       var url  = indexUrl.url;
+      
     } else {
       url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)
     }
@@ -85,8 +86,12 @@ exports.pdp = {
     logger.printTitle(exports.pdp.name);
     
     // set up request according to settings
-    if (helpers.applyConfig(pdpUrl)) {
+    if (helpers.applyConfig(pdpUrl) && !controller.addProduct) {
       var url  = pdpUrl.url;    
+    
+    } else if (controller.addProduct) {
+      url = '/products/' + controller.addProduct
+    
     } else {
       url = helpers.propFromBody(body, ['products'], ['href'], controller.random)
     }

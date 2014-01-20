@@ -8,6 +8,7 @@ module.exports = exports = function () {
     products   : require(__dirname + '/products/products'),
     session    : require(__dirname + '/session/session'),
     checkout   : require(__dirname + '/checkout/checkout'),
-    promo      : require(__dirname + '/promo/promo')
+    promo      : require(__dirname + '/promo/promo'),
+    orders     : require(__dirname + '/orders/orders'),
   };
 }
