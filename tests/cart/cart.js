@@ -25,7 +25,7 @@ exports.fullTest = function () {
   // or the user chose ot ignore config settings
   //
   if ((!forms.add.apply || controller.ignoreSettings ) && !controller.addProduct) {
-    testSet = controller.addWithDependencies('product', 'pdp', testSet);
+    testSet = controller.addWithDependencies('products', 'pdp', testSet);
   
   } else if(controller.addProduct) {
     testSet.unshift(testSet, tests.products.pdp);
