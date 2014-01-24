@@ -10,7 +10,7 @@ var request    = require('request').defaults({ jar: true, followAllRedirects: tr
 // simplify helper function calls
 //
 var testList = helpers.testList
-  , exitWMsg = helpers.exitWMsg
+  , exitWMsg = controller.exitWMsg
 
 //
 // set up command line compatibility
@@ -70,10 +70,11 @@ logger.initTestSet(testName, controller.host,controller.port)
 // execute the test
 //
 if (singleTest) {
-  var testSet = controller.addWithDependencies(testName, singleTest, [])
-  
+  var testSet = [tests[testName][singleTest]]
   controller.execSet(testSet)
   
 } else {
   tests[testName].fullTest();
 }
+
+controller.fillInDecpendencies()

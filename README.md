@@ -4,15 +4,14 @@ This repo is a self contained tester for the Branding Brand API. It provides bot
 
 test suite example from addresses.js: 
 ```javascript
-
-  controller.execSet([
+  [
     tests.session.login,
     this.show,
     this.remove,
     this.add,
     this.update,
     this.remove
-  ]);
+  ]
 ```
 
 # Current State
@@ -28,25 +27,25 @@ test suite example from addresses.js:
   - [x] add
   - [x] update
   - [x] remove
-- [ ] Checkout
-  - [ ] submit
-  - [ ] review
-  - [ ] confirm
-  - [ ] receipt)
-- [ ] Session 
-  - [ ] status
-  - [ ] login
-  - [ ] logout
-  - [ ] signup
-- [ ] orders
-  - [ ] orders
-  - [ ] single roder
-- [ ] promo
+- [x] Checkout
+  - [x] submit
+  - [x] review
+  - [x] confirm
+  - [x] receipt
+- [x] Session 
+  - [x] status
+  - [x] login
+  - [x] logout
+  - [x] signup
+- [x] orders
+  - [x] orders
+  - [x] single order
+- [x] promo
 - [ ] giftcard
-- [ ] addresses
-  - [ ] add
-  - [ ] update
-  - [ ] remove
+- [x] addresses
+  - [x] add
+  - [x] update
+  - [x] remove
 
 
 ## Quick Start
@@ -88,10 +87,18 @@ The following helpers are in place to prevent the tests from erroring out if the
   * `helpers.getSubProp(obj, chain)`
     * attempts to get the object at the end of the property chain (chain) for the objects (obj)
 
-  * `helpers.getProperty(list, propChain, random, index)`
+  * `helpers.getProperty(list, propChain, random, condition)`
     * selects an element from that array, the first by default, and random if random is true
-    * selects a specific index if index has a value (overrides random)
-    * finds the object at the end property chain (propChain), for the index selected
+    * returns the object ad the end of the property chain
+    * checks that the (optional) condition is met
+      ```
+      condition = {
+        key   : 'propertyName',
+        value : 'ValueTestedAgainst'
+        equal : true/false
+      }
+      ```
+    
     
   * `helpers.propFromBody(body, preChain, postChain, random, index)`
     * parses the json body for an array at the end of the property chain (preChain)

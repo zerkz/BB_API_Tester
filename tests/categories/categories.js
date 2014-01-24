@@ -3,55 +3,44 @@ var helpers = require(process.cwd() + '/lib/helpers')
   , logger  = require(process.cwd() + '/lib/logger')
   , tests   = require(process.cwd() + '/tests')()
 
+////// request setup //////
 
 var testClass = 'categories';
 
 // load config values
 var config    = helpers.loadJson(__dirname)
   , subcatUrl = config.subcatUrl
+  
+////// exports //////
 
-//
-// test a standard suite of requests
-//
-exports.fullTest = function () {
-  controller.execSet([
-    this.cats,
-    this.subcats,
-  ]);
+module.exports = {
+  fullTest      : fullTest,
+  
+  // individual
+  categories    : categories,
+  subcategories : subcategories
 }
- 
-//
-// individual requests to be used in both custom and standard test suites
-//
 
-//
-// show categories
-//   dependencies:
-//     none
-//
-exports.cats = {
-  name         : testClass + '.categories',
-  dependencies : [],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.cats.name);
-    
-    controller.reqAndLog(exports.cats.name, {
+////// full test set //////
+
+var fullTest = [this.subcategories];
+  
+////// individual tests //////
+
+var categories = {
+  name       : testClass + '.categories',
+  exec       : function(error, response, body, callback) {
+    controller.reqAndLog(categories.name, {
       uri    : '/categories/',
       method : 'GET'
     }, callback);
   }
 }
 
-//
-// adds an item to the cart
-//
-exports.subcats = {
-  name         : testClass + '.subcategories',
-  dependencies : [this.cats],
-  exec         : function(error, response, body, callback) {
-    return callback(null, error, response, body)
-    logger.printTitle(exports.subcats.name);
-    
+var subcategories = {
+  name       : testClass + '.subcategories',
+  dependency : this.categories,
+  exec       : function(error, response, body, callback) {    
     // set up request according to settings
     if (helpers.applyConfig(subcatUrl)) {
       var url  = subcatUrl.url;
@@ -61,11 +50,11 @@ exports.subcats = {
     
     // validate request setup
     if (!url) {
-      return controller.testFailed(exports.subcats.name, 'Failed to parse a subcategory for navigation', callback);
+      return controller.testFailed(subcategories.name, 'Failed to parse a subcategory for navigation', callback);
     }
     
     //make request
-    controller.reqAndLog(exports.subcats.name, {
+    controller.reqAndLog(subcategories.name, {
       uri    : url,
       method : 'GET',
     }, callback);

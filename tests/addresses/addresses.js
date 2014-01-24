@@ -3,6 +3,8 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , logger     = require(process.cwd() + '/lib/logger')
   , tests      = require(process.cwd() + '/tests')()
 
+////// request setup //////
+
 var testClass = 'addressed';
 
 // load config values
@@ -11,43 +13,45 @@ var config = helpers.loadJson(__dirname)
   , url    = config.urls[type]
   , forms  = config.requiredForms
 
-//
-// test a standard suite of requests
-//
-exports.fullTest = function () {
-  controller.execSet([
-    tests.session.login,
-    this.show,
-    // this.remove,
-    // this.add,
-    this.update,
-    // this.remove
-  ]);
+////// exports //////
+
+module.exports = {
+  fullTest : fullTest,
+  
+  //individual tests
+  show     : show,
+  add      : add,
+  update   : update,
+  remove   : remove
 }
- 
-//
-// individual requests to be used in both custom and standard test suites
-//
-exports.show = {
-  name         : testClass + '.show',
-  dependencies : [],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.show.name);
-    
-    controller.reqAndLog(exports.show.name, {
+
+////// full test set //////
+
+var fullTest = [
+  tests.session.login,
+  show,
+  remove,
+  add,
+  update,
+  remove
+]
+
+////// individual tests //////
+
+var show = {
+  name : testClass + '.show',
+  exec : function (error, response, body, callback) {
+    controller.reqAndLog(show.name, {
       uri    : url,
       method : 'GET'
     }, callback);
   }
 }
 
-exports.add = {
-  name         : testClass + '.add',
-  dependencies : [],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.add.name);
-    
-    controller.reqAndLog(exports.add.name, {
+var add = {
+  name : testClass + '.add',
+  exec : function (error, response, body, callback) {
+    controller.reqAndLog(add.name, {
       uri    : url,
       method : 'POST',
       form   : forms.add
@@ -55,23 +59,21 @@ exports.add = {
   }
 }
 
-exports.update = {
-  name         : testClass + '.update',
-  dependencies : [this.show],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.update.name);
+var update = {
+  name       : testClass + '.update',
+  dependency : show,
+  exec       : function (error, response, body, callback) {
     
     // set up request according to settings
     var form = helpers.propFromBody(body, ['addresses'], ['forms', 'update_address'], controller.random)
     
     form.inputs = helpers.mergeObj(form.inputs, forms.update);
     
-    // validate request setup
     if (!(form && form.action && form.method && form.inputs)) {
-      controller.testFailed(exports.add.name, 'Failed to parse a cart add form', callback);
+      controller.testFailed(add.name, 'Failed to parse a cart add form', callback);
     }
     
-    controller.reqAndLog(exports.update.name, {
+    controller.reqAndLog(update.name, {
       uri    : form.action,
       method : form.method,
       form   : form.inputs
@@ -79,13 +81,10 @@ exports.update = {
   }
 }
 
-exports.remove = {
-  name         : testClass + '.remove',
-  dependencies : [],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.remove.name);
-    
-    controller.reqAndLog(exports.remove.name, {
+var remove = {
+  name : testClass + '.remove',
+  exec : function (error, response, body, callback) {
+    controller.reqAndLog(remove.name, {
       uri    : url,
       method : 'DELETE',
       form   : forms.remove
