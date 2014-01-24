@@ -1,8 +1,7 @@
 
-
 # WARNING 
 this repo is currently undergoing major refactoring. any work done will likely be unmerge-able 01/24/14
-for a (relatively) stable version, pleace pull from commit  merging the [refactoring pull request](https://github.com/johnhof/BB_API_Tester/commit/8deeea91c5e2fc58f9c9c5f755011b0c9f0f596f)
+for a (relatively) stable version, please pull from commit  merging the [refactoring pull request](https://github.com/johnhof/BB_API_Tester/commit/8deeea91c5e2fc58f9c9c5f755011b0c9f0f596f)
 
 # BB API Tester
 
