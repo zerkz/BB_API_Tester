@@ -84,10 +84,10 @@ Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests
 
 The following helpers are in place to prevent the tests from erroring out if the json returned is abnormal. None of the folloing functions will throw errors if the object being parsed doesnt exist. Each function check for existence before executing selection
 
-  * `helpers.getSubProp(obj, chain)`
+  * `utils.getSubProp(obj, chain)`
     * attempts to get the object at the end of the property chain (chain) for the objects (obj)
 
-  * `helpers.getProperty(list, propChain, random, condition)`
+  * `utils.getProperty(list, propChain, random, condition)`
     * selects an element from that array, the first by default, and random if random is true
     * returns the object ad the end of the property chain
     * checks that the (optional) condition is met
@@ -100,13 +100,13 @@ The following helpers are in place to prevent the tests from erroring out if the
       ```
     
     
-  * `helpers.propFromBody(body, preChain, postChain, random, index)`
+  * `utils.propFromBody(body, preChain, postChain, random, index)`
     * parses the json body for an array at the end of the property chain (preChain)
     * selects an element from that array, the first by default, and random if random is true
     * selects a specific index if index has a value (overrides random)
     * finds the object at the end property chain (postChain), for the index selected
     
-example from products.js: `url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)`
+example from products.js: `url = utils.propFromBody(body, ['categories'], ['href'], controller.random)`
 
 ## TODO
 

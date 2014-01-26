@@ -1,14 +1,15 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , utils      = require(process.cwd() + '/lib/testUtilities')
+
 
 ////// request setup //////
 
 var testClass = 'categories';
 
 // load config values
-var config    = helpers.loadJson(__dirname)
+var config    = utils.loadJson(__dirname)
   , subcatUrl = config.subcatUrl
   
 ////// exports //////
@@ -23,40 +24,46 @@ module.exports = {
 
 ////// full test set //////
 
-var fullTest = [this.subcategories];
+function fullTest () {
+  return [this.subcategories];
+}
   
 ////// individual tests //////
 
-var categories = {
-  name       : testClass + '.categories',
-  exec       : function(error, response, body, callback) {
-    controller.reqAndLog(categories.name, {
-      uri    : '/categories/',
-      method : 'GET'
-    }, callback);
+function categories () {
+  return {
+    name       : testClass + '.categories',
+    exec       : function(error, response, body, callback) {
+      controller.reqAndLog(categories.name, {
+        uri    : '/categories/',
+        method : 'GET'
+      }, callback);
+    }
   }
 }
 
-var subcategories = {
-  name       : testClass + '.subcategories',
-  dependency : this.categories,
-  exec       : function(error, response, body, callback) {    
-    // set up request according to settings
-    if (helpers.applyConfig(subcatUrl)) {
-      var url  = subcatUrl.url;
-    } else {
-      url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)
+function subcategories () {
+  return {
+    name       : testClass + '.subcategories',
+    dependency : categories,
+    exec       : function(error, response, body, callback) {    
+      // set up request according to settings
+      if (utils.applyConfig(subcatUrl)) {
+        var url  = subcatUrl.url;
+      } else {
+        url = utils.propFromBody(body, ['categories'], ['href'], controller.random)
+      }
+      
+      // validate request setup
+      if (!url) {
+        return controller.testFailed(subcategories.name, 'Failed to parse a subcategory for navigation', callback);
+      }
+      
+      //make request
+      controller.reqAndLog(subcategories.name, {
+        uri    : url,
+        method : 'GET',
+      }, callback);
     }
-    
-    // validate request setup
-    if (!url) {
-      return controller.testFailed(subcategories.name, 'Failed to parse a subcategory for navigation', callback);
-    }
-    
-    //make request
-    controller.reqAndLog(subcategories.name, {
-      uri    : url,
-      method : 'GET',
-    }, callback);
   }
 }

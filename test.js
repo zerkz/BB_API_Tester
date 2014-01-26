@@ -5,6 +5,7 @@ var request    = require('request').defaults({ jar: true, followAllRedirects: tr
   , helpers    = require(__dirname + '/lib/helpers')
   , logger     = require(__dirname + '/lib/logger')
   , controller = require(__dirname + '/lib/controller')
+  , utils      = require(process.cwd() + '/lib/testUtilities');
   
 //
 // simplify helper function calls
@@ -16,7 +17,7 @@ var testList = helpers.testList
 // set up command line compatibility
 //
 program.version('0.0.1')
-  .usage('[test name]\n' + testList())
+  .usage('[test name]\n' + utils.testList())
   .option('-r, --random',        'Make nav selections/submissions by parsing a random selection when possible')
   .option('-i, --ignore',        'Ignore the config settings (config settings overwrite command line settings')
   .option('-s  --single [name]',        'Run the single test identified using the config values')
@@ -55,7 +56,7 @@ if(singleTest) {
 //
 // parse and store test configuration variables
 //
-var config = helpers.loadJson(__dirname)
+var config = utils.loadJson(__dirname)
 
 controller.host           = program.host || config.host || 'localhost'
 controller.port           = program.port || config.port || '4000'
@@ -70,11 +71,9 @@ logger.initTestSet(testName, controller.host,controller.port)
 // execute the test
 //
 if (singleTest) {
-  var testSet = [tests[testName][singleTest]]
-  controller.execSet(testSet)
-  
+  var testSet = [tests[testName][singleTest]()];  
 } else {
-  tests[testName].fullTest();
+  var testSet = tests[testName].fullTest();
 }
 
-controller.fillInDecpendencies()
+controller.execSet(testSet)
