@@ -1,0 +1,10 @@
+{
+  "forms" : {
+    "method" : {
+      "apply"  : false, 
+      "action" : "/checkout/shipping_methods",
+      "method" : "PUT",
+      "inputs" : {}
+    }  
+  } 
+}
