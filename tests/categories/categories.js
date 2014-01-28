@@ -1,73 +1,69 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , utils      = require(process.cwd() + '/lib/testUtilities')
 
+
+////// request setup //////
 
 var testClass = 'categories';
 
 // load config values
-var config    = helpers.loadJson(__dirname)
+var config    = utils.loadJson(__dirname)
   , subcatUrl = config.subcatUrl
+  
+////// exports //////
 
-//
-// test a standard suite of requests
-//
-exports.fullTest = function () {
-  controller.execSet([
-    this.cats,
-    this.subcats,
-  ]);
+module.exports = {
+  fullTest      : fullTest,
+  
+  // individual
+  categories    : categories,
+  subcategories : subcategories
 }
- 
-//
-// individual requests to be used in both custom and standard test suites
-//
 
-//
-// show categories
-//   dependencies:
-//     none
-//
-exports.cats = {
-  name         : testClass + '.categories',
-  dependencies : [],
-  exec         : function(error, response, body, callback) {
-    logger.printTitle(exports.cats.name);
-    
-    controller.reqAndLog(exports.cats.name, {
-      uri    : '/categories/',
-      method : 'GET'
-    }, callback);
+////// full test set //////
+
+function fullTest () {
+  return [this.subcategories];
+}
+  
+////// individual tests //////
+
+function categories () {
+  return {
+    name       : testClass + '.categories',
+    exec       : function(error, response, body, callback) {
+      controller.reqAndLog(categories.name, {
+        uri    : '/categories/',
+        method : 'GET'
+      }, callback);
+    }
   }
 }
 
-//
-// adds an item to the cart
-//
-exports.subcats = {
-  name         : testClass + '.subcategories',
-  dependencies : [this.cats],
-  exec         : function(error, response, body, callback) {
-    return callback(null, error, response, body)
-    logger.printTitle(exports.subcats.name);
-    
-    // set up request according to settings
-    if (helpers.applyConfig(subcatUrl)) {
-      var url  = subcatUrl.url;
-    } else {
-      url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)
+function subcategories () {
+  return {
+    name       : testClass + '.subcategories',
+    dependency : categories,
+    exec       : function(error, response, body, callback) {    
+      // set up request according to settings
+      if (utils.applyConfig(subcatUrl)) {
+        var url  = subcatUrl.url;
+      } else {
+        url = utils.propFromBody(body, ['categories'], ['href'], controller.random)
+      }
+      
+      // validate request setup
+      if (!url) {
+        return controller.testFailed(subcategories.name, 'Failed to parse a subcategory for navigation', callback);
+      }
+      
+      //make request
+      controller.reqAndLog(subcategories.name, {
+        uri    : url,
+        method : 'GET',
+      }, callback);
     }
-    
-    // validate request setup
-    if (!url) {
-      return controller.testFailed(exports.subcats.name, 'Failed to parse a subcategory for navigation', callback);
-    }
-    
-    //make request
-    controller.reqAndLog(exports.subcats.name, {
-      uri    : url,
-      method : 'GET',
-    }, callback);
   }
 }

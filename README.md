@@ -9,15 +9,14 @@ This repo is a self contained tester for the Branding Brand API. It provides bot
 
 test suite example from addresses.js: 
 ```javascript
-
-  controller.execSet([
+  [
     tests.session.login,
     this.show,
     this.remove,
     this.add,
     this.update,
     this.remove
-  ]);
+  ]
 ```
 
 # Current State
@@ -42,17 +41,17 @@ test suite example from addresses.js:
   - [x] status
   - [x] login
   - [x] logout
-- [ ] account
-  - [ ] signup
-- [ ] orders
-  - [ ] orders
-  - [ ] single roder
+  - [x] signup
+- [x] orders
+  - [x] orders
+  - [x] single order
 - [x] promo
 - [ ] giftcard
-- [ ] addresses
-  - [ ] add
-  - [ ] update
-  - [ ] remove
+- [x] addresses
+  - [x] add
+  - [x] update
+  - [x] remove
+
 
 ## Quick Start
 
@@ -90,21 +89,29 @@ Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests
 
 The following helpers are in place to prevent the tests from erroring out if the json returned is abnormal. None of the folloing functions will throw errors if the object being parsed doesnt exist. Each function check for existence before executing selection
 
-  * `helpers.getSubProp(obj, chain)`
+  * `utils.getSubProp(obj, chain)`
     * attempts to get the object at the end of the property chain (chain) for the objects (obj)
 
-  * `helpers.getProperty(list, propChain, random, index)`
+  * `utils.getProperty(list, propChain, random, condition)`
     * selects an element from that array, the first by default, and random if random is true
-    * selects a specific index if index has a value (overrides random)
-    * finds the object at the end property chain (propChain), for the index selected
+    * returns the object ad the end of the property chain
+    * checks that the (optional) condition is met
+      ```
+      condition = {
+        key   : 'propertyName',
+        value : 'ValueTestedAgainst'
+        equal : true/false
+      }
+      ```
     
-  * `helpers.propFromBody(body, preChain, postChain, random, index)`
+    
+  * `utils.propFromBody(body, preChain, postChain, random, index)`
     * parses the json body for an array at the end of the property chain (preChain)
     * selects an element from that array, the first by default, and random if random is true
     * selects a specific index if index has a value (overrides random)
     * finds the object at the end property chain (postChain), for the index selected
     
-example from products.js: `url = helpers.propFromBody(body, ['categories'], ['href'], controller.random)`
+example from products.js: `url = utils.propFromBody(body, ['categories'], ['href'], controller.random)`
 
 ## TODO
 

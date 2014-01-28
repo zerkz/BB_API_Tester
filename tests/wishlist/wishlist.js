@@ -1,67 +1,60 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/lib/controller')
   , logger     = require(process.cwd() + '/lib/logger')
+  , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities')
-  
-////// request setup //////
 
-var testClass = 'cart';
+////// request setup //////
+  
+var testClass = 'wishlist';
 
 // load config values
-var config = utils.loadJson(__dirname)
-  , url    = config.urls
-  , forms  = config.forms
-  
+  var config = utils.loadJson(__dirname)
+    , url    = config.urls
+    , forms  = config.forms
+
 ////// exports //////
 
 module.exports = {
   fullTest : fullTest,
   
-  // individual
-  show     : show,
+  //individual
   add      : add,
   update   : update,
   remove   : remove
 }
 
 ////// full test set //////
-  
-function fullTest () {
+
+function fullTest() {
   return [
+    tests.session.login,
     add,
     update,
     remove,
   ];
 }
-  
+
 ////// individual tests //////
 
-//
-// shows the contents of a cart
-//
 function show () {
- return {
-    name : testClass + '.show',
-    exec : function(error, response, body, callback) {
+  return {
+    name       : testClass + '.show',
+    dependency : tests.session.login,
+    exec       : function (error, response, body, callback) {
       controller.reqAndLog(show.name, {
-        uri    : '/checkout/cart',
+        uri    : '/account/wishlist',
         method : 'GET'
       }, callback);
     }
-  };
+  }
 }
     
-
-//
-// adds an item to the cart
-//   dependencies:
-//
 function add () {
-  var tests = require(process.cwd() + '/tests')()
   return {
     name       : testClass + '.add',
     dependency : tests.products.pdp,
-    exec       : function (error, response, body, callback) {
+    exec       : function(error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
@@ -85,10 +78,9 @@ function add () {
 
 function update () {
   return {
-    name          : testClass + '.update',
-    dependency    : show,
-    cartDependant : true,
-    exec          : function(error, response, body, callback) {    
+    name       : testClass + '.update',
+    dependency : show,
+    exec       : function(error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
@@ -124,15 +116,13 @@ function update () {
   }
 }
 
-//
-// updates an item to the cart
-//
 function remove () {
   return {
-    name          : testClass + '.remove',
-    dependency    : show,
-    cartDependant : true,
-    exec          : function(error, response, body, callback) {    
+    name       : testClass + '.remove',
+    dependency : show,
+    exec       : function(error, response, body, callback) {
+      logger.printTitle(remove.name);
+      
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add

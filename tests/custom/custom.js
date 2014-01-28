@@ -1,75 +1,75 @@
-var helpers = require(process.cwd() + '/lib/helpers')
-  , controller  = require(process.cwd() + '/lib/controller')
-  , logger  = require(process.cwd() + '/lib/logger')
-  , tests   = require(process.cwd() + '/tests')()
+var helpers    = require(process.cwd() + '/lib/helpers')
+  , controller = require(process.cwd() + '/lib/controller')
+  , logger     = require(process.cwd() + '/lib/logger')
+  , tests      = require(process.cwd() + '/tests')()
+  , utils      = require(process.cwd() + '/lib/testUtilities');
+  
+////// request setup //////
   
 var testClass = 'custom';
   
 //
 // load config values
-//
-var config      = helpers.loadJson(__dirname)
+var config      = utils.loadJson(__dirname)
   , exampleUrl  = config.exampleUrl
 
-//
-// test a standard suite of requests to test this class of operations
-//
-exports.fullTest = function () {
-  var testSet = []
-  //
-  // the following are only added if the test is not set to use the config
-  //
-  if (!exampleUrl.apply || controller.ignoreSettings) {
-    testSet(controller.addWithDependencies(testSet, this.example))
-  } else {
-    testSet.push(this.example);
-  }
+////// exports //////
+
+module.exports = {
+  fullTest : fullTest,
   
-  controller.execSet(testSet)
+  //individual
+  example  : example
 }
+
+////// full test set //////
+
+// test a standard suite of requests to test this class of operations
+function fullTest () {
+  return [example];
+}
+  
+////// individual tests //////
+
 
 //
 // example of a test object
 //
-exports.example = {
-  //
-  // the name is used for loggin and debugging
-  //
-  name : testClass + '.example',
-  
-  // Dependencies identify the tests which must be run before this one, if parsing is used
-  // Dependencies are used if the command line arg's identify this individual test should be run
-  // with the tester set to parse as opposed to using the config. If the config is used, dependencies
-  // are ignored
-  //
-  dependencies: [
-                  tests.categories.cats, 
-                  tests.categories.subcats, 
-                  tests.products.index
-                ],
-  //
-  // The following is the function executed when it is found in the testSet
-  // This function MUST exist with this name
-  //
-  exec : function (error, response, body, callback) {
-    logger.printTitle(exports.example.name);
+function example () {
+  return {
     
-    // set up request according to settings
-    if (helpers.applyConfig(exampleUrl)) {
-      var url  = exampleUrl.url;    
-    } else {
-      url = helpers.propFromBody(body, ['arrayProp'], ['linkProp'], controller.random)
+    // (optional) if valid, the dependency is added, recursively until all dependencies are met
+    //              - a dependency is generally used if a form or link must be parsed before execution
+    dependency : tests.products.index,
+    
+    // (optional) if true, the cart is checked for value. if the cart is empty, tests will be added to create content
+    cartDependant : true,
+    
+    // (optional) adds a login submission to the beginning of the testset
+    reqLogin : true,
+    
+    // (required) the name used for logging
+    name : testClass + 'example',
+    
+    // (required) the actual test executed
+    exec : function(error, response, body, callback) {
+      // set up request according to settings
+      if (utils.applyConfig(exampleUrl)) {
+        var url  = exampleUrl.url;    
+      } else {
+        url = utils.propFromBody(body, ['arrayProp'], ['linkProp'], controller.random)
+      }
+      
+      // validate request setup
+      if (!url) {
+        controller.testFailed(example.name, 'Failed to parse an example url for navigation', callback);
+      }
+      
+      //make request
+      controller.reqAndLog(example.name, {
+        uri    : url,
+        method : 'GET',
+      }, callback);
     }
-    
-    // validate request setup
-    if (!url) {
-      controller.testFailed(exports.example.name, 'Failed to parse an example url for navigation', callback);
-    }
-    
-    //make request
-    controller.reqAndLog(exports.example.name, {
-      uri    : url,
-      method : 'GET',
-    }, callback);
   }
 }
