@@ -52,7 +52,7 @@ function example () {
     name : testClass + 'example',
     
     // (required) the actual test executed
-    exec : function(error, response, body, callback) {
+    exec : function (error, response, body, callback) {
       // set up request according to settings
       if (utils.applyConfig(exampleUrl)) {
         var url  = exampleUrl.url;    
