@@ -28,21 +28,21 @@ program.version('0.0.1')
   .parse(process.argv);
   
 program.on('--help', function () {
-  exitWMsg('usage: node tests [test name] [optional:test set; default: fullTest]\n' + testList(), 0)
+  exitWMsg('usage: node tests [test name] [optional:test set; default: fullTest]\n' + utils.testList(), 0)
 });
 
 //
 // validate the test request
 //
 if (process.argv.length < 3){
-  exitWMsg('A test must be specified' + testList(), 1);
+  exitWMsg('A test must be specified' + utils.testList(), 1);
 }
 
 var testName = process.argv[2];
 if (!tests.hasOwnProperty(testName)) {
   exitWMsg('The test ' + program.test + 
               ' was not found in the set of supported tests\n' + 
-              testList(), 1);
+              utils.testList(), 1);
 }
 
 var singleTest = program.single
