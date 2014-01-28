@@ -4,7 +4,9 @@ module.exports = exports = function () {
     cart              : require(__dirname + '/cart/cart'),
     categories        : require(__dirname + '/categories/categories'),
     checkout          : require(__dirname + '/checkout/checkout'),
+    control_utilities : require(__dirname + '/control_utilities/utilities'),
     custom            : require(__dirname + '/custom/custom'),
+    giftcart          : require(__dirname + '/giftcard/giftcard'),
     products          : require(__dirname + '/products/products'),
     session           : require(__dirname + '/session/session'),
     checkout          : require(__dirname + '/checkout/checkout'),
@@ -12,6 +14,5 @@ module.exports = exports = function () {
     orders            : require(__dirname + '/orders/orders'),
     wishlist          : require(__dirname + '/wishlist/wishlist'),
     shipping_methods  : require(__dirname + '/shipping_methods/shipping_methods'),
-    control_utilities : require(__dirname + '/control_utilities/utilities'),
   };
 }
