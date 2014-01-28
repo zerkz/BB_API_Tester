@@ -1,3 +1,8 @@
+
+# WARNING 
+this repo is currently undergoing major refactoring. any work done will likely be unmerge-able 01/24/14
+for a (relatively) stable version, please pull from commit  merging the [refactoring pull request](https://github.com/johnhof/BB_API_Tester/commit/8deeea91c5e2fc58f9c9c5f755011b0c9f0f596f)
+
 # BB API Tester
 
 This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Custom test suites can be created as well. The logger will print the name of the suite executed as well as each individual test executed as they are performed. log.txt will contain the full test result (response body)
@@ -69,7 +74,7 @@ sample test `node test cart -r`
   
 * `-r`, `--random`  Make nav selections/submissions by parsing a random selection when possible
 * `-i`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
-* `-s`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
+* `-s`, `--single`  Run a single test. Dependencies will be added to the testset if the config is not used
 * `-o`, `--port`    make requests to the specified port
 * `-h`, `--host`    make requests to the specified host'
   

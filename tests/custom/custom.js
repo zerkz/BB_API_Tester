@@ -8,6 +8,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   
 var testClass = 'custom';
   
+//
 // load config values
 var config      = utils.loadJson(__dirname)
   , exampleUrl  = config.exampleUrl
