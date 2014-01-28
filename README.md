@@ -93,7 +93,7 @@ The following helpers are in place to prevent the tests from erroring out if the
   * `helpers.getSubProp(obj, chain)`
     * attempts to get the object at the end of the property chain (chain) for the objects (obj)
 
-  * `helpers.getPropterty(list, propChain, random, index)`
+  * `helpers.getProperty(list, propChain, random, index)`
     * selects an element from that array, the first by default, and random if random is true
     * selects a specific index if index has a value (overrides random)
     * finds the object at the end property chain (propChain), for the index selected

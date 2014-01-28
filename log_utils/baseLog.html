@@ -1,0 +1,27 @@
+<hmtl>
+  <head>
+    <!-- LOCAL -->
+    <script type="text/javascript" src="../log_utils/logScripts.js" ></script>
+    <script type="text/css" rel="stylesheet" src="../log_utils/logStyling.css" ></script>
+    
+    <!-- EXTERNAL -->
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script>
+      
+      // listen on 6000 by default
+      $(document).ready(function ()      
+        var socket = io.connect('http://localhost:6000');
+        
+        socket.on('message', function (msg){
+          formatJson(msg)
+        });
+      });
+    
+    </script>
+    
+  </head>
+  <body>
+  </body>
+</html>

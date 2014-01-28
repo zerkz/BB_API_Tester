@@ -28,13 +28,12 @@ exports.fullTest = function () {
 // individual requests to be used in both custom and standard test suites
 //
 exports.login = {
+  name         : testClass + '.login',
   dependencies : [],
-  
-  exec : function(error, response, body, callback) {
-    var test = testClass + '.login';
-    logger.printTitle(test);
+  exec         : function(error, response, body, callback) {
+    logger.printTitle(exports.login.name);
     
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.login.name, {
       uri    : '/session/new',
       method : 'POST',
       form   : forms.login
@@ -43,13 +42,12 @@ exports.login = {
 }
  
 exports.logout = {
-  dependencies : [],
-  
-  exec : function(error, response, body, callback) {
-    var test = testClass + '.logout';
-    logger.printTitle(test);
+  name         : testClass + '.logout',
+  dependencies : [],  
+  exec         : function(error, response, body, callback) {
+    logger.printTitle(exports.logout.name);
     
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.logout.name, {
       uri    : '/session/destroy',
       method : 'DELETE',
     }, callback);
@@ -57,13 +55,12 @@ exports.logout = {
 }
  
 exports.status = {
+  name         : testClass + '.status',
   dependencies : [],
-  
-  exec : function(error, response, body, callback) {
-    var test = testClass + '.status';
-    logger.printTitle(test);
+  exec         : function(error, response, body, callback) {
+    logger.printTitle(exports.status.name);
     
-    controller.reqAndLog(test, {
+    controller.reqAndLog(exports.status.name, {
       uri    : '/session/status',
       method : 'GET'
     }, callback);
