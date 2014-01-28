@@ -38,7 +38,7 @@ function show () {
     reqLogin : true,
     exec     : function(error, response, body, callback) {
       controller.reqAndLog(apply.name, {
-        uri : '/giftcards'
+        uri : '/giftcards',
         method : 'GET'
       }, callback);
     }
