@@ -39,6 +39,7 @@ function show () {
     exec     : function(error, response, body, callback) {
       controller.reqAndLog(apply.name, {
         uri : '/giftcards'
+        method : 'GET'
       }, callback);
     }
   }
