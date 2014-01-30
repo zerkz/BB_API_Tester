@@ -1,6 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
-  , controller = require(process.cwd() + '/lib/controller')
-  , logger     = require(process.cwd() + '/lib/logger')
+  , controller = require(process.cwd() + '/controller')
+  , logger     = require(process.cwd() + '/logger/logger')
   , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities')
 
@@ -34,9 +34,9 @@ function fullTest () {
 
 function show () {
   return {
-    name     : testClass + '.show',
-    reqLogin : true,
-    exec     : function(error, response, body, callback) {
+    name             : testClass + '.show',
+    sessionDependant : true,
+    exec             : function(error, response, body, callback) {
       controller.reqAndLog(apply.name, {
         uri : '/giftcards',
         method : 'GET'
@@ -47,9 +47,9 @@ function show () {
 
 function apply () {
   return {
-    name     : testClass + '.apply',
-    reqLogin : true,
-    exec     : function(error, response, body, callback) {
+    name             : testClass + '.apply',
+    sessionDependant : true,
+    exec             : function(error, response, body, callback) {
       if (!(forms && forms.giftcard)) {
         return controller.testFailed(apply.name, 'Failed to parse a giftcard form', callback);
       }

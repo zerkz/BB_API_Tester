@@ -1,6 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
-  , controller = require(process.cwd() + '/lib/controller')
-  , logger     = require(process.cwd() + '/lib/logger')
+  , controller = require(process.cwd() + '/controller')
+  , logger     = require(process.cwd() + '/logger/logger')
   , utils      = require(process.cwd() + '/lib/testUtilities')
 
 ////// request setup //////
@@ -54,9 +54,9 @@ function login () {
  
 function logout () {
   return {
-    name     : testClass + '.logout',
-    reqLogin : true,
-    exec     : function(error, response, body, callback) {    
+    name             : testClass + '.logout',
+    sessionDependant : true,
+    exec             : function(error, response, body, callback) {    
       controller.reqAndLog(logout.name, {
         uri    : '/session/destroy',
         method : 'DELETE',

@@ -1,6 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
-  , controller = require(process.cwd() + '/lib/controller')
-  , logger     = require(process.cwd() + '/lib/logger')
+  , controller = require(process.cwd() + '/controller')
+  , logger     = require(process.cwd() + '/logger/logger')
   , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities');
   
@@ -59,9 +59,9 @@ function singleOrder () {
  
 function accountOrders () {
   return {
-    name     : testClass + '.accountOrders',
-    reqLogin : true,
-    exec     : function(error, response, body, callback) {
+    name             : testClass + '.accountOrders',
+    sessionDependant : true,
+    exec             : function(error, response, body, callback) {
       controller.reqAndLog(exports.accountOrders.name, {
         uri    : '/account/orders',
         method : 'GET',
@@ -72,10 +72,10 @@ function accountOrders () {
  
 function accountOrder () {
   return {
-    name       : testClass + '.accountOrder',
-    dependency : accountOrders,
-    reqLogin   : true,
-    exec       : function(error, response, body, callback) {
+    name             : testClass + '.accountOrder',
+    dependency       : accountOrders,
+    sessionDependant : true,
+    exec             : function(error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(acntOrder)) { 
         var url = '/account/orders' + acntOrder.id

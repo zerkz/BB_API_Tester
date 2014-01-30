@@ -1,6 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
-  , controller = require(process.cwd() + '/lib/controller')
-  , logger     = require(process.cwd() + '/lib/logger')
+  , controller = require(process.cwd() + '/controller')
+  , logger     = require(process.cwd() + '/logger/logger')
   , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities');
   
@@ -46,7 +46,7 @@ function example () {
     cartDependant : true,
     
     // (optional) adds a login submission to the beginning of the testset
-    reqLogin : true,
+    sessionDependant : true,
     
     // (required) the name used for logging
     name : testClass + 'example',

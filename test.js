@@ -3,8 +3,8 @@ var request    = require('request').defaults({ jar: true, followAllRedirects: tr
   , tests      = require(__dirname + '/tests')()
   , program    = require('commander')
   , helpers    = require(__dirname + '/lib/helpers')
-  , logger     = require(__dirname + '/lib/logger')
-  , controller = require(__dirname + '/lib/controller')
+  , logger     = require(__dirname + '/logger/logger')
+  , controller = require(__dirname + '/controller')
   , utils      = require(process.cwd() + '/lib/testUtilities');
   
 //
@@ -58,14 +58,15 @@ if(singleTest) {
 //
 var config = utils.loadJson(__dirname)
 
-controller.host           = program.host || config.host || 'localhost'
-controller.port           = program.port || config.port || '4000'
+controller.setHost(program.host || config.host || 'localhost')
+controller.setPort(program.port || config.port || '4000')
+
 controller.random         = program.random
 controller.ignoreSettings = program.ignore
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
 
-logger.initTestSet(testName, controller.host,controller.port)
+logger.initTestSet(testName, config.host,config.port)
 
 //
 // execute the test

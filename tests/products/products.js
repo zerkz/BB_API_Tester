@@ -1,6 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
-  , controller = require(process.cwd() + '/lib/controller')
-  , logger     = require(process.cwd() + '/lib/logger')
+  , controller = require(process.cwd() + '/controller')
+  , logger     = require(process.cwd() + '/logger/logger')
   , utils      = require(process.cwd() + '/lib/testUtilities')
   
 ////// request setup //////
@@ -67,7 +67,7 @@ function pdp () {
   var dependency = controller.addProduct ? null : index;
   return {
     name       : testClass + '.pdp',
-    dependency : index,
+    dependency : dependency,
     exec       : function(error, response, body, callback) {
       // set up request according to settings
       if (utils.applyConfig(pdpUrl) && !controller.addProduct) {
