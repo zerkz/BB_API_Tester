@@ -51,7 +51,7 @@ test suite example from addresses.js:
 
 ## Quick Start
 
-Fork, clone, and npm install. If a branch exists for your merchant, you may be able to run tests to immediately. If youre merchant does not have a branch, the config files in each test directory will need to be updated for custom submissions for the merchants API. If you update a merchant's branch, be sure to commit so that others dont have to go make the same changes. Idealy, the person testing the PR should be able to pull the branch run the desired test set without any changes
+Fork, clone, and npm install. Config files in each tests directory can be changed for a merchant. Simpy change `apply:false` to `apply:true` in a config file to use that form or url. Look at teh options for more thorough testing instructions
 
 sample test `node test cart -r`
 
@@ -65,6 +65,7 @@ sample test `node test cart -r`
 * `-r`, `--random`  Make nav selections/submissions by parsing a random selection when possible
 * `-i`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
 * `-s`, `--single`  Run a single test. Dependencies will be added to the testset if the config is not used
+* `-p`, `--product` use the product at the specified PDP for cart additions
 * `-o`, `--port`    make requests to the specified port
 * `-h`, `--host`    make requests to the specified host'
   
