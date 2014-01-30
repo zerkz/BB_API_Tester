@@ -14,41 +14,6 @@ test suite example from addresses.js:
   ]
 ```
 
-# Current State 
-(* indicates not verified after refactoring)
-- [x] Categories *
-  - [x] categories *
-  - [x] subcategories *
-- [ ] Products *
-  - [x] index *
-  - [x] pdp *
-  - [] search *
-- [x] Cart *
-  - [x] show *
-  - [x] add *
-  - [x] update *
-  - [x] remove *
-- [x] Checkout *
-  - [x] submit *
-  - [x] review *
-  - [x] confirm *
-  - [x] receipt *
-- [x] Session *
-  - [x] status *
-  - [x] login *
-  - [x] logout *
-  - [x] signup *
-- [x] orders *
-  - [x] orders *
-  - [x] single order *
-- [x] promo *
-- [ ] giftcard *
-- [x] addresses *
-  - [x] add *
-  - [x] update *
-  - [x] remove *
-
-
 ## Quick Start
 
 Fork, clone, and npm install. Config files in each tests directory can be changed for a merchant. Simpy change `apply:false` to `apply:true` in a config file to use that form or url. Look at teh options for more thorough testing instructions
@@ -103,6 +68,42 @@ The following helpers are in place to prevent the tests from erroring out if the
     * finds the object at the end property chain (postChain), for the index selected
     
 example from products.js: `url = utils.propFromBody(body, ['categories'], ['href'], controller.random)`
+
+
+# Current State 
+(* indicates not verified after refactoring)
+- [x] Categories *
+  - [x] categories *
+  - [x] subcategories *
+- [ ] Products *
+  - [x] index *
+  - [x] pdp *
+  - [] search *
+- [x] Cart *
+  - [x] show *
+  - [x] add *
+  - [x] update *
+  - [x] remove *
+- [x] Checkout *
+  - [x] submit *
+  - [x] review *
+  - [x] confirm *
+  - [x] receipt *
+- [x] Session *
+  - [x] status *
+  - [x] login *
+  - [x] logout *
+  - [x] signup *
+- [x] orders *
+  - [x] orders *
+  - [x] single order *
+- [x] promo *
+- [ ] giftcard *
+- [x] addresses *
+  - [x] add *
+  - [x] update *
+  - [x] remove *
+
 
 ## TODO
 
