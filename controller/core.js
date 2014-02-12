@@ -106,9 +106,7 @@ function execSet (tests, callback) {
   
   function initializeTestSet (callback) {
     // remove tests that don't fit the schema
-    console.log(tests)
     var primedSet = _.map(tests, function (test, index) {
-      console.log(test)
           testObj = test();
           
           if(testObj.hasOwnProperty('exec') && testObj.hasOwnProperty('name')) {

@@ -7,8 +7,10 @@
 //
 //////////////////////////////////////////////////////////////////
 
-var logger = require(process.cwd() + '/logger/logger')
-  , _      = require('lodash')
+var logger     = require(process.cwd() + '/logger/logger')
+  , reqHandler = require(__dirname + '/request_handler')
+  , utils   = require(process.cwd() + '/lib/testUtilities') 
+  , _          = require('lodash')
 
 
 //////////////////////////////////////////////////////////////////
@@ -80,9 +82,36 @@ function init (testSet, callback) {
 function cart (testSet, callback) {
   if (!cartReq) return callback(null, testSet);
   
+  var tests   = require(process.cwd() + '/tests')()
+    , core    = require(__dirname + '/core')
+    , fullAdd = false
   
+  if (core.addProduct) {
+    testSet.unshift(tests.cart.add());
+    testSet.unshift(tests.products.pdp());
+    return callback(testSet);
+  }
   
-  return callback(null, testSet);
+  // make sure an item is in the cart
+  reqHandler.getBodyFromReq(tests.cart.show(), function (error, body){
+    if (error) return;
+        
+    var result = null
+    
+    if (body && body.length) {
+      var products = utils.getProperty(body, ['products'], core.random);
+      
+      // if there isn't an item in the cart, add it
+      if ((products && !products.length) || !products) fullAdd = true;
+      
+    } else fullAdd = true;
+    
+    if (fullAdd) {
+      testSet.unshift(tests.cart.add);
+    }    
+    
+    return callback(null, testSet);
+  }); 
 }
 
 //
@@ -112,8 +141,8 @@ function parsing (testSet, callback) {
 function exclude (excluded) {
     console.log(excluded)
   return function (testSet, callback) {
-    tests = require(process.cwd() + '/tests');
-    console.log(excluded)
+    var tests = require(process.cwd() + '/tests');
+    
     testTest = _.compact(_.map(testSet, function (index, test) {     
       
       for (var i = 0; i < excluded; i++) {       

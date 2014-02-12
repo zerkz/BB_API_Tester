@@ -47,6 +47,7 @@ function subcategories () {
     name       : testClass + '.subcategories',
     dependency : categories,
     exec       : function(error, response, body, callback) {    
+      return callback(null, error, response, body)
       // set up request according to settings
       if (utils.applyConfig(subcatUrl)) {
         var url  = subcatUrl.url;

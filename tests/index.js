@@ -14,5 +14,6 @@ module.exports = exports = function () {
     orders            : require(__dirname + '/orders/orders'),
     wishlist          : require(__dirname + '/wishlist/wishlist'),
     shipping_methods  : require(__dirname + '/shipping_methods/shipping_methods'),
+    paypal            : require(__dirname + '/paypal/paypal') 
   };
 }
