@@ -30,7 +30,8 @@ module.exports = {
   init    : init,
   cart    : cart,
   session : session,
-  parsing : parsing
+  parsing : parsing,
+  exclude : exclude
 }
 
 //////////////////////////////////////////////////////////////////
@@ -103,6 +104,42 @@ function parsing (testSet, callback) {
   testSet = fillInDependencies(testSet);
   
   return callback(null, testSet);
+}
+
+//
+// remove the tests excluded in the config file
+//
+function exclude (excluded) {
+    console.log(excluded)
+  return function (testSet, callback) {
+    tests = require(process.cwd() + '/tests');
+    console.log(excluded)
+    testTest = _.compact(_.map(testSet, function (index, test) {     
+      
+      for (var i = 0; i < excluded; i++) {       
+        var excluded = process.excluded[i];
+          
+        console.log(excluded.class)
+        console.log(excluded.name)
+        
+        if (!excluded.apply) return;
+        
+        if (!(tests[excluded.class] && tests[excluded.class][excluded.name])) {
+          logger.printWarning('test ' + excluded.class + '.' + excluded.name + ' could not be found, the exclusion was dropped');
+          return;
+        }
+        
+        if (tests[excluded.class][excluded.name] == test) {
+          console.log('removed: ' + excluded.name)
+          return;
+        } else {
+          return test;
+        }
+      }
+    }))
+    
+    return callback(null, testSet)
+  }
 }
 
 

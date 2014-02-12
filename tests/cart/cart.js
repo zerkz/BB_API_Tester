@@ -60,13 +60,17 @@ function add () {
   var tests = require(process.cwd() + '/tests')()
   return {
     name       : testClass + '.add',
-    dependency : tests.products.pdp,
+    dependency : /*tests.products.variation ||*/ tests.products.pdp, //if the variation route exits, use it
     exec       : function (error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
       } else {
         form = utils.propFromBody(body, ['variations'], ['availability', 'online', 'forms', 'add_to_cart'], controller.random)
+        
+        if (!form) {
+          form = utils.getSubPropFromBody(body, ['availability', 'online', 'forms', 'add_to_cart'])
+        } 
       }
       
       // validate request setup
@@ -98,7 +102,7 @@ function update () {
         if(product)  {
           // get the current quantity
           var qty = utils.getSubProp(product, ['quantity']);
-          qty = qty ? qty + 1 : Math.floor(Math.random() * (10));
+          qty = qty ? qty + 1 : Math.floor(Math.random() * (5));
         
           // add the updated quantity to the form
           form = utils.getSubProp(product, ['forms', 'update_quantity']);

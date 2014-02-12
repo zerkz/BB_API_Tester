@@ -7,6 +7,10 @@
     "apply": false,
     "url"  : "/products/{id}"
   },
+  "variationUrl" : {
+    "apply": false,
+    "url"  : "/products/B44678/variations?color=Black&size=OSFA"
+  },
   
   
   "facets" : {

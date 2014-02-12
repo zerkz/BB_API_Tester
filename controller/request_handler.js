@@ -141,3 +141,9 @@ function reqAndLog (title, req, callback, secure) {
     return callback(error, error, response, body);
   });
 }
+
+function errorOut (message) {
+  logger.printError(message);
+  logger.setComplete();
+  process.kill();
+}

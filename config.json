@@ -1,5 +1,12 @@
 {
   "host"     : "localhost",
   "port"     : "4000",
-  "cookies"  : []
+  "cookies"  : [],
+  "excluded" : [
+    {
+      "class" : "products",
+      "name"  : "variations",
+      "apply" : true
+    }
+  ]
 }

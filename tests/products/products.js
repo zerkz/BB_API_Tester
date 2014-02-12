@@ -8,19 +8,21 @@ var helpers    = require(process.cwd() + '/lib/helpers')
 var testClass = 'products';
 
 // load config values
-var config   = utils.loadJson(__dirname)
-  , urls     = config.urls
-  , indexUrl = config.indexUrl
-  , pdpUrl   = config.pdpUrl
+var config       = utils.loadJson(__dirname)
+  , urls         = config.urls
+  , indexUrl     = config.indexUrl
+  , pdpUrl       = config.pdpUrl
+  , variationUrl = config.variationUrl
 
 ////// exports //////
 
 module.exports = {
-  fullTest : fullTest,
+  fullTest  : fullTest,
   
   //individual
-  index    : index,
-  pdp      : pdp
+  index     : index,
+  pdp       : pdp,
+  variation : variation
 }
 
 ////// full test set //////
@@ -29,6 +31,7 @@ function fullTest () {
   return [
     index,
     pdp,
+    variation
   ]
 }
 
@@ -87,6 +90,33 @@ function pdp () {
       
       //make request
       controller.reqAndLog(pdp.name, {
+        uri    : url,
+        method : 'GET',
+      }, callback);
+    }
+  }
+}
+
+function variation () {
+  return {
+    name       : testClass + '.variation',
+    dependency : pdp,
+    exec       : function(error, response, body, callback) {
+      // set up request according to settings
+      if (utils.applyConfig(variationUrl)) {
+        var url  = variationUrl.url;    
+      
+      } else {
+        url = utils.propFromBody(body, ['variations'], ['_bb_variation', 'href'], controller.random)
+      }
+      
+      // validate request setup
+      if (!url) {
+        return controller.testFailed(pdp.name, 'Failed to parse a variation for navigation', callback);
+      }
+      
+      //make request
+      controller.reqAndLog(variation.name, {
         uri    : url,
         method : 'GET',
       }, callback);

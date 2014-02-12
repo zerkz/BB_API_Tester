@@ -5,7 +5,7 @@ module.exports = exports = function () {
     categories        : require(__dirname + '/categories/categories'),
     checkout          : require(__dirname + '/checkout/checkout'),
     control_utilities : require(__dirname + '/control_utilities/utilities'),
-    custom            : require(__dirname + '/custom/custom'),
+    custom_sets       : require(__dirname + '/custom_sets/custom_sets'),
     giftcard          : require(__dirname + '/giftcard/giftcard'),
     products          : require(__dirname + '/products/products'),
     session           : require(__dirname + '/session/session'),

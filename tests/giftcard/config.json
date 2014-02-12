@@ -2,6 +2,10 @@
   "requiredForms" : {
     "giftcard" : {
       "number" : "BABW5OFF30"
-    }  
+    },
+    "accountGiftcard" : {
+      "code" : "6012238934912103",
+      "pin"  : "80777883"
+    }
   } 
 }

@@ -65,6 +65,7 @@ controller.random         = program.random
 controller.ignoreSettings = program.ignore
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
+controller.excluded       = config.excluded
 
 logger.initTestSet(testName, config.host,config.port)
 
@@ -72,7 +73,15 @@ logger.initTestSet(testName, config.host,config.port)
 // execute the test
 //
 if (singleTest) {
-  var testSet = [tests[testName][singleTest]()];  
+  // if its truly a single test, wrap it in an array
+  if (tests[testName][singleTest].name) {
+    var testSet = [tests[testName][singleTest]()];  
+    
+    //otherwise, execute it  
+  } else {
+    var testSet = tests[testName][singleTest]();  
+  }
+  
 } else {
   var testSet = tests[testName].fullTest();
 }

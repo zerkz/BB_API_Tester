@@ -25,15 +25,25 @@ module.exports = {
   execSet    : execSet,
   
   //
+  // module globals
+  //ignoreSettings = false
+  parse      : parse,
+  single     : single,
+  realCreds  : realCreds,
+  addProduct : addProduct,
+  random     : random,
+  excluded   : excluded,       
+  
+  
+  //
   // manipulation functions
   //
-  setPort : setPort,
-  setHost : setHost,
+  setPort     : setPort,
+  setHost     : setHost,
   
   //
   // early termination functions
   //
-  errorOut   : errorOut,
   exitWMsg   : exitWMsg,
   testFailed : testFailed,
   
@@ -60,6 +70,7 @@ var ignoreSettings = false
   , realCreds      = false
   , addProduct     = false
   , random         = false
+  , excluded       = []
 
 
 //////////////////////////////////////////////////////////////////
@@ -69,11 +80,11 @@ var ignoreSettings = false
 //////////////////////////////////////////////////////////////////
 
 function setPort (port) {
-  requestHandler.port = port
+  requestHandler.port = port;
 }
 
 function setHost (host) {
-  requestHandler.host = host
+  requestHandler.host = host;
 }
 
 //////////////////////////////////////////////////////////////////
@@ -90,11 +101,14 @@ function execSet (tests, callback) {
       dependencyHandler.session,
       dependencyHandler.cart,
       dependencyHandler.parsing,
+      dependencyHandler.exclude(excluded),
     ], finalize)
   
   function initializeTestSet (callback) {
     // remove tests that don't fit the schema
+    console.log(tests)
     var primedSet = _.map(tests, function (test, index) {
+      console.log(test)
           testObj = test();
           
           if(testObj.hasOwnProperty('exec') && testObj.hasOwnProperty('name')) {
@@ -149,14 +163,6 @@ function testWrapper (test) {
 function onComplete (error, prevErr, response, body) {
   logger.setComplete();
   process.kill();
-}
-
-//
-// prints error and exits
-//
-function errorOut (message) {
-  logger.printError(message);
-  onComplete();
 }
 
 //

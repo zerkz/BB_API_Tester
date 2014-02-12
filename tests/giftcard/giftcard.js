@@ -18,7 +18,9 @@ module.exports = {
   fullTest : fullTest,
   
   //individual
-  apply   : apply
+  apply      : apply,
+  accntApply : accntApply,
+  accntShow  : accntShow
 }
 
 ////// full test set //////
@@ -58,6 +60,35 @@ function apply () {
         uri    : '/checkout/giftcard',
         method : 'POST',
         form   : forms.number
+      }, callback);
+    }
+  }
+}
+
+function accntShow () {
+  return {
+    name             : testClass + '.accntShow',
+    exec             : function(error, response, body, callback) {
+      controller.reqAndLog(accntShow.name, {
+        uri : '/account/giftcards',
+        method : 'GET'
+      }, callback);
+    }
+  }
+}
+
+function accntApply () {
+  return {
+    name             : testClass + '.accntApply',
+    exec             : function(error, response, body, callback) {
+      if (!(forms && forms.accountGiftcard)) {
+        return controller.testFailed(accntApply.name, 'Failed to parse a giftcard form', callback);
+      }
+      
+      controller.reqAndLog(accntApply.name, {
+        uri    : '/account/giftcards',
+        method : 'POST',
+        form   : forms.accountGiftcard
       }, callback);
     }
   }
