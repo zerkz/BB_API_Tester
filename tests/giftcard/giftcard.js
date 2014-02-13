@@ -60,12 +60,15 @@ function apply () {
       if (!(forms && forms.giftcard)) {
         return controller.testFailed(apply.name, 'Failed to parse a giftcard form', callback);
       }
-      console.log(forms.giftcard)
+      
+      form = forms.giftcard;
+      
+      form ['code'] = form.number
       
       controller.reqAndLog(apply.name, {
         uri    : '/checkout/giftcard',
         method : 'POST',
-        form   : forms.giftcard
+        form   : form
       }, callback);
     }
   }
