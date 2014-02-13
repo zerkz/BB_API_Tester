@@ -1,7 +1,6 @@
 var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/controller')
   , logger     = require(process.cwd() + '/logger/logger')
-  , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities')
 
 ////// request setup //////
@@ -26,6 +25,7 @@ module.exports = {
 ////// full test set //////
   
 function fullTest () {
+  var tests = require(process.cwd() + '/tests')()
   return [
     show,
     apply
@@ -36,12 +36,17 @@ function fullTest () {
 
 function show () {
   return {
-    name             : testClass + '.show',
-    sessionDependant : true,
-    exec             : function(error, response, body, callback) {
+    name : testClass + '.show',
+    exec : function(error, response, body, callback) {
+      
+      if (!(forms && forms.giftcard)) {
+        return controller.testFailed(apply.name, 'Failed to parse a giftcard form', callback);
+      }
+      
       controller.reqAndLog(apply.name, {
-        uri : '/giftcards',
-        method : 'GET'
+        uri    : '/giftcards',
+        method : 'GET',
+        qs     : forms.giftcard
       }, callback);
     }
   }
@@ -49,17 +54,18 @@ function show () {
 
 function apply () {
   return {
-    name             : testClass + '.apply',
-    sessionDependant : true,
-    exec             : function(error, response, body, callback) {
+    name          : testClass + '.apply',
+    cartDependant : true,
+    exec          : function(error, response, body, callback) {
       if (!(forms && forms.giftcard)) {
         return controller.testFailed(apply.name, 'Failed to parse a giftcard form', callback);
       }
+      console.log(forms.giftcard)
       
       controller.reqAndLog(apply.name, {
         uri    : '/checkout/giftcard',
         method : 'POST',
-        form   : forms.number
+        form   : forms.giftcard
       }, callback);
     }
   }
