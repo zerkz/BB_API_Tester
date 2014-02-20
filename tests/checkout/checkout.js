@@ -52,7 +52,7 @@ function submit () {
       
       // validate request setup
       if (!(form)) {
-        return controller.testFailed(submit.name, 'Failed to parse a checkout submit form', callback);
+        return controller.testFailed(this.name, 'Failed to parse a checkout submit form', callback);
       }
       
       controller.reqAndLog(submit.name, {
@@ -68,7 +68,7 @@ function review () {
   return {
     name : testClass + '.review',
     exec : function(error, response, body, callback) {
-      controller.reqAndLog(review.name, {
+      controller.reqAndLog(this.name, {
         uri    : '/checkout/confirm',
         method : 'GET'
       }, callback);
@@ -89,7 +89,7 @@ function confirm () {
       
       // validate request setup
       if (!(form && form.action && form.method && form.inputs)) {
-        return controller.testFailed(confirm.name, 'Failed to parse a confirm form', callback);
+        return controller.testFailed(this.name, 'Failed to parse a confirm form', callback);
       }
       
       var request = {
@@ -109,13 +109,13 @@ function confirm () {
         });
         
         if(confirm) {
-          return controller.reqAndLog(confirm.name, request, callback);
+          return controller.reqAndLog(this.name, request, callback);
         } else {
-          return controller.testFailed(confirm.name, 'The order was canceled by the user', callback);
+          return controller.testFailed(this.name, 'The order was canceled by the user', callback);
         }
       // if face creds were used, make the reust without prompting
       } else {
-        return controller.reqAndLog(confirm.name, request, callback);
+        return controller.reqAndLog(this.name, request, callback);
       }
     }
   }
@@ -125,7 +125,7 @@ function receipt () {
   return {
     name : testClass + '.receipt',
     exec : function(error, response, body, callback) {
-      controller.reqAndLog(receipt.name, {
+      controller.reqAndLog(this.name, {
         uri    : '/checkout/receipt',
         method : 'GET',
       }, callback);
