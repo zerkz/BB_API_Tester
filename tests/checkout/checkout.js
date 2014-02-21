@@ -32,7 +32,7 @@ function fullTest () {
     submit,
     review,
     confirm,
-    receipt
+    //receipt
   ];
 }
   
@@ -68,6 +68,10 @@ function review () {
   return {
     name : testClass + '.review',
     exec : function(error, response, body, callback) {
+      
+// seton does not support review
+return callback(null, error, response, body);
+
       controller.reqAndLog(this.name, {
         uri    : '/checkout/confirm',
         method : 'GET'
@@ -79,7 +83,7 @@ function review () {
 function confirm () {
   return {
     name : testClass + '.confirm',
-    exec : function(error, response, body, callback) {
+    exec : function(error, response, body, callback) {      
       // set up request according to settings
       if(utils.applyConfig(forms.confirm)) { 
         var form = forms.confirm
