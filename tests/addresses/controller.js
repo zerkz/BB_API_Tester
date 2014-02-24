@@ -6,7 +6,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
 
 ////// request setup //////
 
-var testClass = 'addressed';
+var testClass = 'addresses';
 
 // load config values
 var config = utils.loadJson(__dirname)
