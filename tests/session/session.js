@@ -40,10 +40,8 @@ function fullTest () {
 function login () {
   return {
     name : testClass + '.login',
-    exec : function(error, response, body, callback) {
-      logger.printTitle(login.name);
-      
-      controller.reqAndLog(login.name, {
+    exec : function(error, response, body, callback) {    
+      controller.reqAndLog(this.name, {
         uri    : '/session/new',
         method : 'POST',
         form   : forms.login
@@ -57,7 +55,7 @@ function logout () {
     name             : testClass + '.logout',
     sessionDependant : true,
     exec             : function(error, response, body, callback) {    
-      controller.reqAndLog(logout.name, {
+      controller.reqAndLog(this.name, {
         uri    : '/session/destroy',
         method : 'DELETE',
       }, callback);
@@ -69,7 +67,7 @@ function status () {
   return {
     name : testClass + '.status',
     exec : function(error, response, body, callback) {
-      controller.reqAndLog(status.name, {
+      controller.reqAndLog(this.name, {
         uri    : '/session/status',
         method : 'GET'
       }, callback);

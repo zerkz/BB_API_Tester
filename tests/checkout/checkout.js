@@ -2,6 +2,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/controller')
   , logger     = require(process.cwd() + '/logger/logger')
   , prompt     = require('prompt')
+  , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities');
   
 ////// request setup //////
@@ -29,6 +30,7 @@ module.exports = {
 
 function fullTest () {
   return [
+    tests.session.login,
     submit,
     review,
     confirm,
@@ -40,9 +42,9 @@ function fullTest () {
  
 function submit () {
   return {
-    name          : testClass + '.submit',
-    cartDependant : true,
-    exec          : function(error, response, body, callback) {
+    name             : testClass + '.submit',
+    cartDependant    : true,
+    exec             : function(error, response, body, callback) {
       // set up request according to settings
       if (controller.realCreds) {
         var form = utils.loadJson(__dirname, 'local.json').realCreds

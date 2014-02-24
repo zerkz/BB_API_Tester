@@ -1,8 +1,8 @@
 {
   "requiredForms" : {
     "login" : {
-      "login"    : "giftcards@mail.com",
-      "password" : "testing"
+      "login"    : "test15@mail.com",
+      "password" : "brander"
     }  
   } 
 }
