@@ -23,7 +23,10 @@ module.exports = {
   show     : show,
   add      : add,
   update   : update,
-  remove   : remove
+  remove   : remove,
+  
+  //custom
+  makeDefault : makeDefault
 }
   
 ////// full test set //////
@@ -35,6 +38,7 @@ function fullTest () {
     remove,
     add,
     update,
+    makeDefault,
     remove
   ];
 }
@@ -73,13 +77,39 @@ function update () {
     exec       : function (error, response, body, callback) {
       
       // set up request according to settings
-      var form = utils.propFromBody(body, ['addresses'], ['forms', 'update_address'], controller.random)
+      var form = utils.propFromBody(body, ['addresses'], ['forms', 'update'], controller.random)
       
       form.inputs = helpers.mergeObj(form.inputs, forms.update);
       
       if (!(form && form.action && form.method && form.inputs)) {
-        controller.testFailed(add.name, 'Failed to parse a cart add form', callback);
+        controller.testFailed(add.name, 'Failed to parse an address update form', callback);
       }
+      
+      controller.reqAndLog(update.name, {
+        uri    : form.action,
+        method : form.method,
+        form   : form.inputs
+      }, callback);
+    }
+  }
+}
+
+function makeDefault () {
+  return {
+    name       : testClass + '.makeDefault',
+    dependency : show,
+    exec       : function (error, response, body, callback) {
+      
+      // set up request according to settings
+      var form = utils.propFromBody(body, ['addresses'], ['forms', 'update'], controller.random)
+      
+      form.inputs = helpers.mergeObj(form.inputs, forms.update);
+      
+      if (!(form && form.action && form.method && form.inputs)) {
+        controller.testFailed(add.name, 'Failed to parse an address update form', callback);
+      }
+      
+      form.inputs.is_default = true;
       
       controller.reqAndLog(update.name, {
         uri    : form.action,

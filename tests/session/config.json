@@ -1,8 +1,8 @@
 {
   "requiredForms" : {
     "login" : {
-      "login"    : "test15@brandingbrand.com",
-      "password" : "brander"
+      "login"    : "qatest@brandingbrand.com",
+      "password" : "Branders1234$"
     }  
   } 
 }

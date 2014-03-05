@@ -16,3 +16,11 @@ exports.accountGiftcards = function () {
     tests.giftcard.accntApply,
   ]
 }   
+
+
+exports.makeDefault = function () {
+  return [
+    tests.session.login,
+    tests.addresses.makeDefault,
+  ];
+}

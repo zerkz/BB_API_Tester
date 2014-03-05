@@ -75,7 +75,7 @@ logger.initTestSet(testName, config.host,config.port)
 if (singleTest) {
   // if its truly a single test, wrap it in an array
   if (tests[testName][singleTest].name) {
-    var testSet = [tests[testName][singleTest]()];  
+    var testSet = [tests[testName][singleTest]];  
     
     //otherwise, execute it  
   } else {
