@@ -60,7 +60,7 @@ function add () {
   var tests = require(process.cwd() + '/tests')()
   return {
     name       : testClass + '.add',
-    dependency : /*tests.products.variation ||*/ tests.products.pdp, //if the variation route exits, use it
+    dependency : tests.products.variation || tests.products.pdp, //if the variation route exits, use it
     exec       : function (error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
@@ -77,6 +77,8 @@ function add () {
       if (!(form && form.action && form.method && form.inputs)) {
         controller.testFailed(add.name, 'Failed to parse a cart add form', callback);
       }
+      
+      form.inputs.qty = 4
       
       controller.reqAndLog(add.name, {
         uri    : form.action,
