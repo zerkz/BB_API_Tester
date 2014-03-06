@@ -30,7 +30,6 @@ module.exports = {
 
 function fullTest () {
   return [
-    tests.session.login,
     submit,
     review,
     confirm,
@@ -47,7 +46,8 @@ function submit () {
     exec             : function(error, response, body, callback) {
       // set up request according to settings
       if (controller.realCreds) {
-        var form = utils.loadJson(__dirname, 'local.json').realCreds
+        // var form = utils.loadJson(__dirname, 'local.json').realCreds
+        var form = utils.loadJson(__dirname, 'local.json').giftcardOnly
       } else {
         form = requiredForms.fakeCreds
       }
