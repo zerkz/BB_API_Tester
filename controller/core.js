@@ -122,7 +122,6 @@ function execSet (tests, callback) {
   
   function finalize (error, primedSet) {
     if (error) return onComplete;
-      
     // wrap the tests
     primedSet = _.map(primedSet, testWrapper);
     

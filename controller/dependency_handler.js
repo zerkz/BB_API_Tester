@@ -87,9 +87,9 @@ function cart (testSet, callback) {
     , fullAdd = false
   
   if (core.addProduct) {
-    testSet.unshift(tests.cart.add());
-    testSet.unshift(tests.products.pdp());
-    return callback(testSet);
+    testSet.unshift(tests.cart.add);
+    testSet.unshift(tests.products.pdp);
+    return callback(null, testSet);
   }
   
   // make sure an item is in the cart
@@ -109,7 +109,6 @@ function cart (testSet, callback) {
     if (fullAdd) {
       testSet.unshift(tests.cart.add);
     }    
-    
     return callback(null, testSet);
   }); 
 }
@@ -139,7 +138,6 @@ function parsing (testSet, callback) {
 // remove the tests excluded in the config file
 //
 function exclude (excluded) {
-    console.log(excluded)
   return function (testSet, callback) {
     var tests = require(process.cwd() + '/tests');
     
