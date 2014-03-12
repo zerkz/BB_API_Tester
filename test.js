@@ -40,15 +40,13 @@ if (process.argv.length < 3){
 
 var testName = process.argv[2];
 if (!tests.hasOwnProperty(testName)) {
-  exitWMsg('The test ' + program.test + 
-              ' was not found in the set of supported tests\n' + 
-              utils.testList(), 1);
+  exitWMsg('The test ' + program.test + ' was not found in the set of supported tests\n' + utils.testList(), 1);
 }
 
 var singleTest = program.single
 if(singleTest) {
   if (!tests[testName][singleTest]) {
-    exitWMsg('The individial test ' + singleTest + ' was not found in the test object' + testName + '\n', 1);
+    exitWMsg('The individial test ' + singleTest + ' was not found in the test object ' + testName + '\n', 1);
   }
   title = testName + '.' + singleTest
 }
@@ -77,7 +75,7 @@ if (singleTest) {
   if (tests[testName][singleTest].name) {
     var testSet = [tests[testName][singleTest]];  
     
-    //otherwise, execute it  
+  // otherwise, execute it  
   } else {
     var testSet = tests[testName][singleTest]();  
   }
@@ -85,5 +83,5 @@ if (singleTest) {
 } else {
   var testSet = tests[testName].fullTest();
 }
-
+console.log(testSet)
 controller.execSet(testSet)
