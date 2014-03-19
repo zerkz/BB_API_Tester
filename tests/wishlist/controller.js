@@ -143,3 +143,31 @@ function remove () {
     }
   }
 }
+  
+function sendToFriend () {
+  return {
+    name       : testClass + '.sendToFriend',
+    dependency : show,
+    exec       : function(error, response, body, callback) {
+      logger.printTitle(remove.name);
+      
+      // set up request according to settings
+      if(utils.applyConfig(forms.add)) { 
+        var form = forms.add
+      } else {
+        form = utils.propFromBody(body, ['products'], ['forms', 'send_to_friend'], controller.random)
+      }
+      
+      // validate request setup
+      if (!(form && form.action && form.method && form.inputs)) {
+        controller.testFailed(remove.name, 'Failed to parse a send to friend form', callback);
+      }
+      
+      controller.reqAndLog(remove.name, {
+        uri    : form.action,
+        method : form.method,
+        form   : form.inputs
+      }, callback);
+    }
+  }
+}

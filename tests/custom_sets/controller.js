@@ -39,6 +39,10 @@ exports.updateShipWCard = function () {
     tests.checkout.submit,
     tests.giftcard.apply,
     tests.shipping_methods.apply,
-    tests.checkout.review
+    tests.checkout.review,
+    tests.shipping_methods.apply,
+    tests.checkout.review,
+    tests.shipping_methods.apply,
+    tests.checkout.review,
   ];
 }

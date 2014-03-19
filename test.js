@@ -83,5 +83,5 @@ if (singleTest) {
 } else {
   var testSet = tests[testName].fullTest();
 }
-console.log(testSet)
+
 controller.execSet(testSet)

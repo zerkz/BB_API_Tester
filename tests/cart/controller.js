@@ -78,7 +78,7 @@ function add () {
         controller.testFailed(add.name, 'Failed to parse a cart add form', callback);
       }
       
-      form.inputs.qty = 4
+      // form.inputs.qty = 4
       
       controller.reqAndLog(add.name, {
         uri    : form.action,
