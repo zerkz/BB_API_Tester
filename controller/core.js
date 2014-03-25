@@ -235,9 +235,7 @@ function buildTestObj (baseObj) {
   
   //mark the primary tests
   _.each(primarySet, function (primaryTest) {
-    console.log(test.name.toLowerCase());
-    console.log(primaryTest.name)
-    test.primaryTest = test.name.toLowerCase() === primaryTest.name;
+    test.primaryTest = test.primaryTest || test.name.toLowerCase() === primaryTest.name;
   })
   
   return test;
