@@ -25,6 +25,7 @@ program.version('0.0.1')
   .option('-h  --host',          'make requests to the specified host')
   .option('-u  --useReal',       'use real credential in checkout (you will be prompted before confirm)')
   .option('-p  --product [pid]', 'Specify a product for add to cart. overrides other add to cart/pdp settings')
+  .option('-m  --min',           'Save a minimimal set of test restults (ignores those added by dependency)')
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -63,6 +64,7 @@ controller.random         = program.random
 controller.ignoreSettings = program.ignore
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
+controller.minLog         = program.min
 controller.excluded       = config.excluded
 
 logger.initTestSet(testName, config.host,config.port)

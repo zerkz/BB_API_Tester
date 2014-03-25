@@ -46,3 +46,15 @@ exports.updateShipWCard = function () {
     tests.checkout.review,
   ];
 }
+
+exports.statelessCart = function () {
+  var tests = require(process.cwd() + '/tests')()
+  return [
+    tests.cart.add,
+    tests.cart.show,
+    tests.cart.add,
+    tests.cart.show,
+    tests.cart.add,
+    tests.cart.show
+  ];
+}

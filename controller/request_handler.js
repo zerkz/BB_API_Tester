@@ -83,28 +83,27 @@ function getBodyFromReq (test, callback) {
 // submits a simplified request and logs the result to log.txt
 //
 function reqAndLog (title, req, callback, secure) {  
+  var core = require(__dirname + '/core')
+  
   //
   // set up the test for logging
   //
   var protocol = 'http' + (secure ? 's' : '')
-    , test     = {
+  var test = core.buildTestObj({
         name     : title.toUpperCase(),
         method   : req.method,
         route    : req.uri,
         request  : {
           protocol : protocol,
-          form     : req.form || {},
-          query    : req.qs   || {}
-        },
-        response : {
-          body: {},
-          error: {}
-        },
-        error : {}
-      };
+          form     : req.form,
+          query    : req.qs
+        }
+      });
+      
       
   if (!(req && req.uri) || (req.form && typeof req.form !== 'object') || (req.qs && typeof req.qs !== 'object')) {
     test.error.message = 'There was an issue in the request form, verify that it is being parsed correcty ("STUB" will throw this error)'
+
     logger.pushTest(test);
     logger.printError(test.error.message);
     return callback(test.error, {}, {}, {});
@@ -136,8 +135,10 @@ function reqAndLog (title, req, callback, secure) {
       }
     }
     
-    logger.pushTest(test);
-    
+    // if the params are set to min, and the test is not primary, ignore it
+    if (core.minLog && test.primaryTest) {
+      logger.pushTest(test);
+    }    
     return callback(error, error, response, body);
   });
 }

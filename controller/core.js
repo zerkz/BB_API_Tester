@@ -32,7 +32,9 @@ module.exports = {
   realCreds  : realCreds,
   addProduct : addProduct,
   random     : random,
-  excluded   : excluded,       
+  excluded   : excluded,     
+  primarySet : primarySet,
+  minLog     : minLog,
   
   
   //
@@ -50,7 +52,8 @@ module.exports = {
   //
   // helpers
   //
-  newTest : newTest,
+  newTest      : newTest,
+  buildTestObj : buildTestObj,
   
   //
   // non-core exports
@@ -70,6 +73,8 @@ var ignoreSettings = false
   , realCreds      = false
   , addProduct     = false
   , random         = false
+  , minLog         = false
+  , primarySet     = []
   , excluded       = []
 
 
@@ -94,6 +99,7 @@ function setHost (host) {
 //////////////////////////////////////////////////////////////////
 
 function execSet (tests, callback) {
+  primarySet = tests;
   
   async.waterfall([     
       requestHandler.verifyServerStatus,
@@ -216,6 +222,21 @@ function newTest () {
     },
     error : {
       message: null
-    }
+    },
+    primaryTest: false
   };
+}
+
+//
+// builds  a test object frome the params
+//
+function buildTestObj (baseObj) {
+  var test = _.merge(newTest(), baseObj)
+  
+  //mark the primary tests
+  _.each(primarySet, function (primaryTest) {
+    test.primaryTest = test.name.toLowerCase() === primaryTest.name;
+  })
+  
+  return test;
 }
