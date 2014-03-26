@@ -136,7 +136,7 @@ function reqAndLog (title, req, callback, secure) {
     }
     
     // if the params are set to min, and the test is not primary, ignore it
-    if (core.minLog && test.primaryTest) {
+    if (!core.minLog || test.primaryTest) {
       logger.pushTest(test);
     }    
     return callback(error, error, response, body);

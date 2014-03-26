@@ -52,9 +52,16 @@ exports.statelessCart = function () {
   return [
     tests.cart.add,
     tests.cart.show,
-    tests.cart.add,
-    tests.cart.show,
-    tests.cart.add,
-    tests.cart.show
+    // tests.cart.add,
+    // tests.cart.show
+  ];
+}
+
+exports.accountAddresses = function () {
+  var tests = require(process.cwd() + '/tests')()
+  return [
+    tests.session.login,
+    tests.addresses.show,
+    tests.addresses.remove
   ];
 }
