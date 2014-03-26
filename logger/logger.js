@@ -64,7 +64,7 @@ function pushTest (test) {
   if(Object.keys(test.response.error).length) {
     printWarning('(' + test.response.status + ')\n' + JSON.stringify(test.response.error, null, '  '), true);
     
-  } else if(Object.keys(test.error).length) {
+  } else if(Object.keys(test.error).length && test.response.error.message) {
     printWarning('(' + test.response.status + ')\n' + JSON.stringify(test.error, null, '  '));
   }
   

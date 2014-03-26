@@ -101,7 +101,7 @@ function makeDefault () {
     exec       : function (error, response, body, callback) {
       
       // set up request according to settings
-      var form = utils.propFromBody(body, ['addresses'], ['forms', 'update'], controller.random)
+      var form = utils.propFromBody(body, ['addresses'], ['forms', 'update_addrees'], controller.random)
       
       form.inputs = helpers.mergeObj(form.inputs, forms.update);
       
@@ -124,11 +124,15 @@ function remove () {
   return {
     name : testClass + '.remove',
     exec : function (error, response, body, callback) {
-      controller.reqAndLog(remove.name, {
-        uri    : url,
-        method : 'DELETE',
-        form   : forms.remove
-      }, callback);
+      
+      // set up request according to settings
+      var form = utils.propFromBody(body, ['addresses'], ['forms', 'delete_address'], controller.random)
+      
+      if (!(form && form.action && form.method && form.inputs)) {
+        controller.testFailed(add.name, 'Failed to parse an address update form', callback);
+      }
+      
+      controller.reqAndLog(remove.name, form, callback);
     }
   }
 }

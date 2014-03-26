@@ -85,6 +85,15 @@ function getBodyFromReq (test, callback) {
 function reqAndLog (title, req, callback, secure) {  
   var core = require(__dirname + '/core')
   
+  //if its a form object from the body, translate it to be used in express
+  if (req.action && req.method && req.inputs) {
+    req = {
+      uri    : req.action,
+      method : req.method,
+      form   : req.inputs
+    }
+  }
+  
   //
   // set up the test for logging
   //
