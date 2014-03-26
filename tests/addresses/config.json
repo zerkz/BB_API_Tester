@@ -11,7 +11,7 @@
       "address[label]"       : "testAddr",
       "address[name][first]" : "original",
       "address[name][last]"  : "hof",
-      "address[line][0]"     : "555 street st",
+      "address[line][0]"     : "77 College st Ste.2F",
       "address[line][1]"     : "S2",
       "address[country]"     : "US",
       "address[city]"        : "Pittsburgh",

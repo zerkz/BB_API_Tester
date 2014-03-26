@@ -52,8 +52,8 @@ exports.statelessCart = function () {
   return [
     tests.cart.add,
     tests.cart.show,
-    // tests.cart.add,
-    // tests.cart.show
+    tests.cart.add,
+    tests.cart.show
   ];
 }
 
@@ -61,7 +61,19 @@ exports.accountAddresses = function () {
   var tests = require(process.cwd() + '/tests')()
   return [
     tests.session.login,
-    tests.addresses.show,
-    tests.addresses.remove
+    tests.addresses.add,
+    tests.addresses.show
+  ];
+}
+
+
+exports.brokenCheckout = function () {
+  var tests = require(process.cwd() + '/tests')()
+  return [
+    tests.cart.add,
+    tests.cart.show,
+    tests.cart.add,
+    tests.cart.show,
+    tests.checkout.submit,
   ];
 }
