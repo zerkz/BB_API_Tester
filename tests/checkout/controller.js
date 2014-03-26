@@ -49,7 +49,7 @@ function submit () {
         // var form = utils.loadJson(__dirname, 'local.json').realCreds
         var form = utils.loadJson(__dirname, 'local.json').giftcardOnly
       } else {
-        form = requiredForms.fakeAmex
+        form = requiredForms.fakeVisa
       }
       
       // validate request setup

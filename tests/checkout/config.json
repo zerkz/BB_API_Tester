@@ -52,7 +52,7 @@
       "address[shipping][zip]"         : "15203",
       "address[shipping][phone]"       : "4125555555",
       "cc[type]"                       : "AM",
-      "cc[number]"                     : "378282246310005",
+      "cc[number]"                     : "111111111111111",
       "cc[expire][year]"               : "15",
       "cc[expire][month]"              : "05",
       "cc[cvv]"                        : "0000",

@@ -75,5 +75,7 @@ exports.brokenCheckout = function () {
     tests.cart.add,
     tests.cart.show,
     tests.checkout.submit,
+    tests.checkout.review,
+    tests.checkout.confirm,
   ];
 }
