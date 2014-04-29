@@ -8,8 +8,8 @@
     "url"  : "/products/{id}"
   },
   "variationUrl" : {
-    "apply": false,
-    "url"  : "/products/B44678/variations?color=Black&size=OSFA"
+    "apply": true,
+    "url"  : "/products/YI0138/variations?color=Gold&size=1C&width=M"
   },
   
   

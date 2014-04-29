@@ -100,7 +100,7 @@ function setHost (host) {
 
 function execSet (tests, callback) {
   primarySet = tests;
-  
+  console.log(tests)
   async.waterfall([     
       requestHandler.verifyServerStatus,
       initializeTestSet,

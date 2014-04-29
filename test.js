@@ -36,18 +36,18 @@ program.on('--help', function () {
 // validate the test request
 //
 if (process.argv.length < 3){
-  exitWMsg('A test must be specified' + utils.testList(), 1);
+  exitWMsg('\nA test must be specified' + utils.testList(), 1);
 }
 
 var testName = process.argv[2];
 if (!tests.hasOwnProperty(testName)) {
-  exitWMsg('The test ' + program.test + ' was not found in the set of supported tests\n' + utils.testList(), 1);
+  exitWMsg('\nThe test ' + program.test + ' was not found in the set of supported tests\n' + utils.testList(), 1);
 }
 
 var singleTest = program.single
 if(singleTest) {
   if (!tests[testName][singleTest]) {
-    exitWMsg('The individial test ' + singleTest + ' was not found in the test object ' + testName + '\n', 1);
+    exitWMsg('\nThe individial test ' + singleTest + ' was not found in the test object ' + testName + '\n', 1);
   }
   title = testName + '.' + singleTest
 }
@@ -74,7 +74,7 @@ logger.initTestSet(testName, config.host,config.port)
 //
 if (singleTest) {
   // if its truly a single test, wrap it in an array
-  if (tests[testName][singleTest].name) {
+  if (tests[testName][singleTest].exec) {
     var testSet = [tests[testName][singleTest]];  
     
   // otherwise, execute it  

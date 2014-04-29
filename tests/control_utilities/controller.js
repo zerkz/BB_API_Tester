@@ -6,6 +6,10 @@ var helpers    = require(process.cwd() + '/lib/helpers')
 
 var testClass = 'util';
 
+//
+// load config values
+var config = utils.loadJson(__dirname)
+
 ////// exports //////  
 
 module.exports = {
@@ -14,6 +18,7 @@ module.exports = {
   applySettings  : applySettings,
   useRandom      : useRandom,
   useFirst       : useFirst,
+  sessionTimeout : sessionTimeout
 }
 
 //
@@ -56,6 +61,21 @@ function useFirst () {
     exec : function  (error, response, body, callback) {
       controller.random = false;
       return callback(null, error, response, body)
+    }
+  }
+}
+
+//
+// manage session state
+//
+
+
+function sessionTimeout () {
+  return {
+    name : 'sessionTimeout',
+    exec : function (error, response, body, callback) {
+      logger.printNotification('Timeout set to: ' + helpers.convertMilli(config.timeout))
+      return setTimeout(callback, config.timeout);
     }
   }
 }

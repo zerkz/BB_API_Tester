@@ -1,7 +1,3 @@
 {
-  "requiredForms" : {
-    "promo" : {
-      "promo_code" : "BABW5OFF30"
-    }  
-  } 
+  "timeout" : 1800000
 }

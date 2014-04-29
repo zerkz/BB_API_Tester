@@ -18,7 +18,10 @@ var config        = utils.loadJson(__dirname)
 
 module.exports = {
   fullTest : fullTest,
-  
+
+  // custom tests
+  timeoutTest : timeoutTest,
+
   // individual
   submit   : submit,
   review   : review,
@@ -35,6 +38,15 @@ function fullTest () {
     confirm,
     receipt
   ];
+}
+
+////// Custom Tests //////
+
+function timeoutTest () {
+  return [
+    tests.control_utilities.sessionTimeout,
+    submit,
+  ]
 }
   
 ////// individual tests //////
