@@ -1,6 +1,6 @@
 # BB API Tester
 
-This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Custom test suites can be created as well. The logger will print the name of the suite executed as well as each individual test executed as they are performed. log.txt will contain the full test result (response body)
+This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Custom test suites can be created as well. The logger will print the name of the suite executed as well as each (core) individual test executed as they are performed. log.txt will contain the full test result (response body)
 
 test suite example from addresses.js: 
 ```javascript
@@ -16,30 +16,25 @@ test suite example from addresses.js:
 
 ## Quick Start
 
-Fork, clone, and npm install. Config files in each tests directory can be changed for a merchant. Simpy change `apply:false` to `apply:true` in a config file to use that form or url. Look at teh options for more thorough testing instructions
+Fork, clone, and npm install. Config files in each tests directory can be changed for a merchant. Simpy change `apply:false` to `apply:true` in a config file to use that form or url. Look at the options for more thorough testing instructions
 
 sample test `node test cart -r`
 
 ## Options
 
 **Usage:** `node test [testName]`
-    where `[testName]` is `/test/[testName]/[testName].js` and the index is stored in `/tests/index.js`
+    where `[testName]` is `/test/[testName]/[testName].js`
 
 **comman line options:** 
   
-* `-r`, `--random`  Make nav selections/submissions by parsing a random selection when possible
-* `-i`, `--ignore`  Ignore the config settings (config settings overwrite command line settings
-* `-s`, `--single`  Run a single test. Dependencies will be added to the testset if the config is not used
-* `-p`, `--product` use the product at the specified PDP for cart additions
-* `-o`, `--port`    make requests to the specified port
-* `-h`, `--host`    make requests to the specified host'
-  
-## Adding Tests
-  
-Reference [this file](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/custom.js) and its [config](https://github.com/johnhof/BB_API_Tester/blob/master/tests/custom/config.json) for an example on how tests should be layed out
-
-**Important notes**
-* sensitive information (such as real CC info) should be stored and parsed in local.json in the test directory. any file by this name will be ignored on commit
+* `-r`, `--random`              Make nav selections/submissions by parsing a random selection when possible
+* `-i`, `--ignore`              Ignore the config settings (config settings overwrite command line settings
+* `-s`, `--single`              Run a single test. Dependencies will be added to the testset if the config is not used
+* `--port`                      make requests to the specified port
+* `-h`, `--host`                make requests to the specified host
+* `-u`, `--useReal`             use real credential in checkout (you will be prompted before confirm)
+* `-p [pid]`, `--product [pid]` use the product at the specified PDP for cart additions
+* `-a`, `--all`                 Log all tests executed (only core tests are logged by default)
 
 **Helpful functions**
 
@@ -68,41 +63,6 @@ The following helpers are in place to prevent the tests from erroring out if the
     * finds the object at the end property chain (postChain), for the index selected
     
 example from products.js: `url = utils.propFromBody(body, ['categories'], ['href'], controller.random)`
-
-
-# Current State 
-(* indicates not verified after refactoring)
-- [x] Categories *
-  - [x] categories *
-  - [x] subcategories *
-- [ ] Products *
-  - [x] index *
-  - [x] pdp *
-  - [] search *
-- [x] Cart *
-  - [x] show *
-  - [x] add *
-  - [x] update *
-  - [x] remove *
-- [x] Checkout *
-  - [x] submit *
-  - [x] review *
-  - [x] confirm *
-  - [x] receipt *
-- [x] Session *
-  - [x] status *
-  - [x] login *
-  - [x] logout *
-  - [x] signup *
-- [x] orders *
-  - [x] orders *
-  - [x] single order *
-- [x] promo *
-- [ ] giftcard *
-- [x] addresses *
-  - [x] add *
-  - [x] update *
-  - [x] remove *
 
 
 ## TODO

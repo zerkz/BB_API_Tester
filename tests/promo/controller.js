@@ -10,7 +10,7 @@ var testClass = 'promo';
   
 // load config values
 var config = utils.loadJson(__dirname)
-  , forms  = config.requiredForms
+  , forms  = config.forms
   
 ////// exports //////  
 

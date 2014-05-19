@@ -1,5 +1,5 @@
 {
-  "requiredForms" : {
+  "forms" : {
     "emailSignup" : {
       "email" : "test@testing.com"
     },

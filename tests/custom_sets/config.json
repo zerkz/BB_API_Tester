@@ -1,16 +1,1 @@
-{  
-  "exampleUrl" : {
-    "apply": false,
-    "url"  : "/example/{id}"
-  },  
-  
-  "forms" : {
-    "example" : {
-      "apply" : false,
-      "form"  : {
-        "stuff" : "value"
-      }
-    }
-  }
-  
-}
+{}

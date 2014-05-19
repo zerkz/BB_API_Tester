@@ -1,5 +1,5 @@
 {
-  "requiredForms" : {
+  "forms" : {
     "promo" : {
       "promo_code" : "WEBUCP",
       "from_cart"  : true
