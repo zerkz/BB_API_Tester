@@ -51,11 +51,6 @@ function subcategories () {
       // filter out the categories
       //
       json = utils.parseJson(body);
-      if(json.products) {
-        json.products = _.compact(_.map(json.products, function (prod) {
-          if (prod.href.match(/\/products/i)) return prod;
-        }));
-      }
 
       // set up request according to settings
       if (utils.applyConfig(subcatUrl)) {
