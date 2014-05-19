@@ -18,10 +18,11 @@ module.exports = {
   fullTest : fullTest,
   
   // individual
-  show     : show,
-  add      : add,
-  update   : update,
-  remove   : remove
+  show       : show,
+  add        : add,
+  update     : update,
+  remove     : remove,
+  toggleGift : toggleGift,
 }
 
 ////// full test set //////
@@ -33,6 +34,7 @@ function fullTest () {
     remove,
   ];
 }
+
   
 ////// individual tests //////
 
@@ -60,16 +62,24 @@ function add () {
   var tests = require(process.cwd() + '/tests')()
   return {
     name       : testClass + '.add',
-    dependency : /*tests.products.variation ||*/ tests.products.pdp, //if the variation route exits, use it
+    dependency : tests.products.pdp, //if the variation route exits, use it
     exec       : function (error, response, body, callback) {
       // set up request according to settings
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
       } else {
-        form = utils.propFromBody(body, ['variations'], ['availability', 'online', 'forms', 'add_to_cart'], controller.random)
         
+        // one type of pdp
+        var variations = utils.getPrePostProp(body, ['products'], ['variations'], controller.random)
+          , form       = utils.getPropertyFromList(variations, ['availability', 'online', 'forms', 'add_to_cart'], controller.random)
+          
+        // another type of pdp
         if (!form) {
-          form = utils.getSubPropFromBody(body, ['availability', 'online', 'forms', 'add_to_cart'])
+           form = utils.getPrePostProp(body, ['variations'], ['availability', 'online', 'forms', 'add_to_cart'], controller.random)
+
+          if (!form) {
+            form = utils.getSubProp(body, ['availability', 'online', 'forms', 'add_to_cart'])
+        }
         } 
       }
       
@@ -97,7 +107,7 @@ function update () {
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
       } else {
-        var product = utils.propFromBody(body, ['products'], [], controller.random)
+        var product = utils.getPrePostProp(body, ['products'], [], controller.random)
         
         if(product)  {
           // get the current quantity
@@ -141,7 +151,7 @@ function remove () {
       if(utils.applyConfig(forms.add)) { 
         var form = forms.add
       } else {
-        form = utils.propFromBody(body, ['products'], ['forms', 'remove_from_cart'], controller.random)
+        form = utils.getPrePostProp(body, ['products'], ['forms', 'remove_from_cart'], controller.random)
       }
       
       // validate request setup
@@ -150,6 +160,36 @@ function remove () {
       }
       
       controller.reqAndLog(remove.name, {
+        uri    : form.action,
+        method : form.method,
+        form   : form.inputs
+      }, callback);
+    }
+  }
+}
+
+//
+// toggles the gift status of an item in the cart
+//
+function toggleGift () {
+  return {
+    name          : testClass + '.toggleGift',
+    dependency    : show,
+    cartDependant : true,
+    exec          : function(error, response, body, callback) {    
+
+      var product   = utils.getPrePostProp(utils.parseJson(body), ['products'], [], controller.random)
+        , newStatus = !utils.getSubProp(product, ['_bb_gift'])
+        , form      = utils.getSubProp(product, ['forms', '_bb_gift_status'])
+
+      // validate request setup
+      if (!(form && form.action && form.method && form.inputs)) {
+        return controller.testFailed(this.name, 'Failed to parse a cart update form', callback);
+      }
+
+      form.inputs.enable = newStatus;
+      
+      controller.reqAndLog(this.name, {
         uri    : form.action,
         method : form.method,
         form   : form.inputs

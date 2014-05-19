@@ -4,8 +4,8 @@
       "apply"                          : false,
       
       "address[billing][country]"      : "US",
-      "address[billing][name][first]"  : "Test",
-      "address[billing][name][last]"   : "DoNotBill",
+      "address[billing][name][first]"  : "Branding",
+      "address[billing][name][last]"   : "Brand",
       "address[billing][line][0]"      : "2313 E Carson St",
       "address[billing][line][1]"      : "STE 100",
       "address[billing][city]"         : "Pittsburgh",
@@ -13,8 +13,8 @@
       "address[billing][zip]"          : "15203",
       "address[billing][phone]"        : "4125555555",
       "address[shipping][country]"     : "US",
-      "address[shipping][name][first]" : "Test",
-      "address[shipping][name][last]"  : "DoNotShip",
+      "address[shipping][name][first]" : "Branding",
+      "address[shipping][name][last]"  : "Brand",
       "address[shipping][line][0]"     : "2313 E Carson St",
       "address[shipping][line][1]"     : "STE 100",
       "address[shipping][city]"        : "Pittsburgh",
@@ -26,28 +26,83 @@
       "cc[expire][year]"               : "15",
       "cc[expire][month]"              : "05",
       "cc[cvv]"                        : "000",
-      "email"                          : "rdtestorders@brandingbrand.com",
-      
-      "cc[name]"                       : "j j"
-    }  
-  },
-  
-  "forms" : {
-    "confirm" : {
-      "apply"     : false,
-        
-      "action"    : "/checkout/confirm",
-      "method"    : "POST",
-      "inputs"    : {
-        "type"    : "VC",
-        "number"  : "4111111111111111",
-        "expire"  : {
-          "year"  : "15",
-          "month" : "05"
+      "email"                          : "testorders@brandingbrand.com",
+      "cc[name]"                       : "Branding Brand"
+    },
+    "billing" : {
+      "apply"                 : false,
+      "address[country]"      : "US",
+      "address[company]"      : "BB",
+      "address[name][first]"  : "Branding",
+      "address[name][middle]" : "B",
+      "address[name][last]"   : "Brand",
+      "address[line][0]"      : "2313 E Carson St",
+      "address[line][1]"      : "STE 100",
+      "address[city]"         : "Pittsburgh",
+      "address[state]"        : "PA",
+      "address[zip]"          : "15203",
+      "address[phone]"        : "4125555555",
+      "address[phone2]"       : "1234567890",
+      "email"                 : "testorders@brandingbrand.com"
+    },
+    "edit_billing" : {
+      "apply"                 : false,
+      "address[country]"      : "US",
+      "address[company]"      : "TT",
+      "address[name][first]"  : "Test",
+      "address[name][middle]" : "T",
+      "address[name][last]"   : "Tester",
+      "address[line][0]"      : "1234 Test St",
+      "address[line][1]"      : "STE 567",
+      "address[city]"         : "Testsburgh",
+      "address[state]"        : "PA",
+      "address[zip]"          : "15204",
+      "address[phone]"        : "4124124120",
+      "address[phone2]"       : "9876543210",
+      "email"                 : "testorders@brandingbrand.com"
+    },
+    "credit_card" : {
+      "apply" : false,
+      "cc"    : {
+        "type"   : "VC",
+        "number" : "4111111111111111",
+        "expire" : {
+          "month" : "11",
+          "year"  : "16"
+        }
+      },
+      "usingMaskedNumber" : false
+    },
+    "specialEvent" : {
+      "eventDate": "05/15/2014",
+      "relatives" : [
+        {
+          "name" : {
+            "first" : "john",
+            "last" : "hof"
+          },
+          "gender"       : "Boy",
+          "relationship" : "Grandchild",
+          "birth"  : {
+            "day"   : "16",
+            "month" : "05",
+            "year"  : "1991"
+          }
         },
-        "cvv"     : "000",
-        "owner"   : "Test DoNotBill"
-      }
+        {
+          "name" : {
+            "first" : "zach",
+            "last" : "z"
+          },
+          "gender"       : "Girl",
+          "relationship" : "Other",
+          "birth"  : {
+            "day"   : "10",
+            "month" : "10",
+            "year"  : "2000"
+          }
+        }
+      ]
     }
   } 
 }

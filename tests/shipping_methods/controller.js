@@ -56,13 +56,13 @@ function apply () {
         var form  = forms.method;
         
       } else {
-        var options = utils.propFromBody(body, ['buckets'], ['options'], controller.random)
+        var options = utils.getPrePostProp(body, ['buckets'], ['options'], controller.random)
           , condition = { //only select if ('selected' == true) == false
               key   : 'selected',
               value : true,
               equal : false  
             }
-          , method  = utils.getProperty(options, [], controller.random, condition)
+          , method  = utils.getPropertyFromList(options, [], controller.random, condition)
         
         form = utils.getSubProp(method, ['forms', 'edit_shipping'])
       }

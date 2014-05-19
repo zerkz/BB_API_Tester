@@ -2,6 +2,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/controller')
   , logger     = require(process.cwd() + '/logger/logger')
   , utils      = require(process.cwd() + '/lib/testUtilities')
+  , _          = require('lodash');
   
 ////// request setup //////
 
@@ -48,7 +49,7 @@ function index () {
         var url  = indexUrl.url;
         
       } else {
-        url = utils.propFromBody(body, ['categories'], ['href'], controller.random)
+        url = utils.getPrePostProp(body, ['categories'], ['href'], controller.random)
       }
       
       // validate request setup
@@ -72,6 +73,17 @@ function pdp () {
     name       : testClass + '.pdp',
     dependency : dependency,
     exec       : function(error, response, body, callback) {
+      
+      //
+      // filter out the bundle pdp's
+      //
+      json = utils.parseJson(body);
+      if(json.products) {
+        json.products = _.compact(_.map(json.products, function (prod) {
+          if (!prod.href.match(/\/bundle\//i)) return prod;
+        }));
+      }
+
       // set up request according to settings
       if (utils.applyConfig(pdpUrl) && !controller.addProduct) {
         var url  = pdpUrl.url;    
@@ -80,7 +92,7 @@ function pdp () {
         url = '/products/' + controller.addProduct
       
       } else {
-        url = utils.propFromBody(body, ['products'], ['href'], controller.random)
+        url = utils.getPrePostProp(body, ['products'], ['href'], controller.random)
       }
       
       // validate request setup
@@ -107,7 +119,7 @@ function variation () {
         var url  = variationUrl.url;    
       
       } else {
-        url = utils.propFromBody(body, ['variations'], ['_bb_variation', 'href'], controller.random)
+        url = utils.getPrePostProp(body, ['variations'], ['_bb_variation', 'href'], controller.random)
       }
       
       // validate request setup

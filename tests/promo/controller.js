@@ -25,8 +25,8 @@ module.exports = {
   
 function fullTest () {
   return [
-    apply,
-    tests.cart.show
+    tests.cart.add,
+    apply
   ];
 }
 
@@ -37,14 +37,21 @@ function apply () {
     name          : testClass + '.apply',
     cartDependant : true,
     exec          : function(error, response, body, callback) {
-      if (!(forms && forms.promo)) {
-        return controller.testFailed(apply.name, 'Failed to parse a promo form', callback);
+
+     var form = { 
+            orderId  : utils.getSubProp(body, ['_bb_orderId']),
+            fromCart : forms.promo.from_cart,
+            promo    : forms.promo.promo_code 
+          }
+
+      if (!form.orderId) {
+        return controller.testFailed(apply.name, 'Failed to parse an orderId for promo submission', callback);
       }
       
       controller.reqAndLog(apply.name, {
         uri    : '/checkout/promo',
         method : 'POST',
-        form   : forms.promo
+        form   : form
       }, callback);
     }
   }

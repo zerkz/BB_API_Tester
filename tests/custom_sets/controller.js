@@ -4,23 +4,12 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities');
   
-  
-//account giftcards
 
-exports.accountGiftcards = function () {
+exports.toggleGift = function  () {
   return [
-    tests.giftcard.accntShow,
-    tests.giftcard.accntApply,
-    tests.session.login,
-    tests.giftcard.accntShow,
-    tests.giftcard.accntApply,
+    tests.cart.add,
+    tests.cart.toggleGift,
+    tests.cart.toggleGift,
+    tests.cart.toggleGift
   ]
-}   
-
-
-exports.makeDefault = function () {
-  return [
-    tests.session.login,
-    tests.addresses.makeDefault,
-  ];
 }

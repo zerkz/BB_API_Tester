@@ -47,11 +47,21 @@ function subcategories () {
     name       : testClass + '.subcategories',
     dependency : categories,
     exec       : function(error, response, body, callback) {
+      //
+      // filter out the categories
+      //
+      json = utils.parseJson(body);
+      if(json.products) {
+        json.products = _.compact(_.map(json.products, function (prod) {
+          if (prod.href.match(/\/products/i)) return prod;
+        }));
+      }
+
       // set up request according to settings
       if (utils.applyConfig(subcatUrl)) {
         var url  = subcatUrl.url;
       } else {
-        url = utils.propFromBody(body, ['categories'], ['href'], controller.random)
+        url = utils.getPrePostProp(body, ['categories'], ['href'], controller.random)
       }
       
       // validate request setup

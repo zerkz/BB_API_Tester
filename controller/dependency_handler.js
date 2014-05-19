@@ -32,8 +32,7 @@ module.exports = {
   init    : init,
   cart    : cart,
   session : session,
-  parsing : parsing,
-  exclude : exclude
+  parsing : parsing
 }
 
 //////////////////////////////////////////////////////////////////
@@ -85,21 +84,21 @@ function cart (testSet, callback) {
   var tests   = require(process.cwd() + '/tests')()
     , core    = require(__dirname + '/core')
     , fullAdd = false
-  
+
   if (core.addProduct) {
-    testSet.unshift(tests.cart.add());
-    testSet.unshift(tests.products.pdp());
-    return callback(testSet);
+    testSet.unshift(tests.cart.add);
+    testSet.unshift(tests.products.pdp);
+    return callback(null, testSet);
   }
   
   // make sure an item is in the cart
-  reqHandler.getBodyFromReq(tests.cart.show(), function (error, body){
+  reqHandler.getBodyFromReq(tests.cart.show(), function (error, response, body){
     if (error) return;
         
     var result = null
-    
+
     if (body && body.length) {
-      var products = utils.getProperty(body, ['products'], core.random);
+      var products = utils.getPropertyFromList(body, ['products'], core.random);
       
       // if there isn't an item in the cart, add it
       if ((products && !products.length) || !products) fullAdd = true;
@@ -135,42 +134,6 @@ function parsing (testSet, callback) {
   return callback(null, testSet);
 }
 
-//
-// remove the tests excluded in the config file
-//
-function exclude (excluded) {
-    console.log(excluded)
-  return function (testSet, callback) {
-    var tests = require(process.cwd() + '/tests');
-    
-    testTest = _.compact(_.map(testSet, function (index, test) {     
-      
-      for (var i = 0; i < excluded; i++) {       
-        var excluded = process.excluded[i];
-          
-        console.log(excluded.class)
-        console.log(excluded.name)
-        
-        if (!excluded.apply) return;
-        
-        if (!(tests[excluded.class] && tests[excluded.class][excluded.name])) {
-          logger.printWarning('test ' + excluded.class + '.' + excluded.name + ' could not be found, the exclusion was dropped');
-          return;
-        }
-        
-        if (tests[excluded.class][excluded.name] == test) {
-          console.log('removed: ' + excluded.name)
-          return;
-        } else {
-          return test;
-        }
-      }
-    }))
-    
-    return callback(null, testSet)
-  }
-}
-
 
 //////////////////////////////////////////////////////////////////
 //
@@ -200,7 +163,7 @@ function verifyCartContent (testSet, callback) {
     var result = null
     
     if (body && body.length) {
-      var products = utils.getProperty(body, ['products'], random);
+      var products = utils.getPropertyFromList(body, ['products'], random);
       
       // if there isn't an item in the cart, add it
       if ((products && !products.length) || !products) {

@@ -32,7 +32,9 @@ module.exports = {
   realCreds  : realCreds,
   addProduct : addProduct,
   random     : random,
-  excluded   : excluded,       
+  excluded   : excluded,    
+  logAll     : logAll,
+  coreTests  : coreTests,
   
   
   //
@@ -50,7 +52,9 @@ module.exports = {
   //
   // helpers
   //
-  newTest : newTest,
+  newTest       : newTest,
+  inCoreTestSet : inCoreTestSet,
+  shouldLog     : shouldLog, 
   
   //
   // non-core exports
@@ -70,6 +74,8 @@ var ignoreSettings = false
   , realCreds      = false
   , addProduct     = false
   , random         = false
+  , logAll         = false
+  , coreTests      = []
   , excluded       = []
 
 
@@ -94,14 +100,15 @@ function setHost (host) {
 //////////////////////////////////////////////////////////////////
 
 function execSet (tests, callback) {
+  // cache the core test set for logging
+  coreTests = _.clone(tests);
   
   async.waterfall([     
       requestHandler.verifyServerStatus,
       initializeTestSet,
       dependencyHandler.session,
       dependencyHandler.cart,
-      dependencyHandler.parsing,
-      dependencyHandler.exclude(excluded),
+      dependencyHandler.parsing
     ], finalize)
   
   function initializeTestSet (callback) {
@@ -121,14 +128,14 @@ function execSet (tests, callback) {
   } 
   
   function finalize (error, primedSet) {
-    if (error) return onComplete;
-      
+    if (error) return onComplete();
+
     // wrap the tests
     primedSet = _.map(primedSet, testWrapper);
     
     // add a primer function to allow all tests to expect the same params
     primedSet.unshift(function (cb) {
-      return cb(null, null, null, null);
+      return cb(null, null, {}, '');
     });
     
     // only push the callback if it's valid
@@ -159,6 +166,7 @@ function testWrapper (test) {
 // executes on test completion
 //
 function onComplete (error, prevErr, response, body) {
+  if (error) { logger.printError(error); }
   logger.setComplete();
   process.kill();
 }
@@ -219,4 +227,20 @@ function newTest () {
       message: null
     }
   };
+}
+
+function inCoreTestSet (test) {
+  var result = false;
+
+  _.each(coreTests, function (coreTest) {
+    if (coreTest().name.toLowerCase().indexOf(test.name.toLowerCase()) >= 0) {
+      result = true;
+    }
+  })
+  
+  return result;
+}
+
+function shouldLog (testName) {
+  return (this.logAll || inCoreTestSet(testName));
 }

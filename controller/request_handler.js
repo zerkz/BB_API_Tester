@@ -26,8 +26,8 @@ module.exports = {
   //
   // module globals
   //
-  host : host,
-  port : port,
+  host    : host,
+  port    : port,
   
   //
   // request functions
@@ -83,6 +83,8 @@ function getBodyFromReq (test, callback) {
 // submits a simplified request and logs the result to log.txt
 //
 function reqAndLog (title, req, callback, secure) {  
+  var core = require(__dirname + '/core');
+
   //
   // set up the test for logging
   //
@@ -136,7 +138,9 @@ function reqAndLog (title, req, callback, secure) {
       }
     }
     
-    logger.pushTest(test);
+    if(core.shouldLog(test)) {
+      logger.pushTest(test);
+    }
     
     return callback(error, error, response, body);
   });

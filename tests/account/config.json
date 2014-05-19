@@ -1,8 +1,0 @@
-{  
-  "requiredForms" : {
-    "create" : {
-      "login"    : "testing1@mail.com",
-      "password" : "testing"
-    }
-  }
-}

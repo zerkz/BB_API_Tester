@@ -20,11 +20,12 @@ program.version('0.0.1')
   .usage('[test name]\n' + utils.testList())
   .option('-r, --random',        'Make nav selections/submissions by parsing a random selection when possible')
   .option('-i, --ignore',        'Ignore the config settings (config settings overwrite command line settings')
-  .option('-s  --single [name]',        'Run the single test identified using the config values')
-  .option('-o  --port',          'make requests to the specified port')
+  .option('-s  --single [name]', 'Run the single test identified using the config values')
+  .option('    --port',          'make requests to the specified port')
   .option('-h  --host',          'make requests to the specified host')
   .option('-u  --useReal',       'use real credential in checkout (you will be prompted before confirm)')
   .option('-p  --product [pid]', 'Specify a product for add to cart. overrides other add to cart/pdp settings')
+  .option('-a  --all',           'Log all tests executed')
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -48,7 +49,7 @@ if (!tests.hasOwnProperty(testName)) {
 var singleTest = program.single
 if(singleTest) {
   if (!tests[testName][singleTest]) {
-    exitWMsg('The individial test ' + singleTest + ' was not found in the test object' + testName + '\n', 1);
+    exitWMsg('The individial test ' + singleTest + ' was not found in the test object ' + testName + '\n', 1);
   }
   title = testName + '.' + singleTest
 }
@@ -65,6 +66,7 @@ controller.random         = program.random
 controller.ignoreSettings = program.ignore
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
+controller.logAll         = program.all
 controller.excluded       = config.excluded
 
 logger.initTestSet(testName, config.host,config.port)
@@ -73,17 +75,17 @@ logger.initTestSet(testName, config.host,config.port)
 // execute the test
 //
 if (singleTest) {
-  // if its truly a single test, wrap it in an array
-  if (tests[testName][singleTest].name) {
+  // if its truly a single test, it should have an exec function.
+  if (tests[testName][singleTest]().exec) {
+    // wrap it in an array
     var testSet = [tests[testName][singleTest]];  
     
-    //otherwise, execute it  
   } else {
+    //otherwise, execute it  
     var testSet = tests[testName][singleTest]();  
   }
   
 } else {
   var testSet = tests[testName].fullTest();
 }
-
 controller.execSet(testSet)
