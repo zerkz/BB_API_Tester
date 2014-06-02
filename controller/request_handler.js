@@ -131,7 +131,7 @@ function reqAndLog (title, req, callback, secure) {
       test.response.status = response.statusCode;
       
       var json = utils.parseJson(body)
-      test.response.body = json.error ? {result:json.json} : json;
+      test.response.body = json.error && json.json ? {result:json.json} : json;
       
       if (response.statusCode !== 200) {
         test.response.error = test.response.body
