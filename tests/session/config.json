@@ -1,0 +1,8 @@
+{
+  "forms" : {
+    "login" : {
+      "login"    : "john.hofrichter@brandingbrand.com",
+      "password" : "Branders1234$"
+    }  
+  } 
+}
