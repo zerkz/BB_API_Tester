@@ -1,6 +1,8 @@
 {  
-  "subcatUrl" : {
-    "apply" : false,
-    "url"   : "/categories/{id}"
+  "paths" : {
+    "subcat" : {
+      "apply" : false,
+      "value" : "/categories/{id}"
+    }
   }
 }

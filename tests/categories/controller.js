@@ -4,13 +4,11 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , utils      = require(process.cwd() + '/lib/testUtilities')
 
 
-////// request setup //////
+////// setup //////
 
-var testClass = 'categories';
-
-// load config values
-var config    = utils.loadJson(__dirname)
-  , subcatUrl = config.subcatUrl
+var testClass = 'categories'
+  , config    = utils.loadConfig(__dirname)
+  , paths     = config.paths
   
 ////// exports //////
 
@@ -30,45 +28,43 @@ function fullTest () {
   
 ////// individual tests //////
 
+//
+// get the root categories
+//
 function categories () {
   return {
-    name       : testClass + '.categories',
-    exec       : function(error, response, body, callback) {
-      controller.reqAndLog(categories.name, {
-        uri    : '/categories/',
-        method : 'GET'
-      }, callback);
+    name : testClass + '.categories',
+    exec : function(error, response, body, callback) {
+      return controller.reqAndLog(this.name, '/categories', null, callback);
     }
   }
 }
 
+//
+// get a subcategory page
+//
 function subcategories () {
   return {
     name       : testClass + '.subcategories',
     dependency : categories,
     exec       : function(error, response, body, callback) {
-      //
-      // filter out the categories
-      //
-      json = utils.parseJson(body);
+      var path = null;
 
-      // set up request according to settings
-      if (utils.applyConfig(subcatUrl)) {
-        var url  = subcatUrl.url;
+      // if apply is set, use the config values
+      if (utils.applyConfig(paths.subcat)) {
+        path = paths.subcat.value;
+
+      // otherwise parse from the preceding body
       } else {
-        url = utils.getPrePostProp(body, ['categories'], ['href'], controller.random)
+        path = utils.getPrePostProp(body, ['categories'], ['href'], controller.random);
       }
       
-      // validate request setup
-      if (!url) {
-        return controller.testFailed(subcategories.name, 'Failed to parse a subcategory for navigation', callback);
+      // validate and make request
+      if (!path) {
+        return controller.testFailed(this.name, 'Failed to parse a subcategory for navigation', callback);
+      } else {      
+        return controller.reqAndLog(this.name, path, null, callback);
       }
-      
-      //make request
-      controller.reqAndLog(subcategories.name, {
-        uri    : url,
-        method : 'GET',
-      }, callback);
     }
   }
 }

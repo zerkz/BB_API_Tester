@@ -1,22 +1,16 @@
 {  
-  "indexUrl" : {
-    "apply": false,
-    "url"  : "/categoris/{id}/products"
-  },
-  "pdpUrl" : {
-    "apply": false,
-    "url"  : "/products/{id}"
-  },
-  "variationUrl" : {
-    "apply": false,
-    "url"  : "/products/B44678/variations?color=Black&size=OSFA"
-  },
-  
-  
-  "facets" : {
-    "" : {
-      "apply" : false
+  "paths": {
+    "index" : {
+      "apply" : false,
+      "value" : "/categoris/{id}/products"
+    },
+    "pdp" : {
+      "apply" : false,
+      "value" : "/products/{id}"
+    },
+    "variation" : {
+      "apply" : false,
+      "value" : "/products/{id}/variations?{qs}"
     }
   }
-  
 }

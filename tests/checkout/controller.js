@@ -11,7 +11,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
 var testClass = 'checkout';
 
 // load config values
-var config = utils.loadJson(__dirname)
+var config = utils.loadConfig(__dirname)
   , forms  = config.forms
 
 ////// exports //////
@@ -45,7 +45,7 @@ function submit () {
     exec             : function(error, response, body, callback) {
       // set up request according to settings
       if (controller.realCreds) {
-        var form = utils.loadJson(__dirname, 'local.json').realCreds
+        var form = utils.loadConfig(__dirname, 'local.json').realCreds
       } else {
         form = forms.fakeCreds
       }

@@ -2,7 +2,7 @@
 
 This repo is a self contained tester for the Branding Brand API. It provides both individual navigations and sets of pre-set test suites. Custom test suites can be created as well. The logger will print the name of the suite executed as well as each (core) individual test executed as they are performed. log.txt will contain the full test result (response body)
 
-test suite example from addresses.js: 
+test suite example: 
 ```javascript
   [
     tests.session.login,
@@ -18,6 +18,7 @@ test suite example from addresses.js:
 
 Fork, clone, and npm install. Config files in each tests directory can be changed for a merchant. Simpy change `apply:false` to `apply:true` in a config file to use that form or url. Look at the options for more thorough testing instructions
 
+
 sample test `node test cart -r`
 
 ## Options
@@ -26,7 +27,7 @@ sample test `node test cart -r`
     where `[testName]` is `/test/[testName]/[testName].js`
 
 **comman line options:** 
-  
+
 * `-r`, `--random`              Make nav selections/submissions by parsing a random selection when possible
 * `-i`, `--ignore`              Ignore the config settings (config settings overwrite command line settings
 * `-s`, `--single`              Run a single test. Dependencies will be added to the testset if the config is not used
@@ -35,6 +36,8 @@ sample test `node test cart -r`
 * `-u`, `--useReal`             use real credential in checkout (you will be prompted before confirm)
 * `-p [pid]`, `--product [pid]` use the product at the specified PDP for cart additions
 * `-a`, `--all`                 Log all tests executed (only core tests are logged by default)
+* `-c`, `--consoleLog`          Log out relevant tests to the console (only core tests are logged by default)
+
 
 **Helpful functions**
 
@@ -63,7 +66,6 @@ The following helpers are in place to prevent the tests from erroring out if the
     * finds the object at the end property chain (postChain), for the index selected
     
 example from products.js: `url = utils.propFromBody(body, ['categories'], ['href'], controller.random)`
-
 
 ## TODO
 

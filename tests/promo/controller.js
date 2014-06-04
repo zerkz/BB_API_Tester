@@ -9,7 +9,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
 var testClass = 'promo';
   
 // load config values
-var config = utils.loadJson(__dirname)
+var config = utils.loadConfig(__dirname)
   , forms  = config.forms
   
 ////// exports //////  

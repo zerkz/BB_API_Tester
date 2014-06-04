@@ -26,15 +26,16 @@ var jsonLog    = logDir + 'log.json'
   , htmlLog    = logDir + 'log.html'
   
 module.exports = {
-  //
+
   // log file helpers
-  //
-  initTestSet       : initTestSet,
-  pushTest          : pushTest,
+  initTestSet : initTestSet,
+  pushTest    : pushTest,
   
-  //
-  // 
-  //
+  // Configuation properties
+  consoleLog : false,
+
+
+  // logging helpers
   setComplete       : setComplete,
   printSetNames     : printSetNames,
   printDetails      : printDetails,
@@ -43,11 +44,9 @@ module.exports = {
   printWarning      : printWarning,
   printNotification : printNotification,
   
-  //
   // debugging helpers
-  //
-  printKeys         : printKeys,
-  printValues       : printValues
+  printKeys   : printKeys,
+  printValues : printValues
 }
 
 //////////////////////////////////////////////////////////////////
@@ -60,23 +59,25 @@ module.exports = {
 // logs a pushes a test onto the log array, saves it, and updates the log files
 //
 function pushTest (test) {
-  
+
+  // log server response errors
   if(Object.keys(test.response.error).length) {
     printWarning('(' + test.response.status + ')\n' + JSON.stringify(test.response.error, null, '  '), true);
     
+  // log local errors
   } else if(Object.keys(test.error).length) {
     printWarning('(' + test.response.status + ')\n' + JSON.stringify(test.error, null, '  '));
+
+  // only log the response body if the logger is set to do so
+  } else if (module.exports.consoleLog) {
+    console.log(JSON.stringify(test.response.body, null, '    '));
   }
   
   var json = JSON.parse(fs.readFileSync(jsonLog));
   try {
     json.tests.push(test);
     save(json);
-    
-    //
-    // TODO: socket IO
-    //
-    
+ 
   } catch (e) {
     console.log('could not save test [' + test.name + '] due to error: \n' + e);
   }
@@ -168,7 +169,7 @@ function printWarning (warning, response) {
 // prints a message in grey text
 //
 function printNotification (note) {
-  console.log(('\n  ' + note).grey)
+  console.log(('\n  ' + note).cyan)
 }
 
 //////////////////////

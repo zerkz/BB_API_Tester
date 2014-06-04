@@ -34,6 +34,8 @@ module.exports = {
   //
   verifyServerStatus : verifyServerStatus,
   getBodyFromReq     : getBodyFromReq,
+
+  // core request function
   reqAndLog          : reqAndLog
 }
 
@@ -62,7 +64,7 @@ function verifyServerStatus (callback) {
         method : 'GET'
       }, function (error, response, body) {
     if (error || (body && body.error && body.error.code == 'ECONNREFUSED')) {
-      errorOut('the request returned an error, verify that it\'s active');
+      errorOut('the request returned an error, verify that the server is active');
       return callback(true);
     }
     return callback();
@@ -79,11 +81,17 @@ function getBodyFromReq (test, callback) {
   });
 }
 
-//
+
+
 // submits a simplified request and logs the result to log.txt
-//
-function reqAndLog (title, req, callback, secure) {  
+function reqAndLog (title, path, options, callback, secure) {  
   var core = require(__dirname + '/core');
+  options = options || {};
+
+  // if no method is determined, make a GET request, unless there is a form. then use a POST
+  if (!options.method) {
+    options.method = options.form ? 'POST' : 'GET';
+  } 
 
   //
   // set up the test for logging
@@ -91,12 +99,12 @@ function reqAndLog (title, req, callback, secure) {
   var protocol = 'http' + (secure ? 's' : '')
     , test     = {
         name     : title.toUpperCase(),
-        method   : req.method,
-        route    : req.uri,
+        method   : options.method,
+        route    : path,
         request  : {
           protocol : protocol,
-          form     : req.form || {},
-          query    : req.qs   || {}
+          form     : options.form || {},
+          query    : options.qs   || {}
         },
         response : {
           body: {},
@@ -105,7 +113,7 @@ function reqAndLog (title, req, callback, secure) {
         error : {}
       };
       
-  if (!(req && req.uri) || (req.form && typeof req.form !== 'object') || (req.qs && typeof req.qs !== 'object')) {
+  if (!(path) || (options.form && typeof options.form !== 'object') || (options.qs && typeof options.qs !== 'object')) {
     test.error.message = 'There was an issue in the request form, verify that it is being parsed correcty ("STUB" will throw this error)'
     logger.pushTest(test);
     logger.printError(test.error.message);
@@ -115,14 +123,14 @@ function reqAndLog (title, req, callback, secure) {
   //
   // construct url
   //
-  req.uri = protocol + '://' + host + ':' + port + req.uri
+  options.uri = protocol + '://' + host + ':' + port + path
   
-  logger.printDetails(req);
+  logger.printDetails(options);
   
   //
   // make the request and log the result
   //
-  request(req, function (error, response, body) {
+  request(options, function (error, response, body) {
     if (error) {
       test.response.error = error;
       logger.printWarning(error, true);

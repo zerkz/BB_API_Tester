@@ -26,6 +26,7 @@ program.version('0.0.1')
   .option('-u  --useReal',       'use real credential in checkout (you will be prompted before confirm)')
   .option('-p  --product [pid]', 'Specify a product for add to cart. overrides other add to cart/pdp settings')
   .option('-a  --all',           'Log all tests executed')
+  .option('-c  --consoleLog',    'Log out relevant tests to the console')  
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -57,18 +58,20 @@ if(singleTest) {
 //
 // parse and store test configuration variables
 //
-var config = utils.loadJson(__dirname)
+var config = utils.loadConfig(__dirname)
 
 controller.setHost(program.host || config.host || 'localhost')
 controller.setPort(program.port || config.port || '4000')
 
 controller.random         = program.random
-controller.ignoreSettings = program.ignore
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
 controller.logAll         = program.all
 controller.excluded       = config.excluded
 
+
+// logger configuration
+logger.consoleLog = program.consoleLog
 logger.initTestSet(testName, config.host,config.port)
 
 //

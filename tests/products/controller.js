@@ -4,16 +4,11 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , utils      = require(process.cwd() + '/lib/testUtilities')
   , _          = require('lodash');
   
-////// request setup //////
+////// setup //////
 
-var testClass = 'products';
-
-// load config values
-var config       = utils.loadJson(__dirname)
-  , urls         = config.urls
-  , indexUrl     = config.indexUrl
-  , pdpUrl       = config.pdpUrl
-  , variationUrl = config.variationUrl
+var testClass = 'products'
+  , config  = utils.loadConfig(__dirname)
+  , paths   = config.paths
 
 ////// exports //////
 
@@ -38,100 +33,94 @@ function fullTest () {
 
 ////// individual tests //////
   
+//
+// get a product index page
+//
 function index () {
-  var tests = require(process.cwd() + '/tests')()
+  var tests = require(process.cwd() + '/tests')();
   return {
     name       : testClass + '.index',
     dependency : tests.categories.subcategories, 
     exec       : function(error, response, body, callback) {
-      // set up request according to settings
-      if (utils.applyConfig(indexUrl)) {
-        var url  = indexUrl.url;
+      var path = null;
+
+      // if apply is true, use the config url
+      if (utils.applyConfig(paths.index)) {
+        path = paths.index.value;
         
+      // otherwise, parse the url from the body
       } else {
-        url = utils.getPrePostProp(body, ['categories'], ['href'], controller.random)
+        path = utils.getPrePostProp(body, ['categories'], ['href'], controller.random);
       }
       
-      // validate request setup
-      if (!url) {
-        return controller.testFailed(index.name, 'Failed to parse a product index page for navigation', callback);
+      // validate and make request
+      if (!path) {
+        return controller.testFailed(this.name, 'Failed to parse a product index page for navigation', callback);
+      } else {      
+        return controller.reqAndLog(this.name, path, null, callback);
       }
-      
-      //make request
-      controller.reqAndLog(index.name, {
-        uri    : url,
-        method : 'GET'
-      }, callback);
     }
   }
 }
 
+//
+// get a pdp
+//
 function pdp () {
-  // PDP is a special case where the dependency is only needed if a PID was not specified
-  var dependency = controller.addProduct ? null : index;
   return {
     name       : testClass + '.pdp',
-    dependency : dependency,
+    dependency : controller.addProduct ? null : index, // the index dependency is only needed if a PID was not specified
     exec       : function(error, response, body, callback) {
-      
-      //
-      // filter out the bundle pdp's
-      //
-      json = utils.parseJson(body);
-      if(json.products) {
-        json.products = _.compact(_.map(json.products, function (prod) {
-          if (!prod.href.match(/\/bundle\//i)) return prod;
-        }));
-      }
+      var path = null;
 
-      // set up request according to settings
-      if (utils.applyConfig(pdpUrl) && !controller.addProduct) {
-        var url  = pdpUrl.url;    
+      // if apply is true, and no PID was specified, use the config url
+      if (utils.applyConfig(paths.pdp) && !controller.addProduct) {
+        path  = paths.pdp.value;
       
+      // if a PID was specified, use it in the url
       } else if (controller.addProduct) {
-        url = '/products/' + controller.addProduct
+        path = '/products/' + controller.addProduct
       
+      // otherwise, parse the path from the body
       } else {
-        url = utils.getPrePostProp(body, ['products'], ['href'], controller.random)
+        path = utils.getPrePostProp(body, ['products'], ['href'], controller.random);
       }
       
-      // validate request setup
-      if (!url) {
+      // validate and make request
+      if (!path) {
         return controller.testFailed(pdp.name, 'Failed to parse a pdp for navigation', callback);
+      } else {      
+        return controller.reqAndLog(pdp.name, path, null, callback);
       }
-      
-      //make request
-      controller.reqAndLog(pdp.name, {
-        uri    : url,
-        method : 'GET',
-      }, callback);
     }
   }
 }
 
+//
+// get a variation page
+//
 function variation () {
   return {
     name       : testClass + '.variation',
     dependency : pdp,
     exec       : function(error, response, body, callback) {
-      // set up request according to settings
-      if (utils.applyConfig(variationUrl)) {
-        var url  = variationUrl.url;    
+      var path = null;
+
+      // if apply is true, use the config url
+      if (utils.applyConfig(paths.variation)) {
+        path = paths.variation.value;    
       
+      // otherwise, parse the url from the body
       } else {
-        url = utils.getPrePostProp(body, ['variations'], ['_bb_variation', 'href'], controller.random)
+        path = utils.getPrePostProp(body, ['variations'], ['_bb_variation', 'href'], controller.random);
       }
       
-      // validate request setup
-      if (!url) {
+      // validate and make request
+      if (!path) {
         return controller.testFailed(pdp.name, 'Failed to parse a variation for navigation', callback);
+      } else {
+        controller.reqAndLog(variation.name, path, null, callback);
       }
-      
-      //make request
-      controller.reqAndLog(variation.name, {
-        uri    : url,
-        method : 'GET',
-      }, callback);
     }
   }
 }

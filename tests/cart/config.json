@@ -1,34 +1,16 @@
 {
-
   "forms": {
-    
     "add" : {
-      "apply"  : false,
-      "method" : "POST",
-      "action" : "/checkout/cart",
-      "inputs" : {}
+      "apply" : false,
+      "value" : {}
     },
-    
     "update" : {
-      "apply"  : false,
-      "method" : "PUT",
-      "action" : "/checkout/cart",
-      "inputs" : {}
+      "apply" : false,
+      "value" : {}
     },
-    
     "remove" : {
-      "apply"  : false,
-      "method" : "DELETE",
-      "action" : "/checkout/cart",
-      "inputs" : {}      
-    },
-    
-    "moveToWishList" : {
-      "apply"  : false,
-      "method" : "PUT",
-      "action" : "/checkout/cart",
-      "inputs" : {}      
+      "apply" : false,
+      "value" : {} 
     }
-    
   }
 }
