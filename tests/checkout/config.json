@@ -1,8 +1,6 @@
 {
   "forms" : {
     "fakeCreds" : {
-      "apply"                          : false,
-      
       "address[billing][country]"      : "US",
       "address[billing][name][first]"  : "Branding",
       "address[billing][name][last]"   : "Brand",
@@ -29,8 +27,37 @@
       "email"                          : "testorders@brandingbrand.com",
       "cc[name]"                       : "Branding Brand"
     },
+    "shipping" : {
+      "address[country]"      : "US",
+      "address[company]"      : "BB",
+      "address[name][first]"  : "Branding",
+      "address[name][middle]" : "B",
+      "address[name][last]"   : "Brand",
+      "address[line][0]"      : "2313 E Carson St",
+      "address[line][1]"      : "STE 100",
+      "address[city]"         : "Pittsburgh",
+      "address[state]"        : "PA",
+      "address[zip]"          : "15203",
+      "address[phone]"        : "4125555555",
+      "address[phone2]"       : "1234567890",
+      "email"                 : "testorders@brandingbrand.com"
+    },
+    "edit_shipping" : {
+      "address[country]"      : "US",
+      "address[company]"      : "TT",
+      "address[name][first]"  : "Test",
+      "address[name][middle]" : "T",
+      "address[name][last]"   : "Tester",
+      "address[line][0]"      : "1234 Test St",
+      "address[line][1]"      : "STE 567",
+      "address[city]"         : "Testsburgh",
+      "address[state]"        : "PA",
+      "address[zip]"          : "15204",
+      "address[phone]"        : "4124124120",
+      "address[phone2]"       : "9876543210",
+      "email"                 : "testorders@brandingbrand.com"
+    },
     "billing" : {
-      "apply"                 : false,
       "address[country]"      : "US",
       "address[company]"      : "BB",
       "address[name][first]"  : "Branding",
@@ -46,7 +73,6 @@
       "email"                 : "testorders@brandingbrand.com"
     },
     "edit_billing" : {
-      "apply"                 : false,
       "address[country]"      : "US",
       "address[company]"      : "TT",
       "address[name][first]"  : "Test",
@@ -62,7 +88,6 @@
       "email"                 : "testorders@brandingbrand.com"
     },
     "credit_card" : {
-      "apply" : false,
       "cc"    : {
         "type"   : "VC",
         "number" : "4111111111111111",
@@ -70,39 +95,16 @@
           "month" : "11",
           "year"  : "16"
         }
-      },
-      "usingMaskedNumber" : false
+      }
     },
-    "specialEvent" : {
-      "eventDate": "05/15/2014",
-      "relatives" : [
-        {
-          "name" : {
-            "first" : "john",
-            "last" : "hof"
-          },
-          "gender"       : "Boy",
-          "relationship" : "Grandchild",
-          "birth"  : {
-            "day"   : "16",
-            "month" : "05",
-            "year"  : "1991"
-          }
-        },
-        {
-          "name" : {
-            "first" : "zach",
-            "last" : "z"
-          },
-          "gender"       : "Girl",
-          "relationship" : "Other",
-          "birth"  : {
-            "day"   : "10",
-            "month" : "10",
-            "year"  : "2000"
-          }
-        }
-      ]
+    "register" : {
+      "login" :{
+        "email"    : "john.hofrichter@brandingbrand.com",
+        "password" : "Branders1234$"
+      },
+      "guest" : {
+        "email" : "test@brandingbrand.com"
+      }
     }
-  } 
+  }
 }

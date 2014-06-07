@@ -2,145 +2,222 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , controller = require(process.cwd() + '/controller')
   , logger     = require(process.cwd() + '/logger/logger')
   , prompt     = require('prompt')
-  , tests      = require(process.cwd() + '/tests')()
   , utils      = require(process.cwd() + '/lib/testUtilities')
   , _          = require('lodash');
   
 ////// request setup //////
 
-var testClass = 'checkout';
-
-// load config values
-var config = utils.loadConfig(__dirname)
-  , forms  = config.forms
+var testClass = 'checkout'
+  , config    = utils.loadConfig(__dirname)
+  , forms     = config.forms;
 
 ////// exports //////
 
 module.exports = {
-  fullTest  : fullTest,
+  fullTest : fullTest,
+  shipping : shipping,
+  billing  : billing,
   
   // individual
-  submit   : submit,
-  review   : review,
-  confirm  : confirm,
-  receipt  : receipt,
+  init            : init,
+  register        : register,
+  submitShipping  : submitShipping,
+  editShipping    : editShipping,
+  submitBilling   : submitBilling,
+  editBilling     : editBilling,
+  submitConfirm   : submitConfirm
 }
 
 ////// full test set //////
 
 function fullTest () {
   return [
-    billing,
-    review,
-    confirm
+    init,
+    register,
+    submitShipping,
+    // submitBilling,
+    // submitConfirm,
   ];
 }
 
-////// individual tests //////
+function shipping () {
+ return [
+    init,
+    register,
+    submitShipping,
+    editShipping
+  ]; 
+}
+
+function billing () {
+ return [
+    init,
+    register,
+    submitBilling,
+    editBilling
+  ]; 
+}
+
+////// Utilities //////
+
+
+//
+// verify the step between checkout calls
+//
+function checkoutMiddleman (expectStep, callback) {
+  var expectedStep = expectStep.toUpperCase();
+  return function (error, error, response, body) {
+    var parsedStep   = (utils.getSubProp(body, ['step']) || '').toUpperCase();
+
+    if (expectedStep !== parsedStep) {
+      return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectedStep + ', but found step ' + parsedStep);      
+    }
+
+    logger.printNotification('Now on step: ' + expectedStep);
+
+    return callback(error, error, response, body);
+ }
+}
+
+//
+// parse and apply the session to the passed in form
+//
+function applySession (options, body) {
+
+  if (!options) {
+    return controller.setFailed('Checkout Step Handler', 'no form found for submission');      
+  }
+
+  options.form.session = utils.getSubProp(body, ['session']);
+
+  if (!options.form.session) {
+    return controller.setFailed('Checkout Step Handler', 'Failed to parse a session');      
+  } else {
+    return options;
+  }
+}
+
+
+
+////// Individual tests //////
  
-function submit () {
+
+// Initialize Checkout
+function init () {
   return {
-    name             : testClass + '.submit',
-    cartDependant    : true,
-    exec             : function(error, response, body, callback) {
-      // set up request according to settings
-      if (controller.realCreds) {
-        var form = utils.loadConfig(__dirname, 'local.json').realCreds
-      } else {
-        form = forms.fakeCreds
-      }
-      
-      // validate request setup
-      if (!(form)) {
-        return controller.testFailed(this.name, 'Failed to parse a checkout submit form', callback);
-      }
-
-      var orderId = utils.getSubProp(body, ['forms', 'checkout', 'cc', 'inputs', 'orderId']);
-      form.orderId = orderId;
-
-      controller.reqAndLog(this.name, {
-        uri    : '/checkout/cc',
-        method : 'POST',
-        form   : form
-      }, callback);
+    name          : testClass + '.init',
+    cartDependant : true,
+    exec          : function(error, response, body, callback) {
+      return controller.reqAndLog(this.name, '/core/checkout/init', { method : 'POST' }, callback);
     }
   }
 }
 
-function review () {
+
+//
+// Register step
+//
+
+
+// Handle Register Step
+function register () {
   return {
-    name : testClass + '.review',
+    name : testClass + '.register',
     exec : function(error, response, body, callback) {
-      controller.reqAndLog(this.name, {
-        uri    : '/checkout/confirm',
-        method : 'GET'
-      }, function(err, e, r, b) {
-        // orderId is used throughout checkout, we need to save it
-        var json    = utils.parseJson(b)
-          , orderId = json._bb_order_id;
-
-        // chain saved data along from previous response
-        r.saved_data = response.saved_data || {};
-        r.saved_data.orderId = orderId;
-
-        return callback(err, e, r, b);
-      });
-    }
-  }
-}
-
-function confirm () {
-  return {
-    name : testClass + '.confirm',
-    exec : function(error, response, body, callback) {
-      // set up request according to settings
-      var form = utils.getSubProp(body, ['forms', 'confirm_order'])
-        , cc   = forms.credit_card;
-      
-      // validate request setup
-      if (!(form && form.action && form.method && form.inputs && cc)) {
-        return controller.testFailed(this.name, 'Failed to parse a confirm form', callback);
-      }
-      
-      var request = {
-            uri    : form.action,
-            method : form.method,
-            form   : _.defaults(cc, form.inputs)
-          }
-
-      // if real creds are being used, prompt for verification
-      if (controller.realCreds) {
-        var confirm = false;
-        prompt.start();
+      var options =  {}
+        , uri     = '/core/checkout/register/';
         
-        prompt.get(['confirm checkout with real credentials? [y/n]'], function (err, result) {
-          if (err) return;
-          if(result.toUpperCase() === 'Y') confirm = true;
-        });
-        
-        if(confirm) {
-          return controller.reqAndLog(this.name, request, callback);
-        } else {
-          return controller.testFailed(this.name, 'The order was canceled by the user', callback);
-        }
-      // if face creds were used, make the reust without prompting
+      // if login is set, use th ecreds from the config file
+      if (controller.login) {
+        options.form = forms.register.login;
+        uri += 'login';
+
+      // otherwise continue as guest
       } else {
-        return controller.reqAndLog(this.name, request, callback);
+        options.form = forms.register.guest;
+        uri += 'guest';
       }
+
+      return controller.reqAndLog(this.name, uri, applySession(options, body), checkoutMiddleman('shipping', callback));
     }
   }
 }
 
-function receipt () {
+
+//
+// Shipping step
+//
+
+
+// Handle submit shipping step
+function submitShipping () {
   return {
-    name : testClass + '.receipt',
+    name : testClass + '.submitShipping',
     exec : function(error, response, body, callback) {
-      controller.reqAndLog(this.name, {
-        uri    : '/checkout/receipt',
-        method : 'GET',
-      }, callback);
+      var options = applySession({ form : forms.shipping }, body);
+
+      return controller.reqAndLog(this.name, '/core/checkout/shipping_address/submit', options, checkoutMiddleman('billing', callback));
     }
   }
 }
 
-////// custom tests //////
+
+// Handle edit shipping step
+function editShipping () {
+  return {
+    name : testClass + '.editShipping',
+    exec : function(error, response, body, callback) {
+      var options = applySession({ form : forms.shipping }, body);                
+
+      return controller.reqAndLog(this.name, '/core/checkout/shipping_address/edit', options, checkoutMiddleman('shipping', callback));
+    }
+  }
+}
+
+
+//
+// Payment step
+//
+
+
+// Handle submit payment (CC) step
+function submitBilling () {
+  return {
+    name : testClass + '.submitBilling',
+    exec : function(error, response, body, callback) {
+      var options = applySession({ form : forms.billing }, body); 
+
+      return controller.reqAndLog(this.name, '/core/checkout/payment/cc', options, checkoutMiddleman('review', callback));
+    }
+  }
+}
+
+// Handle edit billing step
+function editBilling () {
+  return {
+    name : testClass + '.editPayment',
+    exec : function(error, response, body, callback) {
+      var options = applySession({ form : forms.billing }, body);
+        
+      return controller.reqAndLog(this.name, '/core/checkout/payment/edit', options, checkoutMiddleman('review', callback));
+    }
+  }
+}
+
+
+//
+// Confirmation step
+//
+
+
+// Submit order confirmation
+function submitConfirm () {
+  return {
+    name : testClass + '.submitConfirm',
+    exec : function(error, response, body, callback) {
+      var options = applySession({ form : forms.confirm }, body);
+        
+      return controller.reqAndLog(this.name, '/core/checkout/review/submit', options, checkoutMiddleman('receipt', callback));
+    }
+  }
+}

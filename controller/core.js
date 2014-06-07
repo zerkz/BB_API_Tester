@@ -47,6 +47,7 @@ module.exports = {
   // early termination functions
   //
   exitWMsg   : exitWMsg,
+  setFailed  : setFailed,
   testFailed : testFailed,
   
   //
@@ -177,6 +178,24 @@ function onComplete (error, prevErr, response, body) {
 function exitWMsg (string, status) {
   console.log(string);
   process.exit(status);
+}
+
+//
+// logs the error and errors out
+//
+function setFailed (test, error) {
+  var test = newTest();
+  
+  if (typeof error === 'string') {
+    error = {
+      message: error
+    }
+  }
+  
+  test.error = error; 
+  
+  logger.pushTest(test);
+  process.exit();
 }
 
 //
