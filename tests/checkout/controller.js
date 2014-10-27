@@ -80,18 +80,18 @@ function checkoutMiddleman (expectStep, callback) {
 }
 
 //
-// parse and apply the session to the passed in form
+// parse and apply the forms to the passed in form
 //
-function applySession (options, body) {
+function applyForms (options, body) {
 
   if (!options) {
     return controller.setFailed('Checkout Step Handler', 'no form found for submission');      
   }
 
-  options.form.session = utils.getSubProp(body, ['session']);
+  options.form.forms = utils.getSubProp(body, ['forms']);
 
-  if (!options.form.session) {
-    return controller.setFailed('Checkout Step Handler', 'Failed to parse a session');      
+  if (!options.form.forms) {
+    return controller.setFailed('Checkout Step Handler', 'Failed to parse forms');      
   } else {
     return options;
   }
@@ -138,7 +138,7 @@ function register () {
         uri += 'guest';
       }
 
-      return controller.reqAndLog(this.name, uri, applySession(options, body), checkoutMiddleman('shipping', callback));
+      return controller.reqAndLog(this.name, uri, applyForms(options, body), checkoutMiddleman('shipping', callback));
     }
   }
 }
@@ -154,7 +154,7 @@ function submitShipping () {
   return {
     name : testClass + '.submitShipping',
     exec : function(error, response, body, callback) {
-      var options = applySession({ form : forms.shipping }, body);
+      var options = applyForms({ form : forms.shipping }, body);
 
       return controller.reqAndLog(this.name, '/core/checkout/shipping_address/submit', options, checkoutMiddleman('billing', callback));
     }
@@ -167,7 +167,7 @@ function editShipping () {
   return {
     name : testClass + '.editShipping',
     exec : function(error, response, body, callback) {
-      var options = applySession({ form : forms.shipping }, body);                
+      var options = applyForms({ form : forms.shipping }, body);                
 
       return controller.reqAndLog(this.name, '/core/checkout/shipping_address/edit', options, checkoutMiddleman('shipping', callback));
     }
@@ -185,7 +185,7 @@ function submitBilling () {
   return {
     name : testClass + '.submitBilling',
     exec : function(error, response, body, callback) {
-      var options = applySession({ form : forms.billing }, body); 
+      var options = applyForms({ form : forms.billing }, body); 
 
       return controller.reqAndLog(this.name, '/core/checkout/payment/cc', options, checkoutMiddleman('review', callback));
     }
@@ -197,7 +197,7 @@ function editBilling () {
   return {
     name : testClass + '.editPayment',
     exec : function(error, response, body, callback) {
-      var options = applySession({ form : forms.billing }, body);
+      var options = applyForms({ form : forms.billing }, body);
         
       return controller.reqAndLog(this.name, '/core/checkout/payment/edit', options, checkoutMiddleman('review', callback));
     }
@@ -215,7 +215,7 @@ function submitConfirm () {
   return {
     name : testClass + '.submitConfirm',
     exec : function(error, response, body, callback) {
-      var options = applySession({ form : forms.confirm }, body);
+      var options = applyForms({ form : forms.confirm }, body);
         
       return controller.reqAndLog(this.name, '/core/checkout/review/submit', options, checkoutMiddleman('receipt', callback));
     }
