@@ -18,15 +18,16 @@ var testList = helpers.testList
 //
 program.version('0.0.1')
   .usage('[test name]\n' + utils.testList())
-  .option('-r, --random',        'Make nav selections/submissions by parsing a random selection when possible')
-  .option('-i, --ignore',        'Ignore the config settings (config settings overwrite command line settings')
+  .option('-r  --random',        'Make nav selections/submissions by parsing a random selection when possible')
+  .option('-i  --ignore',        'Ignore the config settings (config settings overwrite command line settings')
   .option('-s  --single [name]', 'Run the single test identified using the config values')
-  .option('    --port',          'make requests to the specified port')
-  .option('-h  --host',          'make requests to the specified host')
-  .option('-u  --useReal',       'use real credential in checkout (you will be prompted before confirm)')
+  .option('    --port',          'Make requests to the specified port')
+  .option('-h  --host',          'Make requests to the specified host')
+  .option('-u  --useReal',       'Use real credential in checkout (you will be prompted before confirm)')
   .option('-p  --product [pid]', 'Specify a product for add to cart. overrides other add to cart/pdp settings')
   .option('-a  --all',           'Log all tests executed')
   .option('-c  --consoleLog',    'Log out relevant tests to the console')  
+  .option('-l  --login',    'Login when prompted')  
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -67,6 +68,7 @@ controller.random         = program.random
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
 controller.logAll         = program.all
+controller.login         = program.login
 controller.excluded       = config.excluded
 
 

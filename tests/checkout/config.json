@@ -99,8 +99,8 @@
     },
     "register" : {
       "login" :{
-        "email"    : "john.hofrichter@brandingbrand.com",
-        "password" : "Branders1234$"
+        "email"    : "taylor@brandingbrand.com",
+        "password" : "branders"
       },
       "guest" : {
         "email" : "test@brandingbrand.com"

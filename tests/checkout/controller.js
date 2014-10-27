@@ -58,6 +58,7 @@ function billing () {
   ]; 
 }
 
+
 ////// Utilities //////
 
 
@@ -125,12 +126,12 @@ function register () {
     name : testClass + '.register',
     exec : function(error, response, body, callback) {
       var options =  {}
-        , uri     = '/core/checkout/register/';
+        , uri     = '/core/checkout/init_user/';
         
       // if login is set, use th ecreds from the config file
       if (controller.login) {
         options.form = forms.register.login;
-        uri += 'login';
+        uri += 'submitSignIn';
 
       // otherwise continue as guest
       } else {
