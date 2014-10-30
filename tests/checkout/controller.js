@@ -183,7 +183,7 @@ function editShipping () {
   return {
     name : testClass + '.editShipping',
     exec : function(error, response, body, callback) {
-      var options = applyForms({ form : forms.shipping }, body);                
+      var options = applyForms({ form : {} }, body);                
 
       return controller.reqAndLog(this.name, '/core/checkout/shipping/edit', options, checkoutMiddleman('shipping', callback));
     }
