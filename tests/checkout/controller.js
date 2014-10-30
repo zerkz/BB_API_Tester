@@ -69,7 +69,7 @@ function accountShipping () {
     register,
     getShippingAddress,
     editSavedAddress,
-    // newShippingAddress,
+    newShippingAddress
   ]
 }
 
@@ -260,8 +260,9 @@ function editSavedAddress () {
   return {
     name : testClass + '.editSavedAddress',
     exec : function(response, body, callback) {
+      var date = new Date();
       body = utils.parseJson(body);
-      body.address.shipping.city = new Date();
+      body.address.shipping.city = 'test' || date.getHours() + ':' + date.getMinutes()+ ':' + date.getSeconds();
       body.forms = body.forms;
       body = {
         form : body
