@@ -14,18 +14,23 @@ var testClass = 'checkout'
 ////// exports //////
 
 module.exports = {
-  fullTest : fullTest,
-  shipping : shipping,
-  billing  : billing,
+  fullTest        : fullTest,
+  shipping        : shipping,
+  billing         : billing,
+  accountShipping : accountShipping,
+
+  editSavedAddress : editSavedAddress,
   
   // individual
-  init            : init,
-  register        : register,
-  submitShipping  : submitShipping,
-  editShipping    : editShipping,
-  submitBilling   : submitBilling,
-  editBilling     : editBilling,
-  submitConfirm   : submitConfirm
+  init               : init,
+  register           : register,
+  submitShipping     : submitShipping,
+  editShipping       : editShipping,
+  newShippingAddress : newShippingAddress,
+  editSavedAddress   : editSavedAddress,
+  submitBilling      : submitBilling,
+  editBilling        : editBilling,
+  submitConfirm      : submitConfirm
 }
 
 ////// full test set //////
@@ -56,6 +61,16 @@ function billing () {
     submitBilling,
     editBilling
   ]; 
+}
+
+function accountShipping () {
+  return [
+    init,
+    register,
+    getShippingAddress,
+    editSavedAddress,
+    // newShippingAddress,
+  ]
 }
 
 
@@ -136,7 +151,7 @@ function register () {
       // otherwise continue as guest
       } else {
         options.form = forms.register.guest;
-        uri += 'guest';
+        uri += 'submitGuest';
       }
 
       return controller.reqAndLog(this.name, uri, applyForms(options, body), checkoutMiddleman('shipping', callback));
@@ -157,7 +172,7 @@ function submitShipping () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.shipping }, body);
 
-      return controller.reqAndLog(this.name, '/core/checkout/shipping_address/submit', options, checkoutMiddleman('billing', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/submit', options, checkoutMiddleman('billing_payment_confirm', callback));
     }
   }
 }
@@ -170,11 +185,92 @@ function editShipping () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.shipping }, body);                
 
-      return controller.reqAndLog(this.name, '/core/checkout/shipping_address/edit', options, checkoutMiddleman('shipping', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/edit', options, checkoutMiddleman('shipping', callback));
     }
   }
 }
 
+
+// Handle submit shipping step
+function newShippingAddress () {
+  return {
+    name : testClass + '.newShippingAddress',
+    exec : function(error, response, body, callback) {
+      var date = new Date();
+      var form = _.clone(forms.save_new_shipping, true);
+      form.saved_name = date; 
+      var options = applyForms({ 
+        form : {
+          address: {
+            address_id : date,
+            shipping   : form
+          }
+        } 
+      }, body);
+
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/submit', options, checkoutMiddleman('billing_payment_confirm', callback));
+    }
+  }
+}
+
+
+// Handle submit shipping step
+function setShippingAddress () {
+  return {
+    name : testClass + '.setShippingAddress',
+    exec : function(error, response, body, callback) {
+     var address = (utils.getSubProp(body, ['body', 'saved_addresses']) || [])[1] || {};
+      var options = applyForms({ 
+        form : {
+          address_id : address.address_id
+        } 
+      }, body);
+
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/setSavedAddress', options, checkoutMiddleman('shipping', callback));
+    }
+  }
+}
+
+// Handle submit shipping step
+function getShippingAddress () {
+  return {
+    name : testClass + '.getShippingAddress',
+    exec : function(error, response, body, callback) {
+      var address = (utils.getSubProp(body, ['body', 'saved_addresses']) || [])[0] || {};
+      var options = applyForms({ 
+        form : {
+          address_id : address.address_id
+        } 
+      }, body);
+
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/getSavedAddress', options, function (error, error, response, newBody) {
+
+        logger.printNotification('Piping form to next request');
+        newBody = utils.parseJson(newBody);
+        newBody.forms = options.form.forms;
+        return callback(error, response, JSON.stringify(newBody));
+      });
+    }
+  }
+}
+
+
+// Handle submit shipping step
+function editSavedAddress () {
+  return {
+    name : testClass + '.editSavedAddress',
+    exec : function(response, body, callback) {
+      body = utils.parseJson(body);
+      body.address.shipping.city = new Date();
+      body.forms = body.forms;
+      body = {
+        form : body
+      };
+      
+      return controller.reqAndLog(this.name, '/core/checkout/shipping/editSavedAddress', body, checkoutMiddleman('shipping', callback));
+    }
+  }
+}
 
 //
 // Payment step

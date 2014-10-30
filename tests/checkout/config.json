@@ -57,6 +57,24 @@
       "address[phone2]"       : "9876543210",
       "email"                 : "testorders@brandingbrand.com"
     },
+    "save_new_shipping" : {
+      "saved_name" : "thisIsMyTest",
+      "country"    : "US",
+      "company"    : "BB",
+      "city"       : "Pittsburgh",
+      "state"      : "PA", 
+      "zip"        : "15203",
+      "phone"      : "4125555555",
+      "cell"       : "1234567890",
+      "line"       : [
+        "2313 E Carson St",
+        "STE 100"
+      ],
+      "name"       : {
+        "first" : "Brand",
+        "last"  : "Brander"
+      }
+    },
     "billing" : {
       "address[country]"      : "US",
       "address[company]"      : "BB",
@@ -99,11 +117,11 @@
     },
     "register" : {
       "login" :{
-        "email"    : "taylor@brandingbrand.com",
+        "login"    : "taylor@brandingbrand.com",
         "password" : "branders"
       },
       "guest" : {
-        "email" : "test@brandingbrand.com"
+        "login" : "test@brandingbrand.com"
       }
     }
   }
