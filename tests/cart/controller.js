@@ -96,7 +96,7 @@ function update () {
         if(product)  {
           // get the current quantity
           var qty = utils.getSubProp(product, ['quantity']);
-          qty = qty ? qty + 1 : Math.floor(Math.random() * (5));
+          qty = qty ? qty + 3 : Math.floor(Math.random() * (5));
         
           // add the updated quantity to the form
           options.form = utils.getSubProp(product, ['forms', 'update_quantity', 'inputs']);
