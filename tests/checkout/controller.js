@@ -58,6 +58,7 @@ function billing () {
  return [
     init,
     register,
+    submitShipping,
     submitBilling,
     editBilling
   ]; 
@@ -172,6 +173,10 @@ function submitShipping () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.shipping }, body);
 
+      if (controller.login) {
+        options.form.address.shipping.saved_name = new Date();
+      }
+
       return controller.reqAndLog(this.name, '/core/checkout/shipping/submit', options, checkoutMiddleman('billing_payment_confirm', callback));
     }
   }
@@ -285,7 +290,7 @@ function submitBilling () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.billing }, body); 
 
-      return controller.reqAndLog(this.name, '/core/checkout/payment/cc', options, checkoutMiddleman('review', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/billing_payment_confirm/submit', options, checkoutMiddleman('review', callback));
     }
   }
 }
@@ -297,7 +302,7 @@ function editBilling () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.billing }, body);
         
-      return controller.reqAndLog(this.name, '/core/checkout/payment/edit', options, checkoutMiddleman('review', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/billing_payment_confirm/edit', options, checkoutMiddleman('review', callback));
     }
   }
 }
