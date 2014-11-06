@@ -53,7 +53,7 @@ function add () {
   var tests = require(process.cwd() + '/tests')()
   return {
     name       : testClass + '.add',
-    dependency : tests.products.pdp, //if the variation route exits, use it
+    dependency : tests.products.variation,
     exec       : function (error, response, body, callback) {
       var options = {};
 
@@ -63,7 +63,7 @@ function add () {
 
       // otherwise, parse the form from the body
       } else {
-        options.form = utils.getPrePostProp(body, ['variations'], ['availability', 'online', 'forms', 'add_to_cart', 'inputs'], controller.random)
+        options.form = utils.getSubProp(body, ['availability', 'online', 'forms', 'add', 'inputs'], controller.random)
       }
       
       // validate and make request

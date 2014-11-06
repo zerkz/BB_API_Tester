@@ -112,7 +112,7 @@ function variation () {
       
       // otherwise, parse the url from the body
       } else {
-        path = utils.getPrePostProp(body, ['variations'], ['_bb_variation', 'href'], controller.random);
+        path = utils.getPrePostProp(body, ['variations'], ['href'], controller.random);
       }
       
       // validate and make request
