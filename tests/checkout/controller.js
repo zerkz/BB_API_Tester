@@ -31,15 +31,13 @@ module.exports = {
 function fullTest () {
   var set = [
     init,
-    submit,
     getShipMethods,
-    setShipMethod,
+    setShipMethod
   ];
 
   if (controller.login){
     set.push(login);
   }
-
 
   return set;
 }
