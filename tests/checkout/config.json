@@ -76,19 +76,35 @@
       }
     },
     "billing" : {
-      "address[country]"      : "US",
-      "address[company]"      : "BB",
-      "address[name][first]"  : "Branding",
-      "address[name][middle]" : "B",
-      "address[name][last]"   : "Brand",
-      "address[line][0]"      : "2313 E Carson St",
-      "address[line][1]"      : "STE 100",
-      "address[city]"         : "Pittsburgh",
-      "address[state]"        : "PA",
-      "address[zip]"          : "15203",
-      "address[phone]"        : "4125555555",
-      "address[phone2]"       : "1234567890",
-      "email"                 : "testorders@brandingbrand.com"
+      "address" : {
+        "billing" : {
+          "saved_name" : "thisIsMyTest",
+          "country"    : "US",
+          "company"    : "BB",
+          "city"       : "Pittsburgh",
+          "state"      : "PA", 
+          "zip"        : "15203",
+          "phone"      : "4125555555",
+          "cell"       : "1234567890",
+          "line"       : [
+            "2313 E Carson St",
+            "STE 100"
+          ],
+          "name"       : {
+            "first" : "Brand",
+            "last"  : "Brander"
+          }
+        }
+      },
+      "cc"    : {
+        "type"   : "VC",
+        "number" : "4111111111111111",
+        "cvv"    : "123",
+        "expire" : {
+          "month" : "11",
+          "year"  : "16"
+        }
+      }
     },
     "edit_billing" : {
       "address[country]"      : "US",

@@ -58,8 +58,8 @@ function billing () {
  return [
     init,
     register,
-    submitBilling,
-    editBilling
+    submitShipping,
+    submitBilling
   ]; 
 }
 
@@ -170,7 +170,18 @@ function submitShipping () {
   return {
     name : testClass + '.submitShipping',
     exec : function(error, response, body, callback) {
-      var options = applyForms({ form : forms.shipping }, body);
+      var date = new Date();
+      var form = _.clone(forms.save_new_shipping, true);
+      form.saved_name = date; 
+      var options = applyForms({ 
+        form : {
+          address: {
+            address_id : date,
+            shipping   : form
+          }
+        } 
+      }, body);
+
 
       return controller.reqAndLog(this.name, '/core/checkout/shipping/submit', options, checkoutMiddleman('billing_payment_confirm', callback));
     }
@@ -285,7 +296,7 @@ function submitBilling () {
     exec : function(error, response, body, callback) {
       var options = applyForms({ form : forms.billing }, body); 
 
-      return controller.reqAndLog(this.name, '/core/checkout/payment/cc', options, checkoutMiddleman('review', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/billing_payment_confirm/submit', options, checkoutMiddleman('billing_payment_confirm', callback));
     }
   }
 }
@@ -295,9 +306,9 @@ function editBilling () {
   return {
     name : testClass + '.editPayment',
     exec : function(error, response, body, callback) {
-      var options = applyForms({ form : forms.billing }, body);
+      var options = applyForms({ form : {} }, body);
         
-      return controller.reqAndLog(this.name, '/core/checkout/payment/edit', options, checkoutMiddleman('review', callback));
+      return controller.reqAndLog(this.name, '/core/checkout/billing_payment_confirm/edit', options, checkoutMiddleman('billing_payment_confirm', callback));
     }
   }
 }
