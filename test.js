@@ -68,7 +68,7 @@ controller.random         = program.random
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
 controller.logAll         = program.all
-controller.login         = program.login
+controller.login          = program.login
 controller.excluded       = config.excluded
 
 

@@ -17,13 +17,15 @@ module.exports = {
   fullTest       : fullTest,
   loginTest      : loginTest,
   shipMethodTest : shipMethodTest,
+  minBmlTest     : minBmlTest,
+  minTest        : minTest,
   
   // individual
   init           : init,
   login          : login,
   getShipMethods : getShipMethods,
   setShipMethod  : setShipMethod,
-  submit         : submit,
+  cont           : cont,
 }
 
 ////// full test set //////
@@ -32,12 +34,14 @@ function fullTest () {
   var set = [
     init,
     getShipMethods,
-    setShipMethod
+    setShipMethod,
   ];
 
   if (controller.login){
     set.push(login);
   }
+
+  set.push(cont);
 
   return set;
 }
@@ -48,6 +52,35 @@ function loginTest () {
     login
   ]; 
 }
+
+
+function minTest () {
+ var set = [
+    init,
+  ]; 
+
+  if (controller.login){
+    set.push(login);
+  }
+
+  set.push(cont);
+
+  return set;
+}
+
+function minBmlTest () {
+  var set = [init]; 
+
+  if (controller.login){
+    set.push(login);
+  }
+
+  set.push(cont);
+  set.push(cont);
+
+  return set
+}
+
 
 function shipMethodTest () {
  return [
@@ -65,15 +98,15 @@ function shipMethodTest () {
 // verify the step between checkout calls
 //
 function checkoutMiddleman (expectStep, callback) {
-  var expectedStep = expectStep.toUpperCase();
   return function (error, error, response, body) {
-    var parsedStep   = (utils.getSubProp(body, ['step']) || '').toUpperCase();
+    var parsedStep = (utils.getSubProp(body, ['step']) || '').toUpperCase();
+    var validStep  = (expectStep instanceof RegExp) ? expectStep.test(parsedStep) : expectStep.toUpperCase() === parsedStep;
 
-    if (expectedStep !== parsedStep) {
-      return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectedStep + ', but found step ' + parsedStep);      
+    if (!validStep) {
+      return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectStep + ', but found step ' + parsedStep);      
     }
 
-    logger.printNotification('Now on step: ' + expectedStep);
+    logger.printNotification('Now on step: ' + parsedStep);
 
     return callback(error, error, response, body);
  }
@@ -188,18 +221,66 @@ function setShipMethod () {
 }
 
 
-// Handle submit shipping step
-function submit () {
+// Handle continue shipping step
+function cont () {
   return {
-    name : testClass + '.submitShipping',
+    name : testClass + '.continue',
     exec : function(error, response, body, callback) {
-      var options = applyForms({ form : forms.shipping }, body);
+      var preAuthMsg   = (utils.getSubProp(body, ['body', 'errors']) || [])[0] || '';
+      var preAuthError = /pre-authorization denied/.test(preAuthMsg)
+      var options = applyForms({ 
+        form : { 
+          shipping : forms.shipping,
+          billing  : forms.billing,
+          cc       : forms.cc
+        }
+      }, body);
 
-      if (controller.login) {
-        options.form.address.shipping.saved_name = new Date();
+      if (controller.realCreds) {
+        if (preAuthError){
+          console.log('\n' + preAuthMsg);
+
+          prompt.start();
+          prompt.get(['birthMonth', 'birthMonth', 'birthYear', 'lastFourSsn'], function (err, result) {
+            options.form.bml = {
+              birth : {
+                name   : result.birthMonth,
+                cvv    : result.birthMonth,
+                type   : result.birthYear,
+              },
+              ssn : result.lastFourSsn,
+            }
+
+            return promptCCSubmit();
+          });
+
+        } else {
+          return promptCCSubmit();
+        }
+
+        function promptCCSubmit () {
+          console.log('\norder total: ' + utils.getSubProp(body, ['body', 'summary', 'total']));
+          console.log('Please enter CC values:');
+
+          prompt.start();
+          prompt.get(['name', 'cvv', 'type', 'number', 'expMonth', 'expYear'], function (err, result) {
+            options.form.cc = {
+              name   : result.name,
+              cvv    : result.cvv,
+              type   : result.type,
+              number : result.number,
+              expire : {
+                month : result.expMonth,
+                year  : result.expYear
+              }
+            }
+            return controller.reqAndLog(testClass + '.continue', '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit)/i, callback));
+          });
+        }
+
+      } else {
+        return controller.reqAndLog(this.name, '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit)/i, callback));
       }
-
-      return controller.reqAndLog(this.name, '/core/checkout/shipping/submit', options, checkoutMiddleman('receipt', callback));
     }
   }
 }
