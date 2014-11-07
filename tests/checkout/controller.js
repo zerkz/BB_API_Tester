@@ -241,10 +241,10 @@ function cont () {
           console.log('\n' + preAuthMsg);
 
           prompt.start();
-          prompt.get(['birthMonth', 'birthMonth', 'birthYear', 'lastFourSsn'], function (err, result) {
+          prompt.get(['birthDay', 'birthMonth', 'birthYear', 'lastFourSsn'], function (err, result) {
             options.form.bml = {
               birth : {
-                name   : result.birthMonth,
+                name   : result.birthDay,
                 cvv    : result.birthMonth,
                 type   : result.birthYear,
               },
