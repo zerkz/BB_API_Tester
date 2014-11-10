@@ -106,6 +106,11 @@ function checkoutMiddleman (expectStep, callback) {
       return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectStep + ', but found step ' + parsedStep);      
     }
 
+    var errors = utils.getSubProp(body, ['body', 'errors']);
+    if (errors && errors.length) {
+      logger.printWarning(errors);
+    }
+
     logger.printNotification('Now on step: ' + parsedStep);
 
     return callback(error, error, response, body);
