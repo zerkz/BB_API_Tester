@@ -49,6 +49,7 @@ function login () {
       if (!options.form) {
         return controller.testFailed(this.name, 'Failed to parse a login form', callback);
       } else {      
+        options.form.password = controller.errorOut ? 'nonsense' : options.form.password;
         controller.reqAndLog(this.name, '/session', options, callback);
       }
     }

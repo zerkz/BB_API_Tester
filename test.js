@@ -27,7 +27,8 @@ program.version('0.0.1')
   .option('-p  --product [pid]', 'Specify a product for add to cart. overrides other add to cart/pdp settings')
   .option('-a  --all',           'Log all tests executed')
   .option('-c  --consoleLog',    'Log out relevant tests to the console')  
-  .option('-l  --login',    'Login when prompted')  
+  .option('-l  --login',         'Login when prompted')  
+  .option('-e  --errorOut',      'Enter invalid inputs when possible')  
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -68,6 +69,7 @@ controller.random         = program.random
 controller.realCreds      = program.useReal
 controller.addProduct     = program.product
 controller.logAll         = program.all
+controller.errorOut       = program.errorOut
 controller.login          = program.login
 controller.excluded       = config.excluded
 
