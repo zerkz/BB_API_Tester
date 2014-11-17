@@ -29,6 +29,7 @@ program.version('0.0.1')
   .option('-c  --consoleLog',    'Log out relevant tests to the console')  
   .option('-l  --login',         'Login when prompted')  
   .option('-e  --errorOut',      'Enter invalid inputs when possible')  
+  .option('    --sameAsShip',    'use same as shipping address in checkout ')  
   .parse(process.argv);
   
 program.on('--help', function () {
@@ -65,13 +66,14 @@ var config = utils.loadConfig(__dirname)
 controller.setHost(program.host || config.host || 'localhost')
 controller.setPort(program.port || config.port || '4000')
 
-controller.random         = program.random
-controller.realCreds      = program.useReal
-controller.addProduct     = program.product
-controller.logAll         = program.all
-controller.errorOut       = program.errorOut
-controller.login          = program.login
-controller.excluded       = config.excluded
+controller.random     = program.random
+controller.realCreds  = program.useReal
+controller.addProduct = program.product
+controller.logAll     = program.all
+controller.errorOut   = program.errorOut
+controller.login      = program.login
+controller.sameAsShip = program.sameAsShip
+controller.excluded   = config.excluded
 
 
 // logger configuration

@@ -4,8 +4,6 @@
       "method" : "003",
       "address" : {
         "use_for_billing" : "false",
-        "country"         : "CA",
-        "company"         : "BB",
         "city"            : "Toronto",
         "state"           : "ON", 
         "zip"             : "M6J3H8",
@@ -21,8 +19,6 @@
     "billing" : {
       "email" : "john.hofrichter@brandingbrand.com",
       "address" : {
-        "country" : "CA",
-        "company" : "BB",
         "city"    : "Toronto",
         "state"   : "ON", 
         "zip"     : "M6J3H8",
@@ -36,18 +32,17 @@
       }
     },
     "cc" : {
-      "name"   : "Brand Brander",
       "cvv"    : "123",
-      "type"   : "VC",
+      "type"   : "Visa",
       "number" : "4111111111111111",
       "expire" : {
         "month" : "11",
-        "year"  : "16"
+        "year"  : "2016"
       }
     },
     "login" :{
-      "login"    : "john.hofrichter@brandingbrand.com",
-      "password" : "Branders1234$"
+      "login"    : "andrew@brandingbrand.com",
+      "password" : "qwer1234"
     }
   }
 }

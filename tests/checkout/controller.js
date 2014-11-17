@@ -241,6 +241,11 @@ function cont () {
         }
       }, body);
 
+      if (controller.sameAsShip) {
+        options.form.billing.address = undefined;
+        options.form.shipping.address.use_for_billing = true;
+      }
+
       if (controller.realCreds) {
         if (preAuthError){
           console.log('\n' + preAuthMsg);
