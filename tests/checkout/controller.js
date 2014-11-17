@@ -26,6 +26,7 @@ module.exports = {
   getShipMethods : getShipMethods,
   setShipMethod  : setShipMethod,
   cont           : cont,
+  getAccountCC   : getAccountCC
 }
 
 ////// full test set //////
@@ -49,7 +50,8 @@ function fullTest () {
 function loginTest () {
  return [
     init,
-    login
+    login,
+    getAccountCC
   ]; 
 }
 
@@ -189,6 +191,32 @@ function getShipMethods () {
       });
     }
   }
+}
+
+
+// get CC
+function getAccountCC () {
+  return {
+    name : testClass + '.getShipMethods',
+    exec : function(error, response, body, callback) {
+      var options = { form :  {
+          uuid : utils.getPrePostProp(body, ['account', 'payment', 'cc'], ['form', 'inputs', 'uuid'])
+        } 
+      };
+
+      return controller.reqAndLog(this.name, '/core/checkout/submit/get_account_cc', applyForms(options, body), function (error, error, response, newBody) {
+        logger.printNotification('Piping form to next request');
+        newBody = utils.parseJson(newBody);
+        newBody = {
+          methods : newBody,
+          forms   : options.form.forms
+        }
+
+        return callback(null, error, response, JSON.stringify(newBody));
+      });
+    }
+  }
+
 }
 
 
