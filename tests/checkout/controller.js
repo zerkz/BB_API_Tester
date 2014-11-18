@@ -19,6 +19,7 @@ module.exports = {
   shipMethodTest : shipMethodTest,
   minBmlTest     : minBmlTest,
   minTest        : minTest,
+  mcTest         : mcTest,
   
   // individual
   init           : init,
@@ -26,7 +27,8 @@ module.exports = {
   getShipMethods : getShipMethods,
   setShipMethod  : setShipMethod,
   cont           : cont,
-  getAccountCC   : getAccountCC
+  getAccountCC   : getAccountCC,
+  submitMcSecure : submitMcSecure
 }
 
 ////// full test set //////
@@ -90,6 +92,14 @@ function shipMethodTest () {
     getShipMethods,
     setShipMethod
   ]; 
+}
+
+function mcTest () {
+  return [
+    init,
+    cont,
+    submitMcSecure
+  ]
 }
 
 
@@ -200,7 +210,7 @@ function getAccountCC () {
     name : testClass + '.getShipMethods',
     exec : function(error, response, body, callback) {
       var options = { form :  {
-          uuid : utils.getPrePostProp(body, ['account', 'payment', 'cc'], ['form', 'inputs', 'uuid'])
+          uuid : utils.getPrePostProp(body, ['body', 'account', 'payment', 'cc'], ['form', 'inputs', 'uuid'])
         } 
       };
 
@@ -253,6 +263,26 @@ function setShipMethod () {
   }
 }
 
+
+function submitMcSecure () {
+  return {
+    name : testClass + '.submitMcSecure',
+    exec : function(error, response, body, callback) {
+
+      console.log('\nEnter Mastercard Secure Code');
+      prompt.start();
+      prompt.get(['secureCode'], function (err, result) {
+        var options =  applyForms({ 
+          form : { 
+            secure_code : result.secureCode
+          } 
+        }, body);
+
+        return controller.reqAndLog(testClass + '.submitMcSecure', '/core/checkout/mc_secure_code/submit_code', options, checkoutMiddleman(/(receipt|submit|mc_secure_code)/i, callback));
+      });
+    }
+  }
+}
 
 // Handle continue shipping step
 function cont () {
@@ -312,12 +342,12 @@ function cont () {
                 year  : result.expYear
               }
             }
-            return controller.reqAndLog(testClass + '.continue', '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit)/i, callback));
+            return controller.reqAndLog(testClass + '.continue', '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit|mc_secure_code)/i, callback));
           });
         }
 
       } else {
-        return controller.reqAndLog(this.name, '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit)/i, callback));
+        return controller.reqAndLog(this.name, '/core/checkout/submit/continue', options, checkoutMiddleman(/(receipt|submit|mc_secure_code)/i, callback));
       }
     }
   }
