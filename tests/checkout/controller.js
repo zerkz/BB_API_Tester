@@ -4,7 +4,7 @@ var helpers    = require(process.cwd() + '/lib/helpers')
   , prompt     = require('prompt')
   , utils      = require(process.cwd() + '/lib/testUtilities')
   , _          = require('lodash');
-  
+
 ////// request setup //////
 
 var testClass = 'checkout'
@@ -20,7 +20,7 @@ module.exports = {
   minBmlTest     : minBmlTest,
   minTest        : minTest,
   mcTest         : mcTest,
-  
+
   // individual
   init           : init,
   login          : login,
@@ -54,14 +54,14 @@ function loginTest () {
     init,
     login,
     getAccountCC
-  ]; 
+  ];
 }
 
 
 function minTest () {
  var set = [
     init,
-  ]; 
+  ];
 
   if (controller.login){
     set.push(login);
@@ -73,7 +73,7 @@ function minTest () {
 }
 
 function minBmlTest () {
-  var set = [init]; 
+  var set = [init];
 
   if (controller.login){
     set.push(login);
@@ -91,7 +91,7 @@ function shipMethodTest () {
     init,
     getShipMethods,
     setShipMethod
-  ]; 
+  ];
 }
 
 function mcTest () {
@@ -115,7 +115,7 @@ function checkoutMiddleman (expectStep, callback) {
     var validStep  = (expectStep instanceof RegExp) ? expectStep.test(parsedStep) : expectStep.toUpperCase() === parsedStep;
 
     if (!validStep) {
-      return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectStep + ', but found step ' + parsedStep);      
+      return controller.setFailed('Checkout Step Handler', 'Expected step ' + expectStep + ', but found step ' + parsedStep);
     }
 
     var errors = utils.getSubProp(body, ['body', 'errors']);
@@ -135,13 +135,13 @@ function checkoutMiddleman (expectStep, callback) {
 function applyForms (options, body) {
 
   if (!options) {
-    return controller.setFailed('Checkout Step Handler', 'no form found for submission');      
+    return controller.setFailed('Checkout Step Handler', 'no form found for submission');
   }
 
   options.form.forms = utils.getSubProp(body, ['forms']);
 
   if (!options.form.forms) {
-    return controller.setFailed('Checkout Step Handler', 'Failed to parse forms');      
+    return controller.setFailed('Checkout Step Handler', 'Failed to parse forms');
   } else {
     return options;
   }
@@ -150,7 +150,7 @@ function applyForms (options, body) {
 
 
 ////// Individual tests //////
- 
+
 
 // Initialize Checkout
 function init () {
@@ -170,7 +170,7 @@ function login () {
     name : testClass + '.register',
     exec : function(error, response, body, callback) {
       var options =  {};
-        
+
       options.form = forms.login;
 
       return controller.reqAndLog(this.name, '/core/checkout/submit/login', applyForms(options, body), checkoutMiddleman('submit', callback));
@@ -186,14 +186,16 @@ function getShipMethods () {
     exec : function(error, response, body, callback) {
       var options = { form :  {
         country : "CA"
-        } 
+        }
       };
 
       return controller.reqAndLog(this.name, '/core/checkout/submit/get_shipping_methods', applyForms(options, body), function (error, error, response, newBody) {
         logger.printNotification('Piping form to next request');
         newBody = utils.parseJson(newBody);
+
         newBody = {
-          methods : newBody,
+          methods : newBody.methods,
+          summary : newBody.summary,
           forms   : options.form.forms
         }
 
@@ -211,7 +213,7 @@ function getAccountCC () {
     exec : function(error, response, body, callback) {
       var options = { form :  {
           uuid : utils.getPrePostProp(body, ['body', 'account', 'payment', 'cc'], ['form', 'inputs', 'uuid'])
-        } 
+        }
       };
 
       return controller.reqAndLog(this.name, '/core/checkout/submit/get_account_cc', applyForms(options, body), function (error, error, response, newBody) {
@@ -256,6 +258,7 @@ function setShipMethod () {
       })
 
       baseForm.forms = body.forms;
+
       var options = { form : baseForm };
 
       return controller.reqAndLog(this.name, '/core/checkout/submit/set_shipping_method', options, checkoutMiddleman('submit', callback));
@@ -272,10 +275,10 @@ function submitMcSecure () {
       console.log('\nEnter Mastercard Secure Code');
       prompt.start();
       prompt.get(['secureCode'], function (err, result) {
-        var options =  applyForms({ 
-          form : { 
+        var options =  applyForms({
+          form : {
             secure_code : result.secureCode
-          } 
+          }
         }, body);
 
         return controller.reqAndLog(testClass + '.submitMcSecure', '/core/checkout/mc_secure_code/submit_code', options, checkoutMiddleman(/(receipt|submit|mc_secure_code)/i, callback));
@@ -291,8 +294,8 @@ function cont () {
     exec : function(error, response, body, callback) {
       var preAuthMsg   = (utils.getSubProp(body, ['body', 'errors']) || [])[0] || '';
       var preAuthError = /pre-authorization denied/.test(preAuthMsg)
-      var options = applyForms({ 
-        form : { 
+      var options = applyForms({
+        form : {
           shipping : forms.shipping,
           billing  : forms.billing,
           cc       : forms.cc
